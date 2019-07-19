@@ -1,5 +1,7 @@
 {
   "name": "kidsQuietTime",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
