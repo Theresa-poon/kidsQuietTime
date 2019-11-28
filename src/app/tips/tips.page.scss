@@ -1,0 +1,42 @@
+ion-content {
+  --overflow: hidden;
+}
+
+.background {
+    position: absolute;
+    top: 50%;
+    //left: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.girl {
+    position: absolute;
+    left: 70%;
+    top: 30%;
+    width: 30%;
+  }
+
+  .center {
+    position: absolute;
+    left: 20%;
+    top: 40%;
+    width: 35%;
+    text-align: center;
+    //color: blue;
+    line-height: 150%;
+    font-family: Microsoft JhengHei;
+    letter-spacing: 0.1em;
+    font-size: 18px;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+
+  .buttonL {
+    position: absolute;
+    left: 2%;
+    top: 82%;
+    //width: 40%;
+  }
+
+ 

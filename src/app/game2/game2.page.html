@@ -1,0 +1,57 @@
+<ion-content>
+
+  <div class="girl">
+    <ion-img src="../assets/images/girl_thinking.png"></ion-img>
+  </div>
+
+  <div class="title">
+    <div style="position: absolute; top:12%; left: 12%; transform: rotate(-8deg)">找</div>
+    <div style="position: absolute; top:12%; left: 20%; transform: rotate(+2deg)">一</div>
+    <div style="position: absolute; top:12%; left: 28%; transform: rotate(+9deg)">找</div>
+    <div style="position: absolute; top:12%; left: 36%; transform: rotate(+0deg)">!</div>
+  </div>
+
+  <div class="words">
+      <div style="position: absolute; top:45%; left: 35%; transform: rotate(-8deg)">{{this.gameQ[0]}}</div>
+      <div style="position: absolute; top:55%; left: 39%; transform: rotate(+2deg)">{{this.gameQ[1]}}</div>
+      <div style="position: absolute; top:65%; left: 35%; transform: rotate(+5deg)">{{this.gameQ[2]}}</div>
+      <div style="position: absolute; top:75%; left: 39%; transform: rotate(-3deg)">{{this.gameQ[3]}}</div>
+      <div style="position: absolute; top:85%; left: 35%; transform: rotate(+2deg)">{{this.gameQ[4]}}</div>
+  </div>
+
+  <div *ngIf="this.gamesService.correctGrid == 0" class="grid">
+    <ion-grid text-center class="border">
+      <ion-row *ngFor="let row of rowNumber; let j = index">
+        <ion-col [ngClass]='varClass[j*6]' (click)="choose(j*6+1)">{{this.gameG[j*6]}}</ion-col>
+        <ion-col [ngClass]='varClass[j*6+1]' (click)="choose(j*6+2)">{{this.gameG[j*6+1]}}</ion-col>
+        <ion-col [ngClass]='varClass[j*6+2]' (click)="choose(j*6+3)">{{this.gameG[j*6+2]}}</ion-col>
+        <ion-col [ngClass]='varClass[j*6+3]' (click)="choose(j*6+4)">{{this.gameG[j*6+3]}}</ion-col>
+        <ion-col [ngClass]='varClass[j*6+4]' (click)="choose(j*6+5)">{{this.gameG[j*6+4]}}</ion-col>
+        <ion-col [ngClass]='varClass[j*6+5]' (click)="choose(j*6+6)">{{this.gameG[j*6+5]}}</ion-col>
+      </ion-row> 
+    </ion-grid>
+  </div>
+
+  <div *ngIf="this.gamesService.correctGrid == 1" class="grid">
+    <ion-grid text-center class="border">
+      <ion-row *ngFor="let row of rowNumber; let j = index">
+        <ion-col [ngClass]='gameA[j*6]'>{{this.gameG[j*6]}}</ion-col>
+        <ion-col [ngClass]='gameA[j*6+1]'>{{this.gameG[j*6+1]}}</ion-col>
+        <ion-col [ngClass]='gameA[j*6+2]'>{{this.gameG[j*6+2]}}</ion-col>
+        <ion-col [ngClass]='gameA[j*6+3]'>{{this.gameG[j*6+3]}}</ion-col>
+        <ion-col [ngClass]='gameA[j*6+4]'>{{this.gameG[j*6+4]}}</ion-col>
+        <ion-col [ngClass]='gameA[j*6+5]'>{{this.gameG[j*6+5]}}</ion-col>
+      </ion-row> 
+    </ion-grid>
+  </div>
+  <ion-icon name="ribbon" class="animated swing delay-1s" *ngIf="this.gamesService.correctGrid == 1 && this.gamesService.reviewMode == 0" style="color: yellow; font-size: 60px; position: absolute; top:10%; left: 83%; transform: rotate(+20deg); text-shadow: 1px 1px 1px orange;"></ion-icon>
+
+    <ion-fab-button  (click)="clickL()" class="buttonL" size=small>
+        <ion-img src="../assets/images/back.png"></ion-img>
+      </ion-fab-button>
+    
+      <ion-fab-button  (click)="clickR()" class="buttonR" size=small>
+        <ion-img src="../assets/images/forward.png"></ion-img>
+      </ion-fab-button>
+
+</ion-content>

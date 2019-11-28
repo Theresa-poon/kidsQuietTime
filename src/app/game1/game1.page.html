@@ -1,0 +1,73 @@
+<ion-content>
+
+  <div>
+    <ion-img src="../assets/images/kid_teacher.png"></ion-img>
+  </div>
+
+  <div class="title">
+    <div style="position: absolute; top:12%; left: 69%; transform: rotate(-8deg)">填</div>
+    <div style="position: absolute; top:12%; left: 77%; transform: rotate(+2deg)">一</div>
+    <div style="position: absolute; top:12%; left: 85%; transform: rotate(+9deg)">填</div>
+    <div style="position: absolute; top:12%; left: 93%; transform: rotate(+0deg)">!</div>
+  </div>
+
+    <div class=question>
+      1.
+      <div *ngIf="this.gameQ[0] != ' A '" style="display: inline;">{{this.gameQ[0]}}</div>
+      <div *ngIf="this.gameQ[0] == ' A '" style="display: inline; text-decoration: underline; white-space: pre;">{{this.gameQ[0]}}</div>
+      <div *ngIf="this.gameQ[1] != ' A '" style="display: inline;">{{this.gameQ[1]}}</div>
+      <div *ngIf="this.gameQ[1] == ' A '" style="display: inline; text-decoration: underline; white-space: pre;">{{this.gameQ[1]}}</div>
+      <div *ngIf="this.gameQ[2] != ' A '" style="display: inline;">{{this.gameQ[2]}}</div>
+      <div *ngIf="this.gameQ[2] == ' A '" style="display: inline; text-decoration: underline; white-space: pre;">{{this.gameQ[2]}}</div>
+      <br>
+      2.
+      <div *ngIf="this.gameQ[3] != ' B '" style="display: inline;">{{this.gameQ[3]}}</div>
+      <div *ngIf="this.gameQ[3] == ' B '" style="display: inline; text-decoration: underline; white-space: pre;">{{this.gameQ[3]}}</div>
+      <div *ngIf="this.gameQ[4] != ' B '" style="display: inline;">{{this.gameQ[4]}}</div>
+      <div *ngIf="this.gameQ[4] == ' B '" style="display: inline; text-decoration: underline; white-space: pre;">{{this.gameQ[4]}}</div>
+      <div *ngIf="this.gameQ[5] != ' B '" style="display: inline;">{{this.gameQ[5]}}</div>
+      <div *ngIf="this.gameQ[5] == ' B '" style="display: inline; text-decoration: underline; white-space: pre;">{{this.gameQ[5]}}</div>
+      <br>
+      3.
+      <div *ngIf="this.gameQ[6] != ' C '" style="display: inline;">{{this.gameQ[6]}}</div>
+      <div *ngIf="this.gameQ[6] == ' C '" style="display: inline; text-decoration: underline; white-space: pre;">{{this.gameQ[6]}}</div>
+      <div *ngIf="this.gameQ[7] != ' C '" style="display: inline;">{{this.gameQ[7]}}</div>
+      <div *ngIf="this.gameQ[7] == ' C '" style="display: inline; text-decoration: underline; white-space: pre;">{{this.gameQ[7]}}</div>
+      <div *ngIf="this.gameQ[8] != ' C '" style="display: inline;">{{this.gameQ[8]}}</div>
+      <div *ngIf="this.gameQ[8] == ' C '" style="display: inline; text-decoration: underline; white-space: pre;">{{this.gameQ[8]}}</div>
+    </div>
+  
+  <div class="answer">
+    <ion-item class="input">
+      A =&nbsp;
+      <ion-input *ngIf="this.gamesService.correctFill[0] == 0" maxlength=3 placeholder="?" [(ngModel)]="Aone"></ion-input>  
+      <div *ngIf="this.gamesService.correctFill[0] == 1">{{this.gameA[0]}}</div>
+      <div style="color: red;" *ngIf="this.gamesService.correctFill[0] == 1 && this.gamesService.reviewMode == 0">&nbsp;&#10004;</div>
+    </ion-item>
+    <ion-item class="input">
+      B =&nbsp;
+      <ion-input *ngIf="this.gamesService.correctFill[1] == 0" maxlength=3 placeholder="?" [(ngModel)]="Atwo"></ion-input>  
+      <div *ngIf="this.gamesService.correctFill[1] == 1">{{this.gameA[1]}}</div>
+      <div style="color: red;" *ngIf="this.gamesService.correctFill[1] == 1 && this.gamesService.reviewMode == 0">&nbsp;&#10004;</div>
+    </ion-item>
+    <ion-item class="input">
+      C =&nbsp;
+      <ion-input *ngIf="this.gamesService.correctFill[2] == 0" maxlength=3 placeholder="?" [(ngModel)]="Athree"></ion-input>  
+      <div *ngIf="this.gamesService.correctFill[2] == 1">{{this.gameA[2]}}</div>
+      <ion-icon style="color: red; font-size: 40px; font-weight: bold;" name="checkmark" *ngIf="this.gamesService.correctFill[2] == 1 && this.gamesService.reviewMode == 0"></ion-icon>
+    </ion-item>
+  </div>
+
+  <div class="button">
+    <ion-button color="warning" shape="round" (click)="check()">檢查答案</ion-button>
+  </div>
+
+  <ion-fab-button  (click)="clickL()" class="buttonL" size=small>
+    <ion-img src="../assets/images/back.png"></ion-img>
+  </ion-fab-button>
+
+  <ion-fab-button  (click)="clickR()" class="buttonR" size=small>
+    <ion-img src="../assets/images/forward.png"></ion-img>
+  </ion-fab-button>
+
+</ion-content>

@@ -1,0 +1,74 @@
+//ion-content {
+ //   --background: none;
+ //   background-image: linear-gradient(#C0C0C0, #F0F8FF, #C0C0C0);
+ //   --overflow: hidden;
+//  }
+
+  @keyframes bounceIn {
+    0% {
+      transform: scale(0.1);
+      opacity: 0;
+    }
+    60% {
+      transform: scale(1.2);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .bounce {
+    position: absolute;
+    left: 70%;
+    top: 5%;
+    width: 30%;
+    text-align: center;
+    color: green;
+    font-weight:500;
+    text-shadow: 2px 0 0 yellow;
+    //line-height: 150%;
+    font-family: Microsoft JhengHei;
+    //letter-spacing: 0.1em;
+    font-size: 19px;
+    animation-duration: 2s;
+    animation-name: bounceIn;
+  }
+
+ .center {
+    position: absolute;
+    left: 10%;
+    top: 40%;
+    //height: 90%;
+    width: 80%;
+    //margin: auto;
+    //display: block;
+    text-align: left;
+    line-height: 150%;
+    font-family: Microsoft JhengHei;
+    letter-spacing: 0.1em;
+    font-size: 20px;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+
+  .bottom {
+    position: absolute;
+    right: 0%;
+    bottom: 0%;
+  }
+
+  .buttonL {
+    position: absolute;
+    left: 2%;
+    top: 82%;
+    //width: 40%;
+  }
+
+  .buttonR {
+    position: absolute;
+    left: 91%;
+    top: 82%;
+    //width: 40%;
+  }
+

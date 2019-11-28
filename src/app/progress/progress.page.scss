@@ -1,0 +1,93 @@
+ion-content {
+    --background: none;
+    background-image: linear-gradient(#C0C0C0, #F0F8FF, #C0C0C0);
+    //background-image: url('../../assets/2_abstract-1973382_1920.jpg');
+    //background-size: cover;
+    --overflow: hidden;
+}
+
+.item, .list, .item-content, .item-complex {
+  --ion-background-color: transparent !important;
+}
+
+@keyframes bounceIn {
+    0% {
+      transform: scale(0.1);
+      opacity: 0;
+    }
+    60% {
+      transform: scale(1.2);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .bounce {
+    position: absolute;
+    left: 13%;
+    top: 65%;
+    width: 30%;
+    text-align: center;
+    color: green;
+    font-weight:700;
+    text-shadow: 2px 0 0 yellow;
+    //line-height: 150%;
+    font-family: Microsoft JhengHei;
+    //letter-spacing: 0.1em;
+    font-size: 28px;
+    animation-duration: 2s;
+    animation-name: bounceIn;
+  }
+
+  .center {
+    position: absolute;
+    left: 45%;
+    top: 55%;
+    width: 40%;
+    text-align: center;
+    //color: blue;
+    line-height: 180%;
+    font-family: Microsoft JhengHei;
+    letter-spacing: 0.1em;
+    font-size: 24px;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+
+  .buttonL {
+    position: absolute;
+    left: 2%;
+    top: 82%;
+    //width: 40%;
+  }
+
+  .smaller {
+    position: absolute;
+    left: 5%;
+    top: 55%;
+    width: 90%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.menu {
+  position: absolute;
+    left: 8%;
+    top: 80%;
+    width: 30%;
+  background-color: #FFF8DC;
+  border-radius: 10px;
+}
+
+.menuT {
+  font-size: 20px;
+  font-family: Microsoft JhengHei;
+}
+
+.menuO {
+  font-size: 18px;
+  font-family: Microsoft JhengHei;
+  padding: 0;
+}

@@ -1,0 +1,59 @@
+<ion-content padding no-bounce>
+
+  <div class="title">
+    <div style="position: absolute; top:12%; left: 69%; transform: rotate(-8deg)">畫</div>
+    <div style="position: absolute; top:12%; left: 77%; transform: rotate(+2deg)">一</div>
+    <div style="position: absolute; top:12%; left: 85%; transform: rotate(+9deg)">畫</div>
+    <div style="position: absolute; top:12%; left: 93%;">!</div>
+  </div>
+
+  <div class="palette">
+    <ion-img src="../assets/images/painting.png"></ion-img>
+  </div>
+
+  <div ion-fixed>
+
+    <canvas #imageCanvas *ngIf="this.gamesService.correctDraw == 0" (touchstart)="startDrawing($event)" (touchmove)="moved($event)"></canvas>
+    <img class="overlay" *ngIf="this.gamesService.correctDraw == 1" [src]="getImagePath(this.gamesService.picture)">
+    <h3 class="titleRow" *ngIf="this.gamesService.correctDraw == 1">{{ this.gameQ }}</h3>
+
+    <ion-row *ngIf="this.gamesService.correctDraw == 0" class="colorRow">
+      <ion-col size=1 *ngFor="let color of colors" [style.background]="color" class="color-block" tappable (click)="selectColor(color)"></ion-col>
+    </ion-row>
+    <br>
+    
+    <ion-radio-group *ngIf="this.gamesService.correctDraw == 0" class="buttonRow" [(ngModel)]="selectedColor">
+    <ion-row *ngIf="this.gamesService.correctDraw == 0">
+      <ion-col size=1 *ngFor="let color of colors" text-center>
+        <ion-radio [value]="color"></ion-radio>
+      </ion-col>
+    </ion-row>
+    </ion-radio-group>
+    
+    <ion-button *ngIf="this.gamesService.correctDraw == 0 && this.gamesService.reviewMode == 0" class="buttonS" color="success" shape="round" (click)="saveCanvasImage()">儲存</ion-button>
+
+  </div>
+
+  <ion-list *ngIf="storedImages.length > 1000">
+    <ion-list-header>Previous Drawings</ion-list-header>
+    <ion-card *ngFor="let obj of storedImages; let i = index">
+      <ion-card-content>
+        <img [src]="getImagePath(obj.img)">
+      </ion-card-content>
+      <ion-row>
+        <button ion-button full icon-only color="danger" (click)="removeImageAtIndex(i)">
+          <ion-icon name="trash"></ion-icon>
+        </button>
+      </ion-row>
+    </ion-card>
+  </ion-list>
+
+  <ion-fab-button (click)="clickL()" class="buttonL" size=small>
+    <ion-img src="../assets/images/back.png"></ion-img>
+  </ion-fab-button>
+
+  <ion-fab-button (click)="clickR()" class="buttonR" size=small>
+    <ion-img src="../assets/images/forward.png"></ion-img>
+  </ion-fab-button>
+
+</ion-content>

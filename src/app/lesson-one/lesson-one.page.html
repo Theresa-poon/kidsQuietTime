@@ -1,0 +1,29 @@
+<ion-content>
+
+  <div class="bottom" >
+      <ion-img src="../assets/images/frame.jpg"></ion-img>
+  </div>
+
+  <div class=bounce>
+      第{{this.apptextService.currentText?.id}}天: {{this.apptextService.currentText?.title}}
+      <div class="animated infinite jello delay-2s" style="display:inline-block;">!</div>
+  </div>
+
+  <div class="center">
+    <h4 style="color:blue;font-weight:700;">閱讀: {{this.apptextService.currentText?.chapter}}</h4>
+    <div style="margin-left:0.4em;">
+      <sup>{{this.apptextService.currentText?.verseOne.substring(0,2)}}</sup>{{this.apptextService.currentText?.verseOne.substring(2)}}
+      <sup>{{this.apptextService.currentText?.verseTwo.substring(0,2)}}</sup>{{this.apptextService.currentText?.verseTwo.substring(2)}}
+    </div>
+  </div>
+
+  <ion-fab-button  (click)="clickL()" class="buttonL" size=small>
+    <ion-img src="../assets/images/back.png"></ion-img>
+  </ion-fab-button>
+
+  <ion-fab-button  (click)="clickR()" class="buttonR" size=small>
+    <ion-img src="../assets/images/forward.png"></ion-img>
+  </ion-fab-button>
+
+</ion-content>
+

@@ -1,0 +1,21 @@
+ion-content {
+    --background: none;
+    background-image: linear-gradient(#C0C0C0, #F0F8FF, #C0C0C0);
+    //background-image: url('../../assets/2_abstract-1973382_1920.jpg');
+    //background-size: cover;
+    --overflow: hidden;
+  }
+
+  .center {
+    position: absolute;
+    left: 35%;
+    top: 40%;
+    width: 20%;
+  }
+
+  .sheep {
+    position: absolute;
+    left: 60%;
+    top: 30%;
+    width: 40%;
+  }

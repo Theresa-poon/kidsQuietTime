@@ -1,0 +1,106 @@
+ion-content {
+    --background: none;
+    background-image: linear-gradient(#C0C0C0, #F0F8FF, #C0C0C0);
+    //--overflow: hidden;
+  }
+
+  .title {
+    width: 10%;
+    font-size: 50px;
+    font-weight: 600;
+    color: #FF6347;
+    text-shadow: 1px 1px #ffa500;
+    font-family: Microsoft JhengHei;
+    letter-spacing: 0.1em;
+    text-align: center;
+  }
+
+  .palette {
+    position: absolute;
+    left: 70%;
+    top: 35%;
+    width: 25%;
+  }
+
+  canvas {
+    position: absolute;
+    top: 10%;
+    //top: 25%;
+    display: block;
+    border: 1px solid rgb(187, 178, 178);
+    border-radius: 5px;
+    touch-action: none;
+    background-color: white;
+    left: 10%;
+    //width: 55%;
+    //height: 60%;
+}
+
+.overlay {
+    position: absolute;
+    top: 10%;
+    //top: 25%;
+    display: block;
+    border: 1px solid green;
+    border-radius: 5px;
+    //touch-action: none;
+    background-color: white;
+    left: 10%;
+    width: 55%;
+    height: 60%;
+}
+
+.color-block {
+    height: 40px;
+}
+
+.titleRow {
+  position: absolute;
+  top: 75%;
+  left: 10%;
+  width: 55%;
+  color: seagreen;
+  text-shadow: 1px 1px lawngreen;
+  font-family: Microsoft JhengHei;
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+
+.colorRow {
+  position: absolute;
+  //top: 5%;
+  top: 75%;
+  //left: 2%;
+  left: 10%;
+  //width: 50%;
+  width: 65%;
+}
+
+.buttonRow {
+  position: absolute;
+  //top: 15%;
+  top: 85%;
+  //left: 2%;
+  left: 10%;
+  //width: 50%;
+  width: 65%;
+}
+
+.buttonS {
+  position: absolute;
+  top: 75%;
+  //left: 12%;
+  left: 55%;
+}
+
+  .buttonL {
+    position: absolute;
+    left: 2%;
+    top: 82%;
+  }
+
+  .buttonR {
+    position: absolute;
+    left: 91%;
+    top: 82%;
+  }

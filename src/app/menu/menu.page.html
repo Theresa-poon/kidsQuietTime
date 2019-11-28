@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>menu</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="slideCanvas">
+    <ion-slides [options]="sliderConfig">
+      <ion-slide>
+        <ion-card class="slideColor" (click)="gotoLesson(1)">
+          <ion-img src="../assets/images/cover1.jpg"></ion-img>
+        </ion-card>
+      </ion-slide>
+      <ion-slide>
+        <ion-card class="slideColor" (click)="gotoLesson(2)">
+          <ion-img src="../assets/images/cover2.jpg"></ion-img>
+        </ion-card>
+      </ion-slide>
+
+    </ion-slides>
+  </div>
+
+</ion-content>

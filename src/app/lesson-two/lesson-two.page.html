@@ -1,0 +1,35 @@
+<ion-content>
+
+  <div class=noBounce>
+      第{{this.apptextService.currentText.id}}天: {{this.apptextService.currentText.title}}
+      <div class="animated infinite jello delay-2s" style="display:inline-block;">!</div>
+  </div>
+  
+
+  <div class="center">
+    <h4 class="animated slideInLeft" style="color:blue;font-weight:700;">延伸閱讀: </h4>
+    <br>
+    <div class="animated slideInUp" style="margin-left:1.7em; background-color: rgba(255, 255, 191, 0.5);">
+      {{this.apptextService.currentText.notes}}
+    </div>
+  </div>
+
+  <div class="not">
+    <ion-img src="../assets/images/post_it.png"></ion-img>
+  </div>
+
+  <div class="boy">
+    <ion-img src="../assets/images/child_reading.png"></ion-img>
+  </div>
+
+  <ion-fab-button  (click)="clickL()" class="buttonL" size=small>
+    <ion-img src="../assets/images/back.png"></ion-img>
+  </ion-fab-button>
+
+  <ion-fab-button  (click)="clickR()" class="buttonR" size=small>
+    <ion-img src="../assets/images/forward.png"></ion-img>
+  </ion-fab-button>
+
+</ion-content>
+
+

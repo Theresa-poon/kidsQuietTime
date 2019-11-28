@@ -1,1 +1,36 @@
+ion-content {
+    --overflow: hidden;
+}
 
+.welcome {
+    position: absolute;
+    left: 34%;
+    top: 37%;
+    width: 20%;
+    font-size: 23px;
+    color: #FF6347;
+    text-shadow: 3px 3px #f0ffff;
+    font-family: Microsoft JhengHei;
+    letter-spacing: 0.1em;
+    text-align: center;
+    transform: rotate(-15deg);
+}
+
+.title {
+    //position: absolute;
+    //left: 40%;
+    //top: 37%;
+    width: 10%;
+    font-size: 60px;
+    font-weight: 700;
+    color: #FF6347;
+    text-shadow: 1px 1px #ffa500;
+    font-family: Microsoft JhengHei;
+    letter-spacing: 0.1em;
+    text-align: center;
+    //transform: rotate(-15deg);
+}
+
+.select {
+    text-shadow: 3px 3px black;
+}

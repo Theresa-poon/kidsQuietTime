@@ -1,0 +1,96 @@
+ion-content {
+    --background: none;
+    background-image: linear-gradient(#C0C0C0, #F0F8FF, #C0C0C0);
+    //background-image: url('../../assets/2_abstract-1973382_1920.jpg');
+    //background-size: cover;
+    --overflow: hidden;
+  }
+
+  .title {
+    width: 10%;
+    font-size: 50px;
+    font-weight: 600;
+    color: #FF6347;
+    text-shadow: 1px 1px #ffa500;
+    font-family: Microsoft JhengHei;
+    letter-spacing: 0.1em;
+    text-align: center;
+  }
+
+  .question {
+    position: absolute;
+    left: 10%;
+    top: 15%;
+    font-size: 23px;
+    background-color: #10dc60;
+    color: white;
+    //text-shadow: 3px 3px #f0ffff;
+    font-family: Microsoft JhengHei;
+    line-height: 200%;
+    letter-spacing: 0.1em;
+    border-radius: 10px;
+    box-shadow: 2px 2px #B0C4DE;
+    text-align: left;
+    padding: 5px 8px;
+    transform: rotate(-5deg);
+  }
+
+.answer {
+  position: absolute;
+  left: 20%;
+  top: 55%;
+  width: 20%;
+  //height: 20%;
+  font-size: 23px;
+  //background-color: green;
+  color: black;
+  border-color: #ffce00;
+  //text-shadow: 3px 3px #f0ffff;
+  font-family: Microsoft JhengHei;
+  letter-spacing: 0.1em;
+  text-align: left;
+  padding: 5px 0px;
+  //transform: rotate(-5deg);
+}
+
+.item, .list, .item-content, .item-complex {
+  --ion-background-color: transparent !important;
+}
+
+ .input {
+    text-align: left;
+    //background-color: #FFFFF0;
+    background-color: #FFE4C4;
+    //border-color: black;
+  }
+
+  .button {
+    position: absolute;
+    left: 35%;
+    top: 82%;
+    //width: 20%;
+    //height: 20%;
+    font-size: 19px;
+    //background-color: green;
+    //color: black;
+    //border-color: #ffce00;
+    //text-shadow: 3px 3px #f0ffff;
+    font-family: Microsoft JhengHei;
+    letter-spacing: 0.1em;
+    text-align: left;
+    //padding: 5px 0px;
+  }
+
+  .buttonL {
+    position: absolute;
+    left: 2%;
+    top: 82%;
+    //width: 40%;
+  }
+
+  .buttonR {
+    position: absolute;
+    left: 91%;
+    top: 82%;
+    //width: 40%;
+  }
