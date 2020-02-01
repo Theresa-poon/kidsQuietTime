@@ -1,0 +1,89 @@
+<ion-content>
+
+  <svg class="polygon" style="stroke:white;stroke-width:1;" viewBox="0 0 128 72">
+    <polygon points="6,0 122,0 122,72 6,72" style="fill: rgb(252, 240, 174)" 
+      stroke-linecap="round" stroke-width="0.5" stroke-dasharray="0.2,1" preserveAspectRatio="xMidYMid meet" />
+  </svg>
+
+  <div *ngIf="this.gamesService.reviewMode == 0" class=bounce>
+    第{{this.apptextService.currentText?.id}}天: {{this.apptextService.currentText?.title}}
+  </div>
+
+  <div *ngIf="this.gamesService.reviewMode != 0" class=bounce>
+    (重溫) 第{{this.apptextService.currentText?.id}}天: {{this.apptextService.currentText?.title}}
+  </div>
+
+  <div class="diamonds" *ngIf="this.answer.toString() == this.gameA2.toString()">
+      <div style="display: flex; align-items: center;">
+        <div style="flex-shrink: 1;">積分:&nbsp;</div>
+        <div style="width: 19px;"><ion-img  src="../assets/images/version1/diamond-green.png"></ion-img></div>
+        <div style="width: 18px;"><ion-img src="../assets/images/version1/diamond-blue.png"></ion-img></div>
+        <div style="width: 19px;"><ion-img  src="../assets/images/version1/diamond-orange.png"></ion-img></div>
+      </div>
+  </div>
+
+  <div id="text" class=question>
+
+      <div *ngIf="this.apptextService.currentText.games.substring(0,1) == '7'" [innerHTML]="this.apptextService.currentText.gamesIntro" style="font-size: 17px; line-height: 130%; letter-spacing: 0.05em; margin-top: 0px; margin-bottom: 0px; white-space: pre-line;"></div>
+      <div class="title">
+        <h4>{{this.apptextService.currentText.game7Q}}</h4>
+      </div>
+    
+
+    <div class="box">
+      <div *ngIf="this.gameQ1[0] != ''" style="display: flex; margin-bottom: 2px; align-items: center">
+        <div *ngFor="let item of gameQ1, let i=index" style="flex-grow: 1; text-align: center;">
+          <ion-icon *ngIf="this.gameQ1[0] != ''" name={{this.gameQ1[i]}}></ion-icon>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center">
+        <div *ngFor="let item of gameQ2, let i=index" style="flex-grow: 1; text-align: center">{{this.gameQ2[i]}}</div>
+      </div>
+    </div>
+
+    <br>
+
+    <div *ngIf="this.answer.toString() != this.gameA2.toString() && this.gameA1.length < 10" style="display: flex; margin-bottom: 2px;">
+        <input *ngFor="let item of gameA1, let i=index" class=inputting maxlength=1 size=1 [(ngModel)]='this.answer[i]'>
+    </div>
+    <div *ngIf="this.answer.toString() != this.gameA2.toString() && this.gameA1.length > 9" style="display: flex; margin-bottom: 2px;">
+      <input *ngFor="let item of gameA1, let i=index" class=inputtingL maxlength=1 size=1 [(ngModel)]='this.answer[i]'>
+    </div>
+
+    <div *ngIf="this.answer.toString() == this.gameA2.toString() && this.gameA1.length < 10" style="display: flex; margin-bottom: 2px;">
+      <input *ngFor="let item of gameA1, let i=index" class=finishing maxlength=1 size=1 [(ngModel)]='this.answer[i]'>
+    </div>
+    <div *ngIf="this.answer.toString() == this.gameA2.toString() && this.gameA1.length > 9" style="display: flex; margin-bottom: 2px;">
+      <input *ngFor="let item of gameA1, let i=index" class=finishingL maxlength=1 size=1 [(ngModel)]='this.answer[i]'>
+    </div>
+
+    <div style="display: flex;">
+      <div *ngFor="let item of gameA1, let i=index" style="flex-grow: 1; font-size: 20px; text-align: center;">
+        <ion-icon *ngIf="this.gameQ1[0] != ''" name={{this.gameA1[i]}}></ion-icon>
+        <div *ngIf="this.gameQ1[0] == ''">{{this.gameA1[i]}}</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="element" *ngIf="this.answer.toString() == this.gameA2.toString()">
+    <svg class="svgStamp"><text x="8px" y="75%">成功解碼!</text></svg>
+  </div>
+
+  <div class="chest" *ngIf="this.answer.toString() == this.gameA2.toString()">
+    <ion-img src="../assets/images/version1/chest_open.png"></ion-img>
+  </div>
+
+  <div class="chest" *ngIf="this.answer.toString() != this.gameA2.toString()">
+    <ion-img src="../assets/images/version1/chest_closed.png"></ion-img>
+  </div>
+
+  <ion-fab-button  (click)="clickL()" class="buttonL" size=small>
+      <ion-img src="../assets/images/back.png"></ion-img>
+  </ion-fab-button>
+  
+  <ion-fab-button  (click)="clickR()" class="buttonR" size=small>
+      <ion-img src="../assets/images/forward.png"></ion-img>
+  </ion-fab-button>
+
+</ion-content>

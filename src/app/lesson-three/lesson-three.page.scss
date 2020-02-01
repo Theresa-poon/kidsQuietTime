@@ -1,17 +1,85 @@
-ion-content {
-    --background: none;
-    background-image: linear-gradient(#C0C0C0, #F0F8FF, #C0C0C0);
-    --overflow: hidden;
+ion-content{
+  //--background: url(../../assets/images/purpleDots.png) 0 0/100% 100% no-repeat;
+  --background: url(../../assets/images/backgrounds/greenDots1.png) 0 0/100% 200% no-repeat;
+  --overflow: hidden;
 }
 
-.buttonL {
+//ion-content {
+  //  --background: none;
+  //  background-image: linear-gradient(#C0C0C0, #F0F8FF, #C0C0C0);
+  //  --overflow: hidden;
+  //}
+
+  .polygon {
+    position: absolute;
+    //resize: horizontal;
+    //width: 100vh;
+    left: 0%;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+
+  .bounce {
+    position: absolute;
+    left: 56%;
+    top: 3%;
+    width: 40%;
+    text-align: right;
+    //color: green;
+    color: white;
+    font-weight:500;
+    //text-shadow: 2px 0 0 yellow;
+    //line-height: 150%;
+    font-family: Microsoft JhengHei;
+    //letter-spacing: 0.1em;
+    font-size: 19px;
+    animation-duration: 2s;
+    animation-name: bounceIn;
+  }
+
+  .picture {
+    position: absolute;
+    left: 0%;
+    bottom: 0%;
+    width: 25%;
+    height: auto;
+    //border-color: white;
+    text-align: center;
+    //-ms-transform: translateY(-50%);
+    //transform: translateY(-50%);
+    //transform: rotate(-8deg);
+    -webkit-filter: drop-shadow(3px 3px 3px rgb(97, 96, 96));
+    filter: drop-shadow(3px 3px 3px rgb(99, 99, 99));
+  }
+
+  .verse {
+    position: absolute;
+    left: 30%;
+    top: 48%;
+    //height: 90%;
+    width: 55%;
+    //margin: auto;
+    //display: block;
+    text-align: left;
+    line-height: 180%;
+    font-family: Microsoft JhengHei;
+    letter-spacing: 0.1em;
+    font-size: 20px;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+
+  .buttonL {
     position: absolute;
     left: 2%;
-    top: 82%;
+    bottom: 3.5%;
+    //width: 40%;
   }
 
   .buttonR {
     position: absolute;
-    left: 91%;
-    top: 82%;
+    right: 2%;
+    bottom: 3.5%;
+    //width: 40%;
   }

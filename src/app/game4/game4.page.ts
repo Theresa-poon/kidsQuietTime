@@ -7,6 +7,7 @@ import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { AlertController } from '@ionic/angular'; 
 import { ApptextService } from '../apptext.service';
 import { GamesService } from '../games.service';
+import { IonSlides } from '@ionic/angular';
 
 const STORAGE_KEY = 'IMAGE_LIST';
 
@@ -19,8 +20,22 @@ export class Game4Page implements OnInit {
 
   public gameQ: any; //json data of drawing theme
 
+  //slide for showing previous drawings
+  @ViewChild('slides', {static: true}) slides: IonSlides;
+
+  sliderConfig = {
+    initialSlide: 100,
+    speed: 400,
+    //spaceBetween: 10,
+    //slidesPerView: 1.4,
+    slidesPerView: 1,
+    spaceBetween: 5,
+    //spaceBetween: 0,
+    centeredSlides: true
+  };
+
   //Canvas stuff
-  @ViewChild('imageCanvas') canvas: any;
+  @ViewChild('imageCanvas', { static: false }) canvas: any;
   canvasElement: any;
 
   saveX: number;
@@ -31,11 +46,14 @@ export class Game4Page implements OnInit {
 
   //@ViewChild(Content) content: Content;
   // @ViewChild(IonContent, {read: IonContent}) myContent: IonContent;
-  @ViewChild(IonContent, {read: IonContent}) content: IonContent;
+  @ViewChild(IonContent, { read: IonContent, static: true }) content: IonContent;
   //@ViewChild('fixedContainer') fixedContainer: any; // deleted 6 Sep & 1st html <div> deleted #fixedContainer
 
   selectedColor = "#9e2956"
   colors = [ '#9e2956', '#c2281d', '#de722f', '#edbf4c', '#5db37e', '#459cde', '#4250ad', '#802fa3' ];
+  colors1 = [ '#9e2956', '#c2281d', '#de722f', '#edbf4c' ];
+  colors2 = [ '#5db37e', '#459cde', '#4250ad', '#802fa3' ];
+  colors3 = [ '#ffffff', '#c3c3c3', '#ffaec8', '#b97a56' ];
 
   constructor(private router: Router, private storage: Storage, 
     private plt: Platform, private file: File, private webview: WebView,
@@ -60,7 +78,8 @@ export class Game4Page implements OnInit {
   if (this.gamesService.correctDraw == 0) {
     this.canvasElement = this.canvas.nativeElement;
     this.canvasElement.width = this.plt.width()*0.55;
-    this.canvasElement.height = this.plt.height()*0.60;
+    this.canvasElement.height = this.plt.height()*0.70;
+    this.setBackground()
   } 
 
   // Add preexisting scroll margin to fixed container size
@@ -82,7 +101,7 @@ ngOnInit() {
   this.gameQ = this.apptextService.currentText.game4Q
   console.log(this.gameQ)
   if (this.gamesService.correctDraw == 0) {
-    this.presentAlert('送一幅圖畫給天父:', '畫出'+this.gameQ+'。')
+    this.presentAlert('送一幅圖畫給天父:',this.gameQ)
   }
   console.log(this.gamesService.correctDraw == 0)
 
@@ -90,6 +109,17 @@ ngOnInit() {
 
 selectColor(color) {
   this.selectedColor = color;
+}
+
+setBackground() {
+  var background = new Image();
+  //background.src = '../assets/images/painting.png';
+  background.src = this.apptextService.currentText.game4P;
+  let ctx = this.canvasElement.getContext('2d');
+
+  background.onload = () => {
+    ctx.drawImage(background,0,0, this.canvasElement.width, this.canvasElement.height);   
+  }
 }
 
 startDrawing(ev) {
@@ -130,6 +160,12 @@ saveCanvasImage2() {
   console.log("number of stored images = "+this.storedImages.length)
   console.log(this.storedImages[this.storedImages.length-1])
   console.log(this.storedImages[this.storedImages.length-1].img)
+}
+
+clearCanvas() {
+  let ctx = this.canvasElement.getContext('2d');
+  ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height); // Clears the canvas
+  this.setBackground()
 }
 
 saveCanvasImage() {
@@ -225,6 +261,10 @@ getImagePath(imageName) {
   return path;
 }
 
+loadPastImage() {
+  this.gamesService.correctDraw = 1
+}
+
 async presentAlert(title: string, content:string) {
   const alert = await this.alertController.create({
     header: title,
@@ -235,11 +275,11 @@ async presentAlert(title: string, content:string) {
 }
 
   clickL() {
-    this.router.navigate(['/lesson-three']);
+    this.router.navigate(['/lesson-two']);
   }
 
   clickR() {
-    this.router.navigate(['/lesson-last']);
+    this.router.navigate(['/lesson-three']);
   }
 
 }

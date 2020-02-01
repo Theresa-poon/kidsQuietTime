@@ -1,0 +1,182 @@
+ion-content{
+    //--background: url(../../assets/images/purpleDots.png) 0 0/100% 100% no-repeat;
+    --background: url(../../assets/images/backgrounds/redDots1.png) 0 0/100% 200% no-repeat;
+    --overflow: hidden;
+  }
+
+  .polygon {
+    position: absolute;
+    //resize: horizontal;
+    //width: 100vh;
+    left: 0%;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+
+  .bounce {
+    position: absolute;
+    right: 10%;
+    top: 4%;
+    width: 40%;
+    text-align: right;
+    color: rgb(98, 114, 133); //greyish blue
+    //color: rgb(216, 189, 189);
+    font-weight:500;
+    font-family: Microsoft JhengHei;
+    //letter-spacing: 0.1em;
+    font-size: 18px;
+    animation-duration: 2s;
+    animation-name: bounceIn;
+  }
+
+  .diamonds { // used in version 2 only
+    display: none;
+    position: absolute;
+    left: 8%;
+    top: 9%;
+    width: 30%;
+    //border-radius: 6px;
+    //border-color: rgb(212, 238, 248);
+    border-width: 3px;
+    font-size: 19px;
+    color: rgb(86, 97, 121);
+    //background-color: white;
+    //border-color: #ffce00;
+    //text-shadow: 3px 3px #f0ffff;
+    font-family: Microsoft JhengHei;
+    letter-spacing: 0.1em;
+    text-align: left;
+    //padding: 5px 0px;
+  }
+
+  .chest {
+    position: absolute;
+    right: 2%;
+    bottom: 5%;
+    width: 18%;
+    //transform: rotate(-8deg);
+    -webkit-filter: drop-shadow(3px 3px 3px rgb(97, 96, 96));
+    filter: drop-shadow(3px 3px 3px rgb(99, 99, 99));
+  }
+
+  .question {
+    position: absolute;
+    top: 46%;
+    left: 8%;
+    width: 74%;
+    //background-color: rgb(252, 240, 174);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+
+  .title {
+    //position: absolute;
+    //top: 15%;
+    //left: 8%;
+    //width: 50%;
+    //font-size: 20px;
+    //font-weight: 600;
+    //color: #FF6347;
+    color: rgb(235, 92, 35);
+    text-shadow: 1px 1px #ffa500;
+    font-family: Microsoft JhengHei;
+    letter-spacing: 0.1em;
+    text-align: left;
+  }
+
+  .inner {
+    position: relative;
+    left: 3%;
+    width: 94%;
+  }
+
+  .box {
+    background-color: rgb(234, 228, 240); 
+    border: solid 1px rgb(121, 86, 122); 
+    padding: 5px 5px 5px 5px; 
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .inputting {
+    flex-grow: 1; 
+    height: 35px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: white; 
+    border: solid 1px black; 
+    text-align: center;
+    //--padding: 0;
+  }
+
+  .inputtingL {
+    flex-grow: 1; 
+    height: 35px;
+    font-size: 15px;
+    font-weight: 600;
+    background-color: white; 
+    border: solid 1px black; 
+    text-align: center;
+    //--padding: 0;
+  }
+
+  .finishing {
+    flex-grow: 1; 
+    height: 35px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: greenyellow; 
+    border: solid 1px black; 
+    text-align: center;
+  }
+
+  .finishingL {
+    flex-grow: 1; 
+    height: 35px;
+    font-size: 15px;
+    font-weight: 600;
+    background-color: greenyellow; 
+    border: solid 1px black; 
+    text-align: center;
+  }
+
+  .element {
+    position: absolute;
+    left: 40%;
+    top: 75%;
+    font-size: 30px;
+    letter-spacing: 0.1em;
+    font-family: Microsoft JhengHei;
+    //transform: rotate(-10deg);
+    animation-duration: 2s;
+    animation-name: bounceIn;
+  }
+  
+  .svgStamp {
+    width: 100%;
+    height: 1.3em;
+  }
+  
+  svg text {
+    //fill: pink;
+    fill: white;
+    stroke-width: 5px;
+    paint-order: stroke;
+    //stroke: violet;
+    stroke: red;
+  }
+
+  .buttonL {
+    position: absolute;
+    left: 2%;
+    bottom: 3.5%;
+    //width: 40%;
+  }
+
+  .buttonR {
+    position: absolute;
+    right: 2%;
+    bottom: 3.5%;
+    //width: 40%;
+  }

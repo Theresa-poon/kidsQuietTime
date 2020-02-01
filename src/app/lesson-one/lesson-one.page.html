@@ -1,20 +1,44 @@
 <ion-content>
 
-  <div class="bottom" >
-      <ion-img src="../assets/images/frame.jpg"></ion-img>
+  <svg *ngIf="this.gamesService.ratio >= 2" class="polygon" style="stroke:white;stroke-width:1;" viewBox="0 0 128 60">
+    <polygon points="0,12 123,9 120,51 0,48" style="fill: white" 
+      stroke-linecap="round" stroke-width="0.5" stroke-dasharray="0.2,1" preserveAspectRatio="xMidYMid meet" />
+  </svg>
+
+  <svg *ngIf="this.gamesService.ratio < 2" class="polygon" style="stroke:white;stroke-width:1;" viewBox="0 0 128 64">
+    <polygon points="0,12 123,9 120,55 0,52" style="fill: white" 
+      stroke-linecap="round" stroke-width="0.5" stroke-dasharray="0.2,1" preserveAspectRatio="xMidYMid meet" />
+  </svg>
+
+  <div class="bible" >
+    <ion-img src="../assets/images/version1/bible_open.png"></ion-img>
   </div>
 
-  <div class=bounce>
+  <div *ngIf="this.gamesService.reviewMode == 0" class=bounce>
       第{{this.apptextService.currentText?.id}}天: {{this.apptextService.currentText?.title}}
-      <div class="animated infinite jello delay-2s" style="display:inline-block;">!</div>
   </div>
 
-  <div class="center">
-    <h4 style="color:blue;font-weight:700;">閱讀: {{this.apptextService.currentText?.chapter}}</h4>
-    <div style="margin-left:0.4em;">
-      <sup>{{this.apptextService.currentText?.verseOne.substring(0,2)}}</sup>{{this.apptextService.currentText?.verseOne.substring(2)}}
-      <sup>{{this.apptextService.currentText?.verseTwo.substring(0,2)}}</sup>{{this.apptextService.currentText?.verseTwo.substring(2)}}
+  <div *ngIf="this.gamesService.reviewMode != 0" class=bounce>
+    (重溫) 第{{this.apptextService.currentText?.id}}天: {{this.apptextService.currentText?.title}}
+  </div>
+
+  <div class="verse">
+    <div style="font-size: 17px; letter-spacing: 0.05em; line-height: 120%; margin-top: 0px; margin-bottom: 0px;" [innerHTML]="this.apptextService.currentText?.intro"></div>
+    <h4 style="color:blue;font-weight:650; margin-top: 8px; margin-bottom: 5px">閱讀: {{this.apptextService.currentText?.chapter}}</h4>
+    <div style="white-space: pre-line;" *ngIf="this.apptextService.currentText?.verseFour != null">
+      <div style="display: inline;" [innerHTML]="this.apptextService.currentText?.verseOne"></div>
+      <div style="display: inline;" [innerHTML]="this.apptextService.currentText?.verseTwo"></div>
+      <div style="display: inline;" [innerHTML]="this.apptextService.currentText?.verseThree"></div>
+      <div style="display: inline;" [innerHTML]="this.apptextService.currentText?.verseFour"></div>
     </div>
+    <div style="white-space: pre-line;" *ngIf="this.apptextService.currentText?.verseFour == null">
+      <div style="display: inline;" [innerHTML]="this.apptextService.currentText?.verseOne"></div>
+      <div style="display: inline;" [innerHTML]="this.apptextService.currentText?.verseTwo"></div>
+      <div style="display: inline;" [innerHTML]="this.apptextService.currentText?.verseThree"></div>
+    </div>
+  </div>
+  <div class="expln">
+    <div [innerHTML]="this.apptextService.currentText?.explanation"></div>
   </div>
 
   <ion-fab-button  (click)="clickL()" class="buttonL" size=small>

@@ -1,0 +1,109 @@
+ion-content {
+    --background: url(../../assets/images/backgrounds/blueDots1_L.png) 0 0/100% 200% no-repeat;
+    --overflow: hidden;
+}
+
+.item, .list, .item-content, .item-complex {
+  --ion-background-color: transparent !important;
+}
+
+.bounce {
+    position: absolute;
+    right: 10%;
+    top: 3%;
+    width: 40%;
+    text-align: right;
+    color: rgb(98, 114, 133); //greyish blue
+    //color: rgb(176, 176, 177); //light grey
+    font-weight:500;
+    //text-shadow: 2px 0 0 yellow;
+    //line-height: 150%;
+    font-family: Microsoft JhengHei;
+    //letter-spacing: 0.1em;
+    font-size: 19px;
+    animation-duration: 2s;
+    animation-name: bounceIn;
+  }
+
+  .polygon {
+    position: absolute;
+    //resize: horizontal;
+    //width: 100vh;
+    left: 0%;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  
+  .polygonTop {
+    position: absolute;
+    left: 0%;
+    top: 0%;
+  }
+
+  .polygonBottom {
+    position: absolute;
+    right: 0%;
+    bottom: 0%;
+  }
+
+  .gameText {
+    position: absolute;
+    left: 13%;
+    top: 54%;
+    width: 74%;
+    background-color: rgb(220, 235, 248);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    font-family: Microsoft JhengHei;
+  }
+
+  .question {
+    //background-color: #10dc60;
+    background-color: rgb(220, 235, 248);
+    //color: white;
+    //line-height: 175%;
+    letter-spacing: 0.1em;
+    //border-radius: 10px;
+    //box-shadow: 2px 2px #B0C4DE;
+    font-size: 20px;
+    text-align: left;
+    padding: 5px 8px;
+    //transform: rotate(-5deg);
+  }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    left: 40px;
+    background-color: rgb(220, 235, 248);
+    align-items: left;
+    align-items: center;
+  }
+
+  .diamonds { // used in version 2 only
+    display: none;
+    position: absolute;
+    left: 10%;
+    top: 3%;
+    width: 25%;
+    border-width: 3px;
+    font-size: 19px;
+    color: rgb(86, 97, 121);
+    font-family: Microsoft JhengHei;
+    letter-spacing: 0.1em;
+    text-align: left;
+  }
+  
+  .buttonL {
+    position: absolute;
+    left: 2%;
+    bottom: 3.5%;
+  }
+  
+  .buttonR {
+    position: absolute;
+    right: 2%;
+    bottom: 3.5%;
+  }

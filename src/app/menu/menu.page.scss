@@ -1,0 +1,124 @@
+//ion-content {
+//    --background: none;
+    //background-image: linear-gradient(#C0C0C0, #F0F8FF, #C0C0C0);
+    //  <ion-img src="../assets/images/purpleDots.png"></ion-img>
+//    background-image: linear-gradient(rgb(213, 231, 243), #F0F8FF, rgb(211, 232, 238));
+//    --overflow: hidden;
+//  }
+
+ion-content{
+    //--background: url(../../assets/images/purpleDots.png) 0 0/100% 100% no-repeat;
+    --background: url(../../assets/images/backgrounds/blueSwirl2.png) 0 0/100% 200% no-repeat;
+    --overflow: hidden;
+}
+
+//.item, .list, .item-content, .item-complex {
+  //--ion-background-color: transparent !important;
+  //--margin: 20px 0px 0px 5px !important;
+  //--padding-end: 0px;
+  //--padding-inner-end: 0px;
+//}  
+
+.container {
+    display: flex;
+    margin: 12px 15px 5px 20px;
+    align-items: center;
+}
+
+.welcome {
+    flex-grow: 1;
+    position: relative;
+    height: 35px;
+    font-family: Microsoft JhengHei;
+    font-size: 28px;
+    //font-size: 30vh;
+    color: white;
+}
+
+.centerp {
+   margin: 0;
+   position: absolute;               
+   top: 50%;                         
+   transform: translate(0, -50%); 
+}
+
+.input {
+    max-width: 15% !important;
+    height: 35px;
+    text-align: center; 
+    background-color: white;
+}
+
+.buttonTop1 {
+    //--width: 15px;
+    height: 35px;
+    --border-radius: 1px;
+    //--vertical-align: middle;
+    --padding-start: 3px;
+    --padding-end: 3px;
+    font-size: 16px; 
+    font-weight: 200;
+    text-align: center;
+    color: white;
+}
+
+.buttonTop2 {
+    //--width: 15px;
+    height: 35px;
+    --border-radius: 3px;
+    //--vertical-align: middle;
+    --padding-start: 8px;
+    --padding-end: 8px;
+    font-size: 16px; 
+    font-weight: 200;
+    text-align: center;
+    color: white;
+}
+
+.bookCover {
+    display: flex;
+    position: absolute;
+    left: 12.5%;
+    width: 75%;
+    margin: 5px 5px 5px 5px;
+    justify-content: space-evenly;
+    //height: 50vh;
+}
+
+.cardright {
+    display: flex;
+    flex-direction: column;
+    //background-color:rgb(49, 240, 106);
+    //background-color:rgb(135, 37, 247);   //purple
+    background-image: url("../../assets/images/backgrounds/purpleDots2.png");
+    background-size: 250px 250px;
+    border: 5px solid azure;
+    border-radius: 5px;
+    //background-color:azure; 
+    justify-content: space-evenly;
+    align-items: center;
+    width: 40%;
+    //margin: 5px;
+}
+
+.buttonMenu {
+    font-family: Microsoft JhengHei;
+    letter-spacing: 1px;
+}
+
+.cardleft {
+    background-color:azure; 
+    width: 40%;
+    border-radius: 5px;
+}
+
+.round {
+    border-radius: 50% !important;
+    overflow: hidden;
+}
+
+.slide {
+    margin: 0px 0px 7px 0px;
+    box-shadow: 2px 2px 3px #9494d4;
+    //box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+}

@@ -1,0 +1,121 @@
+ion-content{
+    //--background: url(../../assets/images/backgrounds/purpleDots2.png) 0 0/100% 200% no-repeat;
+    --background: url(../../assets/images/backgrounds/blueDots1_L.png) 0 0/100% 200% no-repeat;
+    //--background: rgb(255, 208, 0); // bright yellow
+    //--background: rgb(71, 122, 199); //mid pastel blue
+    //--background: rgb(141, 89, 189); //mid pastel purple
+    --overflow: hidden;
+  }
+
+  .item, .list, .item-content, .item-complex {
+    --ion-background-color: transparent !important;
+  }
+  
+  .bounce {
+    position: absolute;
+    right: 10%;
+    top: 4%;
+    width: 40%;
+    text-align: right;
+    color: rgb(98, 114, 133); //greyish blue
+    //color: rgb(176, 176, 177); //light grey
+    font-weight:500;
+    //text-shadow: 2px 0 0 yellow;
+    //line-height: 150%;
+    font-family: Microsoft JhengHei;
+    //letter-spacing: 0.1em;
+    font-size: 19px;
+    animation-duration: 2s;
+    animation-name: bounceIn;
+  }
+
+  .polygon {
+    position: absolute;
+    //resize: horizontal;
+    //width: 100vh;
+    left: 0%;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  
+  .polygonTop {
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    //-ms-transform: translateY(-50%);
+    //transform: translateY(-50%);
+  }
+  
+  .polygonBottom {
+    position: absolute;
+    right: 0%;
+    bottom: 0%;
+    //-ms-transform: translateY(-50%);
+    //transform: translateY(-50%);
+  }
+
+  .gameText {
+    position: absolute;
+    left: 13%;
+    top: 52%;
+    width: 74%;
+    background-color: rgb(220, 235, 248);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    font-family: Microsoft JhengHei;
+  }
+
+  //.question {
+  //  background-color: rgb(220, 235, 248);
+  //  line-height: 175%;
+  //  letter-spacing: 0.1em;
+  //  font-size: 20px;
+  //  text-align: left;
+  //  padding: 5px 8px;
+  //}
+
+  //.matching {
+  //  padding: 0; 
+  //  font-size: 20px; 
+  //  line-height: 175%; 
+  //  letter-spacing: 0.1em;
+  //}
+
+  //.hovering:hover {
+  //  text-shadow: 2px 2px #B0C4DE;
+  //}
+
+  .diamonds { // used in version 2 only
+    display: none;
+    position: absolute;
+    left: 10%;
+    top: 4%;
+    width: 25%;
+    //border-radius: 6px;
+    //border-color: rgb(212, 238, 248);
+    border-width: 3px;
+    font-size: 19px;
+    color: rgb(86, 97, 121);
+    //background-color: white;
+    //border-color: #ffce00;
+    //text-shadow: 3px 3px #f0ffff;
+    font-family: Microsoft JhengHei;
+    letter-spacing: 0.1em;
+    text-align: left;
+    //padding: 5px 0px;
+  }
+
+  .buttonL {
+    position: absolute;
+    left: 2%;
+    bottom: 3.5%;
+    //width: 40%;
+  }
+
+  .buttonR {
+    position: absolute;
+    right: 2%;
+    bottom: 3.5%;
+    //width: 40%;
+  }

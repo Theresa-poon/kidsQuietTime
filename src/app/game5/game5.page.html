@@ -1,0 +1,104 @@
+<ion-content>
+  
+    <svg *ngIf="this.gamesService.ratio > 10.8" class="polygon" style="stroke:rgb(250, 151, 4);stroke-width:1;" viewBox="0 0 128 60">
+      <polygon points="6,0 122,0 122,60 6,60" style="fill: rgb(220, 235, 248)" 
+        preserveAspectRatio="xMidYMid meet" />
+    </svg>
+
+    <svg *ngIf="this.gamesService.ratio <= 10.8" class="polygon" style="stroke:rgb(250, 151, 4);stroke-width:1;" viewBox="0 0 128 72">
+      <polygon points="6,0 122,0 122,72 6,72" style="fill: rgb(220, 235, 248)" 
+        preserveAspectRatio="xMidYMid meet" />
+    </svg>
+  
+    <svg class="polygon" style="stroke:rgb(220, 235, 248);stroke-width:0;" viewBox="0 0 128 60">
+      <polygon points="126,35 128,35 128,48" style="fill: rgb(96, 231, 141)" 
+         preserveAspectRatio="xMidYMid meet" />
+    </svg>
+    
+    <div *ngIf="this.gamesService.reviewMode == 0" class=bounce>
+      第{{this.apptextService.currentText?.id}}天: {{this.apptextService.currentText?.title}}
+    </div>
+
+    <div *ngIf="this.gamesService.reviewMode != 0" class=bounce>
+      (重溫) 第{{this.apptextService.currentText?.id}}天: {{this.apptextService.currentText?.title}}
+    </div>
+  
+    <div class="diamonds" *ngIf="(this.gamesService.correctMCQ[0] == 1 && this.gamesService.correctMCQ[1] == 1 && this.gamesService.correctMCQ[2] == 1) || (this.apptextService.currentText.game5A1.substring(0,1) == 'a' && this.gamesService.correctMCQ[0] > 0)">
+      <div style="display: flex; align-items: center;">
+        <div style="flex-shrink: 1;">積分:&nbsp;</div>
+        <div style="width: 19px;"><ion-img src="../assets/images/version1/diamond-red.png"></ion-img></div>
+        <div style="width: 18px;"><ion-img src="../assets/images/version1/diamond-purple.png"></ion-img></div>
+        <div style="width: 19px;"><ion-img  src="../assets/images/version1/diamond-green.png"></ion-img></div>
+      </div>
+    </div>
+  
+    <div class="gameText">
+      <div [innerHTML]="this.apptextService.currentText.gamesIntro" style="font-size: 17px; line-height: 130%; letter-spacing: 0.05em; margin-top: 0px; margin-bottom: 0px; white-space: pre-line;"></div>
+      <h4 style="color:blue;font-weight:620; letter-spacing: 0.1em; margin-top: 8px; margin-bottom: 0px;">{{this.apptextService.currentText.gamesTitle}}</h4>
+      
+      <div class=question>
+        
+        <div *ngIf="this.apptextService.currentText.game5A1.substring(0,1) != 'a'">
+        <div style="display: inline">1.&nbsp;</div>
+        <div [innerHTML]="this.apptextService.currentText.game5Q1" style="display: inline"></div>
+        <div class=container>  
+          <div *ngFor="let item of gameA1, let i=index">
+            <ion-button *ngIf="this.gamesService.correctMCQ[0] == 0" fill=outline style="--background: white; font-size: 20px; margin-right: 50px;" (click)="check1(i)">{{item}}</ion-button>
+            <ion-button *ngIf="this.gamesService.correctMCQ[0] == 1 && i != this.apptextService.currentText.game5A1.substring(0,1)" fill=outline disabled=true style="--background: white; font-size: 20px; margin-right: 50px;">{{item}}</ion-button>
+            <ion-button *ngIf="this.gamesService.correctMCQ[0] == 1 && i == this.apptextService.currentText.game5A1.substring(0,1)" color=secondary style="font-size: 20px; margin-right: 50px;">{{item}}</ion-button>
+          </div>
+          <div style="color: red;" *ngIf="this.gamesService.correctMCQ[0] == 1">&nbsp;&#10004;</div>
+        </div>
+        </div>
+
+        <div *ngIf="this.apptextService.currentText.game5A1.substring(0,1) == 'a'">
+          <div style="left: 40px;">  
+            <div *ngFor="let item of gameA1, let i=index">
+              <ion-button *ngIf="this.gamesService.correctMCQ[0] == 0" fill=outline style="--background: white; font-size: 20px; margin-right: 50px;" (click)="check1A(i)">{{item}}</ion-button>
+              <ion-button *ngIf="this.gamesService.correctMCQ[0] != 0 && this.gamesService.correctMCQ[0] != i+1" fill=outline style="--background: white; font-size: 20px; margin-right: 50px;" (click)="check1A(i)">{{item}}</ion-button>
+              <ion-button *ngIf="this.gamesService.correctMCQ[0] == i+1" color=success style="font-size: 20px; margin-right: 50px;">
+                {{item}}
+                <ion-icon name="heart" style="color: rgb(247, 90, 90);"></ion-icon>
+              </ion-button>
+            </div>
+          </div>
+          </div>
+
+        <div *ngIf="this.apptextService.currentText.game5Q2 != ''">
+        <div style="display: inline">2.&nbsp;</div>
+        <div [innerHTML]="this.apptextService.currentText.game5Q2" style="display: inline;"></div>
+        <div class=container>  
+          <div *ngFor="let item of gameA2, let i=index">
+            <ion-button *ngIf="this.gamesService.correctMCQ[1] == 0" fill=outline style="--background: white; font-size: 20px; margin-right: 50px;" (click)="check2(i)">{{item}}</ion-button>
+            <ion-button *ngIf="this.gamesService.correctMCQ[1] == 1 && i != this.apptextService.currentText.game5A2.substring(0,1)" fill=outline disabled=true style="--background: white; font-size: 20px; margin-right: 50px;">{{item}}</ion-button>
+            <ion-button *ngIf="this.gamesService.correctMCQ[1] == 1 && i == this.apptextService.currentText.game5A2.substring(0,1)" color=secondary style="font-size: 20px; margin-right: 50px;">{{item}}</ion-button>
+          </div>
+          <div style="color: red;" *ngIf="this.gamesService.correctMCQ[1] == 1">&nbsp;&#10004;</div>
+        </div>
+        </div>
+
+        <div *ngIf="this.apptextService.currentText.game5Q3 != ''">
+        <div style="display: inline">3.&nbsp;</div>
+        <div [innerHTML]="this.apptextService.currentText.game5Q3" style="display: inline;"></div>
+        <div class=container>  
+          <div *ngFor="let item of gameA3, let i=index">
+            <ion-button *ngIf="this.gamesService.correctMCQ[2] == 0" fill=outline style="--background: white; font-size: 20px; margin-right: 50px;" (click)="check3(i)">{{item}}</ion-button>
+            <ion-button *ngIf="this.gamesService.correctMCQ[2] == 1 && i != this.apptextService.currentText.game5A3.substring(0,1)" fill=outline disabled=true style="--background: white; font-size: 20px; margin-right: 50px;">{{item}}</ion-button>
+            <ion-button *ngIf="this.gamesService.correctMCQ[2] == 1 && i == this.apptextService.currentText.game5A3.substring(0,1)" color=secondary style="font-size: 20px; margin-right: 50px;">{{item}}</ion-button>
+          </div>
+          <div style="color: red;" *ngIf="this.gamesService.correctMCQ[2] == 1">&nbsp;&#10004;</div>
+        </div>
+        </div>
+
+      </div>
+    </div>
+  
+    <ion-fab-button (click)="clickL()" class="buttonL" size=small>
+      <ion-img src="../assets/images/back.png"></ion-img>
+    </ion-fab-button>
+  
+    <ion-fab-button  (click)="clickR()" class="buttonR" size=small>
+      <ion-img src="../assets/images/forward.png"></ion-img>
+    </ion-fab-button>
+
+</ion-content>

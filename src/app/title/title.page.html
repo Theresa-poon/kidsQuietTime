@@ -1,0 +1,53 @@
+<ion-content>
+
+  <svg class="polygonTop" style="stroke:white;stroke-width:1;" viewBox="0 0 128 60">
+      <defs>
+          <pattern id="img2" patternUnits="userSpaceOnUse" width="128" height="60">
+            <image xlink:href="../../assets/images/backgrounds/purpleDots2.png" x="0" y="0" width="128" height="60" preserveAspectRatio="xMidYMid slice" />
+          </pattern>
+      </defs>
+      <polygon points="0,0 128,0 128,10 0,13" style="fill: url(#img2)" 
+          stroke-linecap="round" stroke-width="0.5" stroke-dasharray="0.2,1" preserveAspectRatio="xMidYMid meet" />
+  </svg>
+
+  <svg class="polygonBottom" style="stroke:white;stroke-width:1;" viewBox="0 0 128 60">
+      <defs>
+          <pattern id="img2" patternUnits="userSpaceOnUse" width="128" height="60">
+            <image xlink:href="../../assets/images/backgrounds/purpleDots2.png" x="0" y="0" width="128" height="60" preserveAspectRatio="xMidYMid slice" />
+          </pattern>
+      </defs>
+      <polygon points="0,47 128,50 128,60 0,60" style="fill: url(#img2)" 
+          stroke-linecap="round" stroke-width="0.5" stroke-dasharray="0.2,1" preserveAspectRatio="xMidYMid meet" />
+  </svg>
+
+  <svg class="polygonTop" style="stroke:white;stroke-width:1;" viewBox="0 0 128 60">
+      <polygon points="0,0 128,0 128,10 0,13" style="fill: rgb(193, 222, 245)" 
+          preserveAspectRatio="xMidYMid meet" />
+  </svg>
+
+  <svg class="polygonBottom" style="stroke: white;stroke-width:1;" viewBox="0 0 128 60">
+      <polygon points="0,47 128,50 128,60 0,60" style="fill: rgb(193, 222, 245)" 
+          preserveAspectRatio="xMidYMid meet" />
+  </svg>
+
+  <div class="sun">
+    <ion-img src="../assets/images/version1/summer_sun_3885011.png"></ion-img>
+  </div>
+
+  <div class="center">
+    <div *ngIf="this.gamesService.ratio > 1.8" style="font-size: 40px; flex-grow: 1; text-align: right;">第{{this.apptextService.currentText?.id}}天:&nbsp;</div>
+    <div *ngIf="this.gamesService.ratio > 1.8" style="font-size: 60px; flex-grow: 1; text-align: left; white-space: pre-line;">{{this.apptextService.currentText?.title}}</div>
+    <div *ngIf="this.gamesService.ratio <= 1.8" style="font-size: 35px; flex-grow: 1; text-align: right;">第{{this.apptextService.currentText?.id}}天:&nbsp;</div>
+    <div *ngIf="this.gamesService.ratio <= 1.8" style="font-size: 55px; flex-grow: 1; text-align: left; white-space: pre-line;">{{this.apptextService.currentText?.title}}</div>
+  </div>
+
+  <ion-fab-button  (click)="clickL()" class="buttonL" size=small>
+    <ion-img src="../assets/images/back.png"></ion-img>
+  </ion-fab-button>
+
+  <ion-fab-button  (click)="clickR()" class="buttonR" size=small>
+    <ion-img src="../assets/images/forward.png"></ion-img>
+  </ion-fab-button>
+
+
+</ion-content>

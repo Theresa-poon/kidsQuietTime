@@ -1,5 +1,9 @@
 <ion-content>
 
+<div style="position: absolute; bottom: 0%;">
+  <ion-img src="../assets/images/version1/grass.png"></ion-img>
+</div>
+
 <div class="smaller">
   <ion-img src="../assets/images/progress.png"></ion-img>
 </div>
@@ -8,20 +12,27 @@
     進度表
 </div>
 
-<ion-item class=menu>
-    <ion-label class=menuT>重 溫:</ion-label>
-    <ion-select class=menuO [(ngModel)]="mmData" placeholder="選 項" cancelText="取消" okText="確定" (ionChange)="review()">
-      <ion-select-option *ngFor="let itemM of jsonAll; index as i" value="{{ i+1 }}">第{{ i+1 }}課: {{ itemM.title }}</ion-select-option>
-    </ion-select>
+<ion-item class=menu *ngIf="this.storageService.currentPages[this.storageService.v-1] != 0">
+  <ion-label class=menuT>重 溫:</ion-label>
+  <ion-select class=menuO [(ngModel)]="mmData" placeholder="選 項" cancelText="取消" okText="確定" (ionChange)="review()">
+    <ion-select-option *ngFor="let itemM of jsonAll; index as i" value="{{ i+1 }}">第{{ i+1 }}課: {{ itemM.title }}</ion-select-option>
+  </ion-select>
 </ion-item>
+
+<div style="position: absolute; bottom: 40%; left: 4%; width: 15%;" class="animated zoomIn delay-0s" *ngIf="this.storageService.currentName_Date[6] > 0"><ion-img src="../assets/images/version1/apple_tree.png"></ion-img></div>
+<div style="position: absolute; bottom: 29%; left: 21%; width: 15%;" class="animated zoomIn delay-1s" *ngIf="this.storageService.currentName_Date[6] > 1"><ion-img src="../assets/images/version1/apple_tree.png"></ion-img></div>
+<div style="position: absolute; bottom: 19%; left: 10%; width: 15%;" class="animated zoomIn delay-2s" *ngIf="this.storageService.currentName_Date[6] >2"><ion-img src="../assets/images/version1/apple_tree.png"></ion-img></div>
+<div style="position: absolute; bottom: 9%; left: 0%; width: 15%;" class="animated zoomIn delay-3s" *ngIf="this.storageService.currentName_Date[6] >3"><ion-img src="../assets/images/version1/apple_tree.png"></ion-img></div>
 
 <div class="center">
   <div style="color:blue;font-weight:700;display:inline-block;">等級: </div>
-  <div style="color:green;font-weight:700;display:inline-block;">主的小羊 </div>
-  <div>你已完成{{this.storageService.currentId_Date[0]}}天的靈修!</div>
-  <div>你已持續靈修{{this.storageService.currentId_Date[4]}}天!</div>
-  <div style="display:inline-block;">積分 :&nbsp;</div>
-  <div style="color:#FF1493;font-weight:700; display:inline-block;">{{this.storageService.currentId_Date[5]}}分</div>
+  <div style="color:green;font-weight:700;display:inline-block;">{{this.level}}</div>
+  <div>你已完成{{this.storageService.currentPages[0]}}天的靈修!</div>
+  <div style="display:inline-block;">你的蘋果存量:&nbsp;</div>
+  <div style="color:#FF1493;font-weight:700; display:inline-block;">{{this.storageService.currentName_Date[5]}}個</div>
+  <div><ion-button *ngIf="this.storageService.currentName_Date[6] < 4" style="font-family: Microsoft JhengHei;letter-spacing: 1px;" color=light shape=round size=small (click)="getPrize()">
+    換取蘋果樹
+  </ion-button></div>
 </div>
 
 <ion-fab-button  (click)="clickL()" class="buttonL" size=small>

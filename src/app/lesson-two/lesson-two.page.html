@@ -1,35 +1,51 @@
 <ion-content>
+   
+    <svg class="polygonTop" style="stroke:white;stroke-width:1;" viewBox="0 0 128 60">
+      <defs>
+          <pattern id="img1" patternUnits="userSpaceOnUse" width="128" height="60">
+            <image xlink:href="../../assets/images/backgrounds/orangeDots1.png" x="0" y="0" width="128" height="60" preserveAspectRatio="xMidYMid slice" />
+          </pattern>
+      </defs>
+      <polygon points="0,0 128,0 128,10 0,12" style="fill: url(#img1)" 
+          preserveAspectRatio="xMidYMid meet" />
+    </svg>
 
-  <div class=noBounce>
-      第{{this.apptextService.currentText.id}}天: {{this.apptextService.currentText.title}}
-      <div class="animated infinite jello delay-2s" style="display:inline-block;">!</div>
-  </div>
-  
+    <svg class="polygonBottom" style="stroke:white;stroke-width:0.7;" viewBox="0 0 128 60">
+      <polygon points="0,55 128,57 128,60 0,60" style="fill: rgb(231, 49, 49)" 
+          preserveAspectRatio="xMidYMid meet" />
+    </svg>
 
-  <div class="center">
-    <h4 class="animated slideInLeft" style="color:blue;font-weight:700;">延伸閱讀: </h4>
-    <br>
-    <div class="animated slideInUp" style="margin-left:1.7em; background-color: rgba(255, 255, 191, 0.5);">
-      {{this.apptextService.currentText.notes}}
+    <div *ngIf="this.gamesService.reviewMode == 0" class=bounce>
+      第{{this.apptextService.currentText?.id}}天: {{this.apptextService.currentText?.title}}
     </div>
-  </div>
 
-  <div class="not">
-    <ion-img src="../assets/images/post_it.png"></ion-img>
-  </div>
+    <div *ngIf="this.gamesService.reviewMode != 0" class=bounce>
+      (重溫) 第{{this.apptextService.currentText?.id}}天: {{this.apptextService.currentText?.title}}
+    </div>
 
-  <div class="boy">
-    <ion-img src="../assets/images/child_reading.png"></ion-img>
-  </div>
+    <div class="verseShort" *ngIf="this.apptextService.currentText?.picture != ''">
+      <div style="white-space: pre-line;" [innerHTML]="this.apptextService.currentText?.notes"></div>
+    </div>
 
-  <ion-fab-button  (click)="clickL()" class="buttonL" size=small>
-    <ion-img src="../assets/images/back.png"></ion-img>
-  </ion-fab-button>
+    <div class="verseLong" *ngIf="this.apptextService.currentText?.picture == ''">
+      <div style="white-space: pre-line;" [innerHTML]="this.apptextService.currentText?.notes"></div>
+    </div>
 
-  <ion-fab-button  (click)="clickR()" class="buttonR" size=small>
-    <ion-img src="../assets/images/forward.png"></ion-img>
-  </ion-fab-button>
+    <div class="picture" *ngIf="this.apptextService.currentText?.picture != ''">
+      <ion-img src='{{this.apptextService.currentText?.picture}}'></ion-img>
+    </div>
 
-</ion-content>
-
-
+    <div class="expln">
+      <div [innerHTML]="this.apptextService.currentText?.notesexpl"></div>
+    </div>
+     
+    <ion-fab-button  (click)="clickL()" class="buttonL" size=small>
+      <ion-img src="../assets/images/back.png"></ion-img>
+    </ion-fab-button>
+  
+    <ion-fab-button  (click)="clickR()" class="buttonR" size=small>
+      <ion-img src="../assets/images/forward.png"></ion-img>
+    </ion-fab-button>
+  
+  </ion-content>
+  

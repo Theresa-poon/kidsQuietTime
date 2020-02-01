@@ -19,8 +19,11 @@ export class AppComponent {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
+      //this.statusBar.styleDefault(); //ionic default
+      this.statusBar.hide() //to ensure full screen effect
+      this.statusBar.overlaysWebView(true); //to ensure full screen effect
       this.splashScreen.hide();
+      //console.log(this.platform.width())
     });
   }
 }

@@ -1,17 +1,177 @@
+//body {
+//  margin: 0;
+//  overflow: hidden;
+//}
+
+.wrapper {
+  //position: relative;
+  min-height: 100vh;
+  position:absolute;
+  top:0;
+  left: 7%;
+  width: 78%;
+}
+
+[class|="confetti"] {
+  position: absolute;
+}
+
+//$colors: (#d13447, #ffbf00, #263672);
+$colors: (#d13447, #ffbf00, #67fa06);
+
+@for $i from 0 through 150 {
+  $w: random(18);
+  $l: random(100);
+  .confetti-#{$i} {
+    width: #{$w}px;
+    height: #{$w*0.4}px;
+    background-color: nth($colors, random(3));
+    top: -10%;
+    left: unquote($l+"%");
+    opacity: random() + 0.5;
+    transform: rotate(#{random()*360}deg);
+    //animation: drop-#{$i} unquote(4+random()+"s") unquote(random()+"s") infinite;
+    animation: drop-#{$i} unquote(4+random()+"s") unquote(random()+"s");
+  }
+
+  @keyframes drop-#{$i} {
+    100% {
+      top: 110%;
+      left: unquote($l+random(15)+"%");
+    }
+  }
+}
+
 ion-content {
-    --background: none;
-    background-image: linear-gradient(#C0C0C0, #F0F8FF, #C0C0C0);
+    --background: url(../../assets/images/backgrounds/blueDots1_L.png) 0 0/100% 200% no-repeat;
     --overflow: hidden;
 }
 
-.buttonL {
-    position: absolute;
-    left: 2%;
-    top: 82%;
-  }
+.bounce {
+  position: absolute;
+  right: 10%;
+  top: 4%;
+  width: 40%;
+  text-align: right;
+  color: rgb(98, 114, 133); //greyish blue
+  //color: rgb(176, 176, 177); //light grey
+  font-weight:500;
+  //text-shadow: 2px 0 0 yellow;
+  //line-height: 150%;
+  font-family: Microsoft JhengHei;
+  //letter-spacing: 0.1em;
+  font-size: 19px;
+  animation-duration: 2s;
+  animation-name: bounceIn;
+}
 
-  .buttonR {
+.polygon {
+  position: absolute;
+  //resize: horizontal;
+  //width: 100vh;
+  left: 0%;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.polygonTop {
+  position: absolute;
+  left: 0%;
+  top: 0%;
+}
+
+.polygonBottom {
+  position: absolute;
+  right: 0%;
+  bottom: 0%;
+}
+
+/* On screens that are 700px or less, use smaller margins*/
+//@media (max-width: 700px) {
+  .gameText {
     position: absolute;
-    left: 91%;
-    top: 82%;
+    left: 10%;
+    top: 52%;
+    width: 80%;
+    background-color: rgb(220, 235, 248);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    font-family: Microsoft JhengHei;
   }
+//}
+
+//@media (min-width: 700px) {
+//  .gameText {
+//    position: absolute;
+//    left: 13%;
+//    top: 50%;
+//    width: 74%;
+//    background-color: rgb(220, 235, 248);
+//    -ms-transform: translateY(-50%);
+//    transform: translateY(-50%);
+//    font-family: Microsoft JhengHei;
+//  }
+//}
+
+.question {
+  //background-color: #10dc60;
+  background-color: rgb(220, 235, 248);
+  //color: white;
+  line-height: 175%;
+  letter-spacing: 0.1em;
+  //border-radius: 10px;
+  //box-shadow: 2px 2px #B0C4DE;
+  font-size: 20px;
+  text-align: left;
+  padding: 5px 8px;
+  //transform: rotate(-5deg);
+}
+
+/* On screens that are 700px or less, use small button*/
+@media (max-width: 700px) {
+  .big {
+    display: none;
+  }
+}
+
+@media (min-width: 700px) {
+  .small {
+    display: none;
+  }
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  background-color: rgb(220, 235, 248);
+  align-items: center;
+}
+
+.diamonds { // used in version 2 only
+  display: none;
+  position: absolute;
+  left: 10%;
+  top: 4%;
+  width: 25%;
+  border-width: 3px;
+  font-size: 19px;
+  color: rgb(86, 97, 121);
+  font-family: Microsoft JhengHei;
+  letter-spacing: 0.1em;
+  text-align: left;
+}
+
+.buttonL {
+  position: absolute;
+  left: 2%;
+  bottom: 3.5%;
+}
+
+.buttonR {
+  position: absolute;
+  right: 2%;
+  bottom: 3.5%;
+}
+

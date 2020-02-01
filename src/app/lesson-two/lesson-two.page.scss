@@ -1,67 +1,128 @@
-ion-content {
-    --background: none;
-    background-image: linear-gradient(#C0C0C0, #F0F8FF, #C0C0C0);
-    //background-image: url('../../assets/2_abstract-1973382_1920.jpg');
-    //background-size: cover;
-    --overflow: hidden;
-  }
-  
-  .noBounce {
-    position: absolute;
-    left: 35%;
-    top: 8%;
-    width: 50%;
-    text-align: center;
-    color: green;
-    font-weight:700;
-    text-shadow: 2px 0 0 yellow;
-    //line-height: 150%;
-    font-family: Microsoft JhengHei;
-    //letter-spacing: 0.1em;
-    font-size: 28px;
-    //animation-duration: 2s;
-    //animation-name: bounceIn;
-  }
+ion-content{
+  //--background: url(../../assets/images/backgrounds/purpleDots2.png) 0 0/100% 200% no-repeat;
+  //--background: url(../../assets/images/backgrounds/orangeDots1.png) 0 0/100% 200% no-repeat;
+  --background: rgb(252, 252, 75); // pastel yellow
+  //--background: rgb(247, 243, 19); // bright yellow
+  //--background: rgb(71, 122, 199); //mid pastel blue
+  //--background: rgb(141, 89, 189); //mid pastel purple
+  --overflow: hidden;
+}
 
- .center {
+.polygon {
+  position: absolute;
+  //resize: horizontal;
+  //width: 100vh;
+  left: 0%;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.polygonTop {
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  //-ms-transform: translateY(-50%);
+  //transform: translateY(-50%);
+}
+
+.polygonBottom {
+  position: absolute;
+  right: 0%;
+  bottom: 0%;
+  //-ms-transform: translateY(-50%);
+  //transform: translateY(-50%);
+}
+
+.item, .list, .item-content, .item-complex {
+  --ion-background-color: transparent !important;
+}
+
+.bounce {
+  position: absolute;
+  left: 56%;
+  top: 5%;
+  width: 40%;
+  text-align: right;
+  //color: green;
+  color: white;
+  font-weight:500;
+  //text-shadow: 2px 0 0 yellow;
+  //line-height: 150%;
+  font-family: Microsoft JhengHei;
+  //letter-spacing: 0.1em;
+  font-size: 19px;
+  animation-duration: 2s;
+  animation-name: bounceIn;
+}
+
+  .verseShort {
     position: absolute;
-    left: 15%;
-    top: 26%;
-    width: 43%;
+    left: 10%;
+    top: 56%;
+    //height: 90%;
+    width: 55%;
+    //margin: auto;
+    //display: block;
     text-align: left;
-    //color: blue;
-    line-height: 150%;
+    line-height: 180%;
     font-family: Microsoft JhengHei;
     letter-spacing: 0.1em;
-    font-size: 18px;
-    //-ms-transform: translateY(-50%);
-    //transform: translateY(-50%);
+    font-size: 20px;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
   }
 
-  .note {
+  .verseLong {
     position: absolute;
-    left: 0%;
-    top: 0%;
-    //width: 50%;
+    left: 10%;
+    top: 56%;
+    //height: 90%;
+    width: 80%;
+    //margin: auto;
+    //display: block;
+    text-align: left;
+    line-height: 180%;
+    font-family: Microsoft JhengHei;
+    letter-spacing: 0.1em;
+    font-size: 20px;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
   }
 
-  .boy {
+  .picture {
     position: absolute;
-    left: 60%;
-    top: 30%;
-    width: 40%;
+    left: 69%;
+    top: 55%;
+    width: 20%;
+    text-align: center;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    //transform: rotate(-8deg);
+    -webkit-filter: drop-shadow(3px 3px 3px rgb(97, 96, 96));
+    filter: drop-shadow(3px 3px 3px rgb(99, 99, 99));
+  }
+
+  .expln {
+    position: absolute;
+    left: 69%; 
+    bottom: 10%;
+    width: 20%;
+    font-size: 15px;
+    text-align: right;
   }
 
   .buttonL {
     position: absolute;
     left: 2%;
-    top: 82%;
+    bottom: 3.5%;
     //width: 40%;
   }
 
   .buttonR {
     position: absolute;
-    left: 91%;
-    top: 82%;
+    right: 2%;
+    bottom: 3.5%;
     //width: 40%;
   }
+

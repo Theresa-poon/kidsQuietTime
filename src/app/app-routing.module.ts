@@ -15,6 +15,10 @@ const routes: Routes = [
   { path: 'game3', loadChildren: './game3/game3.module#Game3PageModule' },
   { path: 'game4', loadChildren: './game4/game4.module#Game4PageModule' },
   { path: 'menu', loadChildren: './menu/menu.module#MenuPageModule' },
+  { path: 'title', loadChildren: './title/title.module#TitlePageModule' },
+  { path: 'game5', loadChildren: './game5/game5.module#Game5PageModule' },
+  { path: 'game6', loadChildren: './game6/game6.module#Game6PageModule' },
+  { path: 'game7', loadChildren: './game7/game7.module#Game7PageModule' },
 ];
 
 @NgModule({

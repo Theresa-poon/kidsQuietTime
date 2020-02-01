@@ -1,25 +1,88 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>menu</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
 
-  <div class="slideCanvas">
-    <ion-slides [options]="sliderConfig">
-      <ion-slide>
-        <ion-card class="slideColor" (click)="gotoLesson(1)">
-          <ion-img src="../assets/images/cover1.jpg"></ion-img>
-        </ion-card>
-      </ion-slide>
-      <ion-slide>
-        <ion-card class="slideColor" (click)="gotoLesson(2)">
-          <ion-img src="../assets/images/cover2.jpg"></ion-img>
-        </ion-card>
-      </ion-slide>
+  <div *ngIf="this.storageService.currentName_Date != null" class="container">
 
-    </ion-slides>
+    <div class="welcome" *ngIf="this.storageService.currentName_Date[0] == 0">
+      <p class="centerp">歡 迎 您, 小朋友 !</p>
+    </div>
+    <ion-input *ngIf="this.storageService.currentName_Date[0] == 0" class="input" maxlength=10 placeholder="您的名字" [(ngModel)]="UserName"></ion-input>  
+    <ion-button *ngIf="this.storageService.currentName_Date[0] == 0" class="buttonTop1" color=success strong (click)="InputName()">
+        <ion-icon name="arrow-round-forward"></ion-icon>
+    </ion-button>  
+
+    <div class="welcome" *ngIf="this.storageService.currentName_Date[0] != 0">
+      <p class="centerp">歡 迎 您, {{this.storageService.currentName_Date[0]}} !</p>
+    </div>
+    <ion-button *ngIf="this.storageService.currentName_Date[0] != 0" class="buttonTop2" color=secondary strong (click)="CheckScore()">
+      查看獎賞
+    </ion-button> 
+
+    <ion-button class="buttonTop1" fill=clear strong (click)="Information()">
+      <ion-icon name="information-circle"></ion-icon>
+    </ion-button> 
+
+  </div>
+  
+  <div *ngIf="this.storageService.currentName_Date != null" class="bookCover">    
+        
+      <div class=cardleft>
+        <div style="margin: 10px;">
+          <ion-img class="slide" *ngIf="this.storageService.currentPages[this.v-1] != 0 || this.v == 1" src="../assets/images/covers/cover{{this.v}}.jpg"></ion-img>
+          <ion-img class="slide" *ngIf="this.storageService.currentPages[this.v-1] == 0 && this.v != 1 && this.newBk == 0" src="../assets/images/covers/cover{{this.v-1}}.jpg"></ion-img>
+          <ion-img class="slide" *ngIf="this.storageService.currentPages[this.v-1] == 0 && this.v != 1 && this.newBk == 1" src="../assets/images/covers/cover{{this.v}}.jpg"></ion-img>
+        </div>
+      </div>
+
+      <div class=cardright *ngIf="this.storageService.currentName_Date[0] == 0">
+        <ion-button class="animated swing delay-2s" style="font-family: Microsoft JhengHei;letter-spacing: 1px;" color=warning shape=round (click)="parents()">
+          給家長的話
+        </ion-button> 
+        <ion-button class="animated swing delay-4s" style="font-family: Microsoft JhengHei;letter-spacing: 1px;" color=success shape=round (click)="how()">
+          如何使用這本書
+        </ion-button> 
+        <ion-button class="animated swing delay-6s" style="font-family: Microsoft JhengHei;letter-spacing: 1px;" color=primary shape=round (click)="warnName()">
+          開始第一天靈修
+        </ion-button>
+      </div>
+
+      <div class=cardright *ngIf="this.storageService.currentName_Date[0] != 0 && this.storageService.currentPages != null">
+
+        <div *ngIf="this.storageService.currentPages[this.v-1] != 0 || this.v == 1 || this.newBk == 1">
+          <ion-icon name="star-outline" *ngIf="this.storageService.currentPages[this.v-1] < 6" style="color: rgb(76, 215, 250); font-size:20px;"></ion-icon>
+          <ion-icon name="star" *ngIf="this.storageService.currentPages[this.v-1] >= 6" style="color: rgb(76, 215, 250); font-size:20px;"></ion-icon>
+          <ion-icon name="star-outline" *ngIf="this.storageService.currentPages[this.v-1] < 12" style="color: rgb(31, 230, 5); font-size:20px;"></ion-icon>
+          <ion-icon name="star" *ngIf="this.storageService.currentPages[this.v-1] >= 12" style="color: rgb(31, 230, 5); font-size:20px;"></ion-icon>
+          <ion-icon name="star-outline" *ngIf="this.storageService.currentPages[this.v-1] < 18" style="color: rgb(250, 98, 212); font-size:20px;"></ion-icon>
+          <ion-icon name="star" *ngIf="this.storageService.currentPages[this.v-1] >= 18" style="color: rgb(250, 98, 212); font-size:20px;"></ion-icon>
+          <ion-icon name="star-outline" *ngIf="this.storageService.currentPages[this.v-1] < 24" style="color: rgb(250, 163, 2); font-size:20px;"></ion-icon>
+          <ion-icon name="star" *ngIf="this.storageService.currentPages[this.v-1] >=24" style="color: rgb(250, 163, 2); font-size:20px;"></ion-icon>
+          <ion-icon name="star-outline" *ngIf="this.storageService.currentPages[this.v-1] < 30" style="color: rgb(243, 226, 74); font-size:20px;"></ion-icon>
+          <ion-icon name="star" *ngIf="this.storageService.currentPages[this.v-1] == 30" style="color: rgb(243, 226, 74); font-size:20px;"></ion-icon>
+        </div>
+        <div style="color:white;" *ngIf="this.storageService.currentPages[this.v-1] != 0 || this.v == 1 || this.newBk == 1">已完成：{{this.storageService.currentPages[this.v-1]}}/30</div>
+        <ion-button *ngIf="this.storageService.currentPages[this.v-1] != 0 || this.v == 1 || this.newBk == 1" class="animated swing delay-6s" style="font-family: Microsoft JhengHei;letter-spacing: 1px;" color=primary shape=round (click)="gotoBook(1)">
+          開始第{{this.storageService.currentPages[this.v-1]+1}}天靈修
+        </ion-button>
+
+        <div *ngIf="this.storageService.currentPages[this.v-1] == 0 && this.v != 1 && this.newBk == 0">
+          <ion-icon name="star-outline" *ngIf="this.storageService.currentPages[this.v-2] < 6" style="color: rgb(76, 215, 250); font-size:20px;"></ion-icon>
+          <ion-icon name="star" *ngIf="this.storageService.currentPages[this.v-2] >= 6" style="color: rgb(76, 215, 250); font-size:20px;"></ion-icon>
+          <ion-icon name="star-outline" *ngIf="this.storageService.currentPages[this.v-2] < 12" style="color: rgb(31, 230, 5); font-size:20px;"></ion-icon>
+          <ion-icon name="star" *ngIf="this.storageService.currentPages[this.v-2] >= 12" style="color: rgb(31, 230, 5); font-size:20px;"></ion-icon>
+          <ion-icon name="star-outline" *ngIf="this.storageService.currentPages[this.v-2] < 18" style="color: rgb(250, 98, 212); font-size:20px;"></ion-icon>
+          <ion-icon name="star" *ngIf="this.storageService.currentPages[this.v-2] >= 18" style="color: rgb(250, 98, 212); font-size:20px;"></ion-icon>
+          <ion-icon name="star-outline" *ngIf="this.storageService.currentPages[this.v-2] < 24" style="color: rgb(250, 163, 2); font-size:20px;"></ion-icon>
+          <ion-icon name="star" *ngIf="this.storageService.currentPages[this.v-2] >=24" style="color: rgb(250, 163, 2); font-size:20px;"></ion-icon>
+          <ion-icon name="star-outline" *ngIf="this.storageService.currentPages[this.v-2] < 30" style="color: rgb(243, 226, 74); font-size:20px;"></ion-icon>
+          <ion-icon name="star" *ngIf="this.storageService.currentPages[this.v-2] == 30" style="color: rgb(243, 226, 74); font-size:20px;"></ion-icon>
+        </div>
+        <div style="color:white;" *ngIf="this.storageService.currentPages[this.v-1] == 0 && this.v != 1 && this.newBk == 0">已完成：{{this.storageService.currentPages[this.v-2]}}/30</div>
+        <ion-button *ngIf="this.storageService.currentPages[this.v-1] == 0 && this.v != 1 && this.newBk == 0" class="animated swing delay-6s" style="font-family: Microsoft JhengHei;letter-spacing: 1px;" color=primary shape=round (click)="changeBk()">
+          開始下一册
+        </ion-button>
+
+      </div>
+        
   </div>
 
 </ion-content>

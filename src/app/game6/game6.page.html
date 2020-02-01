@@ -1,0 +1,89 @@
+<ion-content>
+
+  <svg *ngIf="this.gamesService.ratio > 10.8" class="polygon" style="stroke:rgb(250, 151, 4);stroke-width:1;" viewBox="0 0 128 60">
+    <polygon points="6,0 122,0 122,60 6,60" style="fill: rgb(220, 235, 248)" 
+      preserveAspectRatio="xMidYMid meet" />
+  </svg>
+
+  <svg *ngIf="this.gamesService.ratio <= 10.8" class="polygon" style="stroke:rgb(250, 151, 4);stroke-width:1;" viewBox="0 0 128 72">
+    <polygon points="6,0 122,0 122,72 6,72" style="fill: rgb(220, 235, 248)" 
+      preserveAspectRatio="xMidYMid meet" />
+  </svg>
+
+  <svg class="polygon" style="stroke:rgb(220, 235, 248);stroke-width:0;" viewBox="0 0 128 60">
+    <polygon points="126,35 128,35 128,48" style="fill: rgb(96, 231, 141)" 
+       preserveAspectRatio="xMidYMid meet" />
+  </svg>
+  
+  <div *ngIf="this.gamesService.reviewMode == 0" class=bounce>
+    第{{this.apptextService.currentText?.id}}天: {{this.apptextService.currentText?.title}}
+  </div>
+
+  <div *ngIf="this.gamesService.reviewMode != 0" class=bounce>
+    (重溫) 第{{this.apptextService.currentText?.id}}天: {{this.apptextService.currentText?.title}}
+  </div>
+
+  <div class="diamonds" *ngIf="this.gamesService.correctMatch == 1">
+    <div style="display: flex; align-items: center;">
+      <div style="flex-shrink: 1;">積分:&nbsp;</div>
+      <div style="width: 19px;"><ion-img src="../assets/images/version1/diamond-red.png"></ion-img></div>
+      <div style="width: 18px;"><ion-img src="../assets/images/version1/diamond-purple.png"></ion-img></div>
+      <div style="width: 19px;"><ion-img  src="../assets/images/version1/diamond-green.png"></ion-img></div>
+    </div>
+  </div>
+
+  <div class="gameText">
+    <div [innerHTML]="this.apptextService.currentText.gamesIntro" style="font-size: 17px; line-height: 130%; letter-spacing: 0.05em; margin-top: 0px; margin-bottom: 0px; white-space: pre-line;"></div>
+    <h4 style="color:blue;font-weight:620; letter-spacing: 0.1em; margin-top: 10px; margin-bottom: 2px;">{{this.apptextService.currentText.gamesTitle}}</h4>    
+      
+        <div style="display: flex; margin-top: 6px;">
+          <div>
+            <ion-reorder-group (ionItemReorder)="reorderItems($event)">
+              <ion-item lines=none *ngFor="let item of gameQ1, let i=index" style="--min-height: 50px;">
+                <ion-label style="font-size: 18px; letter-spacing: 0.1em;">
+                  <div style="display: inline;">•&nbsp;</div>
+                  <div [innerHTML]="this.gameQ1[i]" style="display: inline;"></div>
+                </ion-label>
+                <ion-reorder slot="end"></ion-reorder>
+              </ion-item>            
+            </ion-reorder-group>
+          </div>
+
+          <div>&nbsp;&nbsp;&nbsp;</div>
+          
+          <div>
+            <ion-reorder-group *ngIf="this.gamesService.correctMatch == 0" (ionItemReorder)="reorderItems($event)" disabled="false">
+              <ion-item lines=none *ngFor="let item of gameQ2current, let i=index" style="--min-height: 50px;">
+                <ion-button>
+                  <ion-reorder slot="end">
+                    <div style="font-size: 18px; letter-spacing: 0.1em; vertical-align: middle; display: inline-block;">
+                      {{this.gameQ2current[i]}}
+                    </div>
+                  </ion-reorder>
+                </ion-button>
+              </ion-item>            
+            </ion-reorder-group>
+            <ion-reorder-group *ngIf="this.gamesService.correctMatch == 1" (ionItemReorder)="reorderItems($event)">
+              <ion-item lines=none *ngFor="let item of gameQ2current, let i=index" style="--min-height: 50px;">
+                <ion-label style="font-size: 18px; letter-spacing: 0.1em;">
+                  <ion-icon name="arrow-dropright"></ion-icon>
+                  <div style="display: inline;">{{this.gameQ2current[i]}}</div>
+                  <div style="color: red; display: inline;">&nbsp;&#10004;</div>
+                </ion-label>
+                <ion-reorder slot="end"></ion-reorder>
+              </ion-item>            
+            </ion-reorder-group>
+          </div>
+        </div>
+    
+  </div>
+ 
+  <ion-fab-button  (click)="clickL()" class="buttonL" size=small>
+    <ion-img src="../assets/images/back.png"></ion-img>
+  </ion-fab-button>
+
+  <ion-fab-button  (click)="clickR()" class="buttonR" size=small>
+    <ion-img src="../assets/images/forward.png"></ion-img>
+  </ion-fab-button>
+
+</ion-content>

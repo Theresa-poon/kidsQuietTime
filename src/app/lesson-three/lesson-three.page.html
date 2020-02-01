@@ -1,17 +1,44 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>想一想</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
 
+  <svg *ngIf="this.gamesService.ratio >= 2" class="polygon" style="stroke:white;stroke-width:1;" viewBox="0 0 128 60">
+      <polygon points="0,10 128,8 128,48 0,47" style="fill: rgb(225, 243, 225)" 
+          stroke-linecap="round" stroke-width="0.5" stroke-dasharray="0.2,1" preserveAspectRatio="xMidYMid meet" />
+  </svg>
+
+  <svg *ngIf="this.gamesService.ratio < 2" class="polygon" style="stroke:white;stroke-width:1;" viewBox="0 0 128 64">
+    <polygon points="0,10 128,8 128,53 0,52" style="fill: rgb(225, 243, 225)" 
+        stroke-linecap="round" stroke-width="0.5" stroke-dasharray="0.2,1" preserveAspectRatio="xMidYMid meet" />
+  </svg>
+
+  <div *ngIf="this.gamesService.reviewMode == 0" class=bounce>
+      第{{this.apptextService.currentText?.id}}天: {{this.apptextService.currentText?.title}}
+  </div>
+
+  <div *ngIf="this.gamesService.reviewMode != 0" class=bounce>
+    (重溫) 第{{this.apptextService.currentText?.id}}天: {{this.apptextService.currentText?.title}}
+  </div>
+
+  <div *ngIf="this.storageService.currentPages[0] % 2 == 0" class=picture>
+    <ion-img src="../assets/images/version1/asian_boy.png"></ion-img>
+  </div>
+
+  <div *ngIf="this.storageService.currentPages[0] % 2 == 1" class=picture>
+    <ion-img src="../assets/images/version1/asian_girl.png"></ion-img>
+  </div>
+
+  <div class="verse">
+      <div style="font-size: 30px; font-weight: 600; text-shadow: 1px 1px white; color: rgb(255, 146, 4);">你可以這樣禱告:</div>
+      <div style="white-space: pre-line; margin-top: 5px;">
+        {{this.apptextService.currentText?.prayer}}
+      </div>
+    </div>
+           
   <ion-fab-button  (click)="clickL()" class="buttonL" size=small>
     <ion-img src="../assets/images/back.png"></ion-img>
   </ion-fab-button>
 
-  <ion-fab-button  (click)="clickR()" class="buttonR" size=small>
-    <ion-img src="../assets/images/forward.png"></ion-img>
+  <ion-fab-button  (click)="updateOrNot()" class="buttonR">
+    完成
   </ion-fab-button>
 
 </ion-content>

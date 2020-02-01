@@ -1,9 +1,20 @@
 <ion-content>
   
-  <ion-button class="center" size="large" (click)="updateOrNot()">完成靈修!</ion-button>
+  <svg class="polygon" style="stroke:white;stroke-width:1;" viewBox="0 0 128 60">
+    <polygon points="0,12 128,9 128,51 0,48" style="fill: rgb(217, 248, 216)" 
+      stroke-linecap="round" stroke-width="0.5" stroke-dasharray="0.2,1" preserveAspectRatio="xMidYMid meet" />
+  </svg>
 
-  <div class="sheep">
-    <ion-img src="../assets/images/sheep_jump.png"></ion-img>
-  </div>
+  <svg class="polygon" style="stroke:white;stroke-width:1;" viewBox="0 0 128 60">
+      <defs>
+          <pattern id="img1" patternUnits="userSpaceOnUse" width="64" height="60">
+            <image xlink:href="../../assets/images/backgrounds/purpleDots2.png" x="0" y="0" width="64" height="60" preserveAspectRatio="xMidYMid slice" />
+          </pattern>
+      </defs>
+      <polygon points="0,12 64,9 64,51 0,48" style="fill: url(#img1)" 
+          stroke-linecap="round" stroke-width="0.5" stroke-dasharray="0.2,1" preserveAspectRatio="xMidYMid meet" />
+  </svg>
+
+  <ion-button class="center" size="large" (click)="updateOrNot()">完成靈修!</ion-button>
 
 </ion-content>

@@ -1,9 +1,23 @@
-ion-content {
-    --background: none;
-    background-image: linear-gradient(#C0C0C0, #F0F8FF, #C0C0C0);
-    //background-image: url('../../assets/2_abstract-1973382_1920.jpg');
-    //background-size: cover;
-    --overflow: hidden;
+ion-content{
+  //--background: url(../../assets/images/purpleDots.png) 0 0/100% 100% no-repeat;
+  --background: url(../../assets/images/backgrounds/greenDots1.png) 0 0/100% 200% no-repeat;
+  --overflow: hidden;
+}
+
+//ion-content {
+  //  --background: none;
+  //  background-image: linear-gradient(#C0C0C0, #F0F8FF, #C0C0C0);
+  //  --overflow: hidden;
+  //}
+
+  .polygon {
+    position: absolute;
+    //resize: horizontal;
+    //width: 100vh;
+    left: 0%;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
   }
 
   .center {

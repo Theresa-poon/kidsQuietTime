@@ -22,14 +22,23 @@ export class Game2Page implements OnInit {
     public gamesService: GamesService) { }
 
   ngOnInit() {
-    this.rowNumber = [1,2,3,4,5,6]
-    var i;
-    for (i = 0; i < 36; i++) { 
-      this.varClass[i] = ""
-    }
     this.gameG = this.apptextService.currentText.game2G.split(",")
     this.gameQ = this.apptextService.currentText.game2Q.split(",")
     this.gameA = this.apptextService.currentText.game2A.split(",")
+    if (this.gameG.length == 36) {
+      this.rowNumber = [1,2,3,4,5,6]
+      var i;
+      for (i = 0; i < 36; i++) { 
+        this.varClass[i] = ""
+      }
+    }
+    if (this.gameG.length == 49) {
+      this.rowNumber = [1,2,3,4,5,6,7]
+      var i;
+      for (i = 0; i < 49; i++) { 
+        this.varClass[i] = ""
+      }
+    }
   }
 
   choose(index) {
@@ -47,11 +56,11 @@ export class Game2Page implements OnInit {
   }
 
   clickL() {
-    this.router.navigate(['/lesson-three']);
+    this.router.navigate(['/lesson-two']);
   }
 
   clickR() {
-    this.router.navigate(['/lesson-last']);
+    this.router.navigate(['/lesson-three']);
   }
 
 }
