@@ -11,7 +11,7 @@
   </svg>
 
   <svg *ngIf="this.gamesService.ratio < 2" class="polygon" style="stroke:white;stroke-width:1;" viewBox="0 0 128 72">
-    <polygon points="0,14 122,11 119,62 0,59" style="fill: white" 
+    <polygon points="0,13 122,10 119,62 0,59" style="fill: white" 
       stroke-linecap="round" stroke-width="0.5" stroke-dasharray="0.2,1" preserveAspectRatio="xMidYMid meet" />
   </svg>
 
@@ -42,7 +42,12 @@
       <div style="display: inline;" [innerHTML]="this.apptextService.currentText?.verseThree"></div>
     </div>
   </div>
-  <div class="expln">
+
+  <div *ngIf="this.gamesService.ratio >= 2" class="expln1">
+    <div [innerHTML]="this.apptextService.currentText?.explanation"></div>
+  </div>
+
+  <div *ngIf="this.gamesService.ratio < 2" class="expln2">
     <div [innerHTML]="this.apptextService.currentText?.explanation"></div>
   </div>
 

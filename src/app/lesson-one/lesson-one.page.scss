@@ -67,10 +67,19 @@ ion-content{
     transform: translateY(-50%);
   }
 
-  .expln {
+  .expln1 {
     position: absolute;
     right: 24%; 
     bottom: 19%;
+    width: 60%;
+    font-size: 15px;
+    text-align: right;
+  }
+
+  .expln2 {
+    position: absolute;
+    right: 24%; 
+    bottom: 17%; //for shorter screens
     width: 60%;
     font-size: 15px;
     text-align: right;
