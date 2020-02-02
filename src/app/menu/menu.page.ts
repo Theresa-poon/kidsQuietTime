@@ -20,6 +20,7 @@ export class MenuPage implements OnInit {
   UserName: string; //user name input
   v: any; //current book volume
   newBk: any; // value = 0 or 1 (indicates start new book or not)
+  container: any; // css class of top bar (larger lower margin for small devices)
 
   //@ViewChild('slides', {static: true}) slides: IonSlides;
 
@@ -41,6 +42,7 @@ export class MenuPage implements OnInit {
 
   ionViewWillEnter() {
     this.newBk = 0
+    this.container = 'container1'
     //this.statusBar.hide(); //to enable full screen mode
     //this.statusBar.overlaysWebView(true); //to enable full screen mode
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
@@ -75,14 +77,16 @@ loadItems() {
     console.log(this.storageService.currentName_Date[3]);
   });
   this.gamesService.reviewMode = 0
-  //this.gamesService.ratio = this.platform.width()/this.platform.height()
-  //console.log("width: "+this.platform.width())
-  //console.log("height: "+this.platform.height())
-  //console.log("screen width/height: "+this.gamesService.ratio)
+  // detect device aspect ratio
   this.gamesService.ratio = window.screen.width/window.screen.height
   console.log("width: "+window.screen.width)
   console.log("height: "+window.screen.height)
   console.log("screen width/height: "+this.gamesService.ratio)
+  if(this.gamesService.ratio > 1.8) {
+    this.container = 'container1'
+  } else {
+    this.container = 'container2'
+  }
 }
 
 // READ
@@ -92,7 +96,7 @@ loadPages() {
     console.log(pages == null)
     if (pages == null) {
       //pages = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]; //for production
-      pages = [28, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]; //for testing only
+      pages = [21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]; //for testing only
       console.log(pages[0]) // last read page of book volume 1
       console.log(pages[1]) // last read page of book volume 2
       console.log(pages[2]) // last read page of book volume 3

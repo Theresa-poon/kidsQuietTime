@@ -1,6 +1,6 @@
 <ion-content>
 
-  <div *ngIf="this.storageService.currentName_Date != null" class="container">
+  <div *ngIf="this.storageService.currentName_Date != null" [ngClass]='container'>
 
     <div class="welcome" *ngIf="this.storageService.currentName_Date[0] == 0">
       <p class="centerp">歡 迎 您, 小朋友 !</p>
@@ -58,8 +58,8 @@
           <ion-icon name="star" *ngIf="this.storageService.currentPages[this.v-1] >=24" style="color: rgb(250, 163, 2); font-size:20px;"></ion-icon>
           <ion-icon name="star-outline" *ngIf="this.storageService.currentPages[this.v-1] < 30" style="color: rgb(243, 226, 74); font-size:20px;"></ion-icon>
           <ion-icon name="star" *ngIf="this.storageService.currentPages[this.v-1] == 30" style="color: rgb(243, 226, 74); font-size:20px;"></ion-icon>
-        </div>
-        <div style="color:white;" *ngIf="this.storageService.currentPages[this.v-1] != 0 || this.v == 1 || this.newBk == 1">已完成：{{this.storageService.currentPages[this.v-1]}}/30</div>
+          <div style="color:white;" *ngIf="this.storageService.currentPages[this.v-1] != 0 || this.v == 1 || this.newBk == 1">已完成：{{this.storageService.currentPages[this.v-1]}}/30</div>
+        </div>       
         <ion-button *ngIf="this.storageService.currentPages[this.v-1] != 0 || this.v == 1 || this.newBk == 1" class="animated swing delay-6s" style="font-family: Microsoft JhengHei;letter-spacing: 1px;" color=primary shape=round (click)="gotoBook(1)">
           開始第{{this.storageService.currentPages[this.v-1]+1}}天靈修
         </ion-button>
@@ -75,8 +75,8 @@
           <ion-icon name="star" *ngIf="this.storageService.currentPages[this.v-2] >=24" style="color: rgb(250, 163, 2); font-size:20px;"></ion-icon>
           <ion-icon name="star-outline" *ngIf="this.storageService.currentPages[this.v-2] < 30" style="color: rgb(243, 226, 74); font-size:20px;"></ion-icon>
           <ion-icon name="star" *ngIf="this.storageService.currentPages[this.v-2] == 30" style="color: rgb(243, 226, 74); font-size:20px;"></ion-icon>
+          <div style="color:white;" *ngIf="this.storageService.currentPages[this.v-1] == 0 && this.v != 1 && this.newBk == 0">已完成：{{this.storageService.currentPages[this.v-2]}}/30</div>
         </div>
-        <div style="color:white;" *ngIf="this.storageService.currentPages[this.v-1] == 0 && this.v != 1 && this.newBk == 0">已完成：{{this.storageService.currentPages[this.v-2]}}/30</div>
         <ion-button *ngIf="this.storageService.currentPages[this.v-1] == 0 && this.v != 1 && this.newBk == 0" class="animated swing delay-6s" style="font-family: Microsoft JhengHei;letter-spacing: 1px;" color=primary shape=round (click)="changeBk()">
           開始下一册
         </ion-button>

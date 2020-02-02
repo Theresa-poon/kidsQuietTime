@@ -19,9 +19,15 @@ ion-content{
   //--padding-inner-end: 0px;
 //}  
 
-.container {
+.container1 {
     display: flex;
     margin: 12px 15px 5px 20px;
+    align-items: center;
+}
+
+.container2 {
+    display: flex;
+    margin: 12px 15px 15px 20px;
     align-items: center;
 }
 
