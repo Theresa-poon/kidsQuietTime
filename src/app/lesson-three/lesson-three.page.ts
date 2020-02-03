@@ -26,6 +26,7 @@ export class LessonThreePage implements OnInit {
   ngOnInit() {
     this.fmgameNumber = this.apptextService.currentText.games.substring(1,2)
     console.log("gameNumber= "+this.fmgameNumber)
+    console.log("this.storageService.v= "+this.storageService.v)
   }
 
   updateOrNot() {

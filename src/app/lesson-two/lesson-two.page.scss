@@ -38,19 +38,29 @@ ion-content{
   --ion-background-color: transparent !important;
 }
 
-.bounce {
+.bounce1 {
   position: absolute;
-  left: 56%;
+  left: 45%;
   top: 5%;
-  width: 40%;
+  width: 51%;
   text-align: right;
-  //color: green;
   color: white;
   font-weight:500;
-  //text-shadow: 2px 0 0 yellow;
-  //line-height: 150%;
   font-family: Microsoft JhengHei;
-  //letter-spacing: 0.1em;
+  font-size: 19px;
+  animation-duration: 2s;
+  animation-name: bounceIn;
+}
+
+.bounce2 {
+  position: absolute;
+  left: 45%;
+  top: 4%; // for short screens
+  width: 51%;
+  text-align: right;
+  color: white;
+  font-weight:500;
+  font-family: Microsoft JhengHei;
   font-size: 19px;
   animation-duration: 2s;
   animation-name: bounceIn;

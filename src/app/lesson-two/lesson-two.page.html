@@ -15,11 +15,17 @@
           preserveAspectRatio="xMidYMid meet" />
     </svg>
 
-    <div *ngIf="this.gamesService.reviewMode == 0" class=bounce>
+    <div *ngIf="this.gamesService.reviewMode == 0 && this.gamesService.ratio >= 2" class=bounce1>
       第{{this.apptextService.currentText?.id}}天: {{this.apptextService.currentText?.title}}
     </div>
+    <div *ngIf="this.gamesService.reviewMode != 0 && this.gamesService.ratio >= 2" class=bounce1>
+      (重溫) 第{{this.apptextService.currentText?.id}}天: {{this.apptextService.currentText?.title}}
+    </div>
 
-    <div *ngIf="this.gamesService.reviewMode != 0" class=bounce>
+    <div *ngIf="this.gamesService.reviewMode == 0 && this.gamesService.ratio < 2" class=bounce2>
+      第{{this.apptextService.currentText?.id}}天: {{this.apptextService.currentText?.title}}
+    </div>
+    <div *ngIf="this.gamesService.reviewMode != 0 && this.gamesService.ratio < 2" class=bounce2>
       (重溫) 第{{this.apptextService.currentText?.id}}天: {{this.apptextService.currentText?.title}}
     </div>
 

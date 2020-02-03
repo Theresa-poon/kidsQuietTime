@@ -1,12 +1,12 @@
 <ion-content>
 
-  <svg *ngIf="this.gamesService.ratio > 10.8" class="polygon" style="stroke:rgb(250, 151, 4);stroke-width:1;" viewBox="0 0 128 60">
-    <polygon points="6,0 122,0 122,60 6,60" style="fill: rgb(220, 235, 248)" 
+  <svg *ngIf="this.gamesService.ratio >= 2" class="polygon" style="stroke:rgb(250, 151, 4);stroke-width:1;" viewBox="0 0 128 72">
+    <polygon points="6,0 122,0 122,72 6,72" style="fill: rgb(220, 235, 248)" 
       preserveAspectRatio="xMidYMid meet" />
   </svg>
 
-  <svg *ngIf="this.gamesService.ratio <= 10.8" class="polygon" style="stroke:rgb(250, 151, 4);stroke-width:1;" viewBox="0 0 128 72">
-    <polygon points="6,0 122,0 122,72 6,72" style="fill: rgb(220, 235, 248)" 
+  <svg *ngIf="this.gamesService.ratio < 2" class="polygon" style="stroke:rgb(250, 151, 4);stroke-width:1;" viewBox="0 0 128 80">
+    <polygon points="6,0 122,0 122,80 6,80" style="fill: rgb(220, 235, 248)" 
       preserveAspectRatio="xMidYMid meet" />
   </svg>
 
