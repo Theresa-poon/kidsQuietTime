@@ -41,10 +41,10 @@
 
       <div *ngIf="this.gameQ != ''" class=container>
         <div *ngFor="let item of gameQ, let i=index">
-          <ion-button class=big *ngIf="this.choice[i] == 0" size=large fill=outline style="--background: white; margin-right: 50px;" (click)="check(i)">{{item}}</ion-button>
-          <ion-button class=big *ngIf="this.choice[i] == 1" size=large color=secondary style="margin-right: 50px;">{{item}}</ion-button>
-          <ion-button class=small *ngIf="this.choice[i] == 0" fill=outline style="--background: white; margin-right: 50px;" (click)="check(i)">{{item}}</ion-button>
-          <ion-button class=small *ngIf="this.choice[i] == 1" color=secondary style="margin-right: 50px;">{{item}}</ion-button>
+          <ion-button *ngIf="this.choice[i] == 0 && this.gamesService.ratio >= 2" size=large fill=outline style="--background: white; margin-right: 50px;" (click)="check(i)">{{item}}</ion-button>
+          <ion-button *ngIf="this.choice[i] == 1 && this.gamesService.ratio >= 2" size=large color=secondary style="margin-right: 50px;">{{item}}</ion-button>
+          <ion-button *ngIf="this.choice[i] == 0 && this.gamesService.ratio < 2" fill=outline style="--background: white; margin-right: 50px;" (click)="check(i)">{{item}}</ion-button>
+          <ion-button *ngIf="this.choice[i] == 1 && this.gamesService.ratio < 2" color=secondary style="margin-right: 50px;">{{item}}</ion-button>
         </div>
       </div>
 

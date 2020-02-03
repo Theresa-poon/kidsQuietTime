@@ -129,17 +129,17 @@ ion-content {
 }
 
 /* On screens that are 700px or less, use small button*/
-@media (max-width: 700px) {
-  .big {
-    display: none;
-  }
-}
+//@media (max-width: 700px) {
+ // .big {
+ //   display: none;
+  //}
+//}
 
-@media (min-width: 700px) {
-  .small {
-    display: none;
-  }
-}
+//@media (min-width: 700px) {
+ // .small {
+ //   display: none;
+  //}
+//}
 
 .container {
   display: flex;
