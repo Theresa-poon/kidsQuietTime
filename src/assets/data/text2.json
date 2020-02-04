@@ -462,6 +462,26 @@
         "game7Q1": "star-outline,heart,finger-print,radio-button-on,cellular,football,grid,contrast,medal,paper-plane",
         "game7Q2": "慢,受,不,怒,慢,審,地,可,判,動",
         "game7A1": "star-outline,cellular,grid,paper-plane,radio-button-on",
-        "game7A2": "慢,慢,地,動,怒"}
+        "game7A2": "慢,慢,地,動,怒"},
+
+    {"id": 24, "title": "留下你的禮物",
+        "chapter": "馬太福音 5:23-24",
+        "intro": "",
+        "verseOne": "<sup>23</sup>所以,你在祭壇<sup>[a]</sup>上獻禮物的時候,若想起弟兄向你懷怨,",
+        "verseTwo": "<sup>24</sup>就把禮物留在壇前,先去同弟兄和好,然後來獻禮物。",
+        "verseThree": "",
+        "explanation": "[a] 供祭物用的臺子",
+        "notes": "神要你與別人和睦相處,祂要你和那些你用言語或行動傷害的人把關係處理好。\n如果你傷害了某人,去跟那個人道歉,請他原諒你。當你這樣順服神時,表示你愛祂,然後你就能敬拜和侍奉神。",
+        "picture": "",
+        "prayer": "親愛的天父：\n如果我傷害了別人,幫助我藉著把關係處理好來表示我對祢的愛。\n奉主耶穌的名。阿們。",
+        "games": "62",
+        "gamesIntro": "人們向神敬拜時帶著他們的祭物來獻給神,但是神要他們先與別人和好。",
+        "gamesTitle": "拖曳右方句子，排列事情的順序。",
+        "game6Q1": "第一,第二,第三",
+        "game6Q2": "把你的禮物留在祭壇上,去同弟兄和好,來獻禮物",
+        "game6A": "1,2,0",
+        "game2G": "單,他,原,以,訴,天,這,諒,山,弟,語,上,你,可,兄,話,言,父,穌,心,禮,物,包,祭,個,壞,愛,比,我,壇,留,下,人,和,好,的",
+        "game2Q": "愛心,原諒,和好,言語,禮物",
+        "game2A": ",,red,,,,,red,,,red,,,,,,red,,,red,red,red,,,,,red,,,,,,,red,red,"}
 
 ]
