@@ -18,7 +18,13 @@ export class ApptextService {
 
   // get all the text for all the days
   searchData() {
-    this._url="/assets/data/text"+this.storageService.v+".json"
+    if (this.storageService.currentPages[this.storageService.v-1] != 0 || this.storageService.v == 1) {
+      this._url="/assets/data/text"+this.storageService.v+".json"  //not the start of a new volume
+    } else {
+      let volume = this.storageService.v - 1
+      this._url="/assets/data/text"+volume+".json" //start of a new volume (allow review of previous volume)
+    }
+    //this._url="/assets/data/text"+this.storageService.v+".json"
     return this.http.get<IText[]>(this._url);
   }
 

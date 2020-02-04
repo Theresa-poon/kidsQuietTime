@@ -38,8 +38,7 @@ export class ProgressPage implements OnInit {
       this.jsonAll = data;
       //this.jsonAll = this.jsonAll.slice(0, this.storageService.currentId_Date[0]);
 
-        //need to change to this.storageService.currentPages[current volume] in next stage
-        this.jsonAll = this.jsonAll.slice(0, this.storageService.currentPages[0]);
+        this.jsonAll = this.jsonAll.slice(0, this.storageService.currentPages[this.storageService.v-1]);
 
         console.log(this.jsonAll);
       //console.log(this.jsonAll[0].title);

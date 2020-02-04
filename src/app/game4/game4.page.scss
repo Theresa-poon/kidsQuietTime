@@ -30,29 +30,9 @@ ion-content{
   animation-name: bounceIn;
 }
 
-.diamonds { // used in version 2 only
-  display: none;
-  position: absolute;
-  left: 8%;
-  top: 3%; //original = 9
-  width: 30%;
-  //border-radius: 6px;
-  //border-color: rgb(212, 238, 248);
-  border-width: 3px;
-  font-size: 19px;
-  color: rgb(183, 196, 224);
-  //background-color: white;
-  //border-color: #ffce00;
-  //text-shadow: 3px 3px #f0ffff;
-  font-family: Microsoft JhengHei;
-  letter-spacing: 0.1em;
-  text-align: left;
-  //padding: 5px 0px;
-}
-
   .title {
     position: absolute;
-    top: 21%;
+    top: 22%;
     left: 68%;
     width: 29%;
     -ms-transform: translateY(-50%);
@@ -110,7 +90,7 @@ ion-content{
 
 .colorRow {
   position: absolute;
-  top: 32%; 
+  top: 33%; 
   left: 70%;
   width: 25%;
   text-align: center;
