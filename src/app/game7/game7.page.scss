@@ -30,26 +30,6 @@ ion-content{
     animation-name: bounceIn;
   }
 
-  .diamonds { // used in version 2 only
-    display: none;
-    position: absolute;
-    left: 8%;
-    top: 9%;
-    width: 30%;
-    //border-radius: 6px;
-    //border-color: rgb(212, 238, 248);
-    border-width: 3px;
-    font-size: 19px;
-    color: rgb(86, 97, 121);
-    //background-color: white;
-    //border-color: #ffce00;
-    //text-shadow: 3px 3px #f0ffff;
-    font-family: Microsoft JhengHei;
-    letter-spacing: 0.1em;
-    text-align: left;
-    //padding: 5px 0px;
-  }
-
   .chest {
     position: absolute;
     right: 2%;

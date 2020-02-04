@@ -23,15 +23,6 @@
     (重溫) 第{{this.apptextService.currentText?.id}}天: {{this.apptextService.currentText?.title}}
   </div>
 
-  <div class="diamonds" *ngIf="this.Aone == this.gameA[0] && this.Atwo == this.gameA[1] && this.Athree == this.gameA[2]">
-    <div style="display: flex; align-items: center;">
-      <div style="flex-shrink: 1;">積分:&nbsp;</div>
-      <div style="width: 19px;"><ion-img src="../assets/images/version1/diamond-red.png"></ion-img></div>
-      <div style="width: 18px;"><ion-img src="../assets/images/version1/diamond-purple.png"></ion-img></div>
-      <div style="width: 19px;"><ion-img  src="../assets/images/version1/diamond-green.png"></ion-img></div>
-    </div>
-  </div>
-
   <div id="textArea" class="gameText">
   <div class=inner>
     <div [innerHTML]="this.apptextService.currentText.gamesIntro" style="font-size: 17px; line-height: 130%; letter-spacing: 0.05em; margin-top: 0px; margin-bottom: 0px; white-space: pre-line;"></div>

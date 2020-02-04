@@ -16,6 +16,7 @@ export class ProgressPage implements OnInit {
   public jsonAll = [];
   public mmData : any; 
   public level : any; //5 levels according to number of fruits bought
+  public days : any; //total number of quiet time days
 
   constructor(public apptextService: ApptextService,
     public storageService: StorageService,
@@ -52,6 +53,10 @@ export class ProgressPage implements OnInit {
 
   //calculate level based on number of fruits
   calcLevel() {
+    this.days = this.storageService.currentPages[0]+this.storageService.currentPages[1]+this.storageService.currentPages[2]
+      +this.storageService.currentPages[3]+this.storageService.currentPages[4]+this.storageService.currentPages[5]
+      +this.storageService.currentPages[6]+this.storageService.currentPages[7]+this.storageService.currentPages[8]
+      +this.storageService.currentPages[9]+this.storageService.currentPages[10]+this.storageService.currentPages[11]
     var n = this.storageService.currentName_Date[6] //number of apple trees
     if (n > 3) {
       this.level = "靈修勇士"

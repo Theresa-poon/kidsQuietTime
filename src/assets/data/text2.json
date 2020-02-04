@@ -424,7 +424,7 @@
         "game7A2": "讓,你,的,光,照,亮"},
 
     {"id": 22, "title": "神看你的內心",
-        "chapter": "馬太福音5:20",
+        "chapter": "馬太福音 5:20",
         "intro": "",
         "verseOne": "<sup>20</sup>我告訴你們:你們的義若不勝於文士<sup>[a]</sup>和法利賽人<sup>[b]</sup>的義,斷不能進天國。",
         "verseTwo": "",
@@ -439,6 +439,29 @@
         "game1Q": "神看到他們的, A ,,, B ,,改, C ,。,",
         "game1A": "心,需要,變",
         "game4Q": "走出迷宮。神要改變你的內心。",
-        "game4P": "../assets/images/version1/heart_maze.png"}
+        "game4P": "../assets/images/version1/heart_maze.png"},
+
+    {"id": 23, "title": "開始動怒",
+        "chapter": "馬太福音 5:21-22",
+        "intro": "耶穌教導眾人。",
+        "verseOne": "<sup>21</sup>「你們聽見有吩咐古人的話說:『不可殺人』,又說:『凡殺人的難免受審判。』",
+        "verseTwo": "<sup>22</sup>只是我告訴你們,凡向弟兄動怒<sup>[a]</sup>的,難免受審判...。」",
+        "verseThree": "",
+        "explanation": "[a] 生氣",
+        "notes": "我們有時會生氣,但是,如果你讓你的怒氣控制你,這就是罪。怒氣可使你去做壞事,聖經說我們應該「慢慢地動怒」(雅各書1:19)。\n如果你生某人的氣,就告訴神。求神幫助你原諒他,並且用神的愛善待他,嘗試和那人交談,試著把問題解決。",
+        "picture": "",
+        "prayer": "親愛的天父：\n請幫助我慢慢地動怒,幫助我向別人表達祢的愛。\n奉主耶穌的名。阿們。",
+        "games": "67",
+        "gamesIntro": "",
+        "gamesTitle": "拖曳右方字詞，完成配對。",
+        "gamesFootnote": "耶穌要你愛別人,祂可以幫助你愛那些使你生氣的人。",
+        "game6Q1": "不可,凡殺人的難免,不要",
+        "game6Q2": "殺人。,受審判。,動怒。",
+        "game6A": "2,0,1",
+        "game7Q": "使用代碼來找出神要你做的事。",
+        "game7Q1": "star-outline,heart,finger-print,radio-button-on,cellular,football,grid,contrast,medal,paper-plane",
+        "game7Q2": "慢,受,不,怒,慢,審,地,可,判,動",
+        "game7A1": "star-outline,cellular,grid,paper-plane,radio-button-on",
+        "game7A2": "慢,慢,地,動,怒"}
 
 ]
