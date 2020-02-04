@@ -33,13 +33,18 @@ export class ProgressPage implements OnInit {
     
     console.log("level: "+this.level)
 
-    this.apptextService.searchData()
+    this.apptextService.searchData(1)
     .subscribe(data => {
       this.jsonAll = data;
-      //this.jsonAll = this.jsonAll.slice(0, this.storageService.currentId_Date[0]);
+        if (this.storageService.currentPages[this.storageService.v-1] != 0 || this.storageService.v == 1) {
+          this.jsonAll = this.jsonAll.slice(0, this.storageService.currentPages[this.storageService.v-1]); //not the start of a new volume (review current volume)
+          console.log("review mode and not zero")
+        } else {
+          this.jsonAll = this.jsonAll.slice(0, this.storageService.currentPages[this.storageService.v-2]);//start of a new volume (review previous volume)
+          console.log("review mode and zero")
+        }
 
-        this.jsonAll = this.jsonAll.slice(0, this.storageService.currentPages[this.storageService.v-1]);
-
+        //this.jsonAll = this.jsonAll.slice(0, this.storageService.currentPages[this.storageService.v-1]);
         console.log(this.jsonAll);
       //console.log(this.jsonAll[0].title);
       });

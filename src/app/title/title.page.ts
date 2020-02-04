@@ -21,7 +21,7 @@ export class TitlePage implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-    this.apptextService.searchData()
+    this.apptextService.searchData(this.gamesService.reviewMode)
     .subscribe(data => {
       this.textAll = data;
       if (this.gamesService.reviewMode == 0) {
