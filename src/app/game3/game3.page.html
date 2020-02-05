@@ -23,15 +23,6 @@
     (重溫) 第{{this.apptextService.currentText?.id}}天: {{this.apptextService.currentText?.title}}
   </div>
 
-  <div class="diamonds" *ngIf="this.gamesService.correctChoice == 1">
-    <div style="display: flex; align-items: center;">
-      <div style="flex-shrink: 1;">積分:&nbsp;</div>
-      <div style="width: 19px;"><ion-img src="../assets/images/version1/diamond-red.png"></ion-img></div>
-      <div style="width: 18px;"><ion-img src="../assets/images/version1/diamond-purple.png"></ion-img></div>
-      <div style="width: 19px;"><ion-img  src="../assets/images/version1/diamond-green.png"></ion-img></div>
-    </div>
-  </div>
-
   <div class="gameText">
     <div *ngIf="this.apptextService.currentText.games.substring(0,1) == '3'" [innerHTML]="this.apptextService.currentText.gamesIntro" style="font-size: 17px; line-height: 130%; letter-spacing: 0.05em; margin-top: 0px; margin-bottom: 0px; white-space: pre-line;"></div>
     <h4 *ngIf="this.apptextService.currentText.games.substring(0,1) == '3'" [innerHTML]="this.apptextService.currentText.gamesTitle" style="color:blue;font-weight:620; letter-spacing: 0.1em; margin-top: 8px; margin-bottom: 2px;"></h4>
@@ -56,6 +47,9 @@
       </div>
 
     </div>
+
+    <div [innerHTML]="this.apptextService.currentText.gamesFootnote" style="font-size: 17px; line-height: 130%; letter-spacing: 0.05em; margin-top: 5px; margin-bottom: 0px; white-space: pre-line;"></div>
+
   </div>
 
   <ion-fab-button (click)="clickL()" class="buttonL" size=small>
