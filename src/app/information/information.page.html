@@ -1,0 +1,23 @@
+<ion-content>
+
+  <div class=buttons>
+    <ion-button style="font-family: Microsoft JhengHei;letter-spacing: 1px;" color=light shape=round (click)="bookinfo()">
+      關於「每日與神同行」
+    </ion-button> 
+    <br>
+    <ion-button style="font-family: Microsoft JhengHei;letter-spacing: 1px;" color=warning shape=round (click)="parents()">
+      給家長的話
+    </ion-button>
+    <br>
+    <ion-button style="font-family: Microsoft JhengHei;letter-spacing: 1px;" color=success shape=round (click)="how()">
+      如何使用這本書
+    </ion-button> 
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed" (click)="clickL()">
+    <ion-fab-button size=small>
+      <ion-img src="../assets/images/back.png"></ion-img>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

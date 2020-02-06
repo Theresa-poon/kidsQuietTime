@@ -1,0 +1,22 @@
+ion-content{
+    --background: url(../../assets/images/backgrounds/purpleDots2.png) 0 0/100% 200% no-repeat;
+    //--overflow: hidden;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 30%;
+    top: 50%;
+    width: 40%;
+    text-align: center;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+
+.buttonL {
+    position: absolute;
+    left: 2%;
+    top: 82%;
+  }

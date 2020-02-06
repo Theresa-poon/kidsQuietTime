@@ -96,7 +96,7 @@ loadPages() {
     console.log(pages == null)
     if (pages == null) {
       //pages = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]; //for production
-      pages = [30, 27, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]; //for testing only
+      pages = [30, 29, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]; //for testing only
       console.log(pages[0]) // last read page of book volume 1
       console.log(pages[1]) // last read page of book volume 2
       console.log(pages[2]) // last read page of book volume 3
@@ -127,6 +127,7 @@ loadPages() {
 
   Information() {
     console.log("going to information page...")
+    this.router.navigate(['/information']);
   }
 
   parents() {
@@ -136,6 +137,7 @@ loadPages() {
 
   how() {
     console.log("going to information-how page...")
+    this.router.navigate(['/use']);
   }
 
   warnName() {
