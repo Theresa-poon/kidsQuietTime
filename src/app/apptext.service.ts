@@ -34,8 +34,8 @@ export class ApptextService {
       this._url="/assets/data/text"+this.storageService.v+".json" //not review mode (start current volume lesson)
       console.log("not review mode")
     }
-    //this._url="/assets/data/text"+this.storageService.v+".json"
-    return this.http.get<IText[]>(this._url);
+    //this._url="/assets/data/text"+this.storageService.v+".json" // no need
+    return this.http.get<IText[]>(this._url); // original
   }
 
 }

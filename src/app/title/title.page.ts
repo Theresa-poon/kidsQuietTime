@@ -13,6 +13,7 @@ import { GamesService } from '../games.service';
 export class TitlePage implements OnInit {
 
   public textAll = [];
+  //public textAll: any
 
   constructor(private storage: Storage,
     private storageService: StorageService,
@@ -25,6 +26,7 @@ export class TitlePage implements OnInit {
     .subscribe(data => {
       this.textAll = data;
       if (this.gamesService.reviewMode == 0) {
+        //this.apptextService.currentText = this.textAll
         this.apptextService.currentText = this.textAll[this.storageService.currentPages[this.storageService.v-1]];
       } else {
         this.apptextService.currentText = this.textAll[this.gamesService.reviewMode-1];
