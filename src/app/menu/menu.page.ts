@@ -61,7 +61,7 @@ loadItems() {
     console.log(items == null)
     if (items == null) {
      // items = [0, 0, 0, 0, 0, 0, 0]; //production
-      items = [0, 0, 0, 0, 0, 120, 0]; //for testing only
+      items = [0, 0, 0, 0, 0, 0, 0]; //for testing only
       console.log(items[0]) // last read page (to be deleted) / username
       console.log(items[1]) // date of completion of last read page
       console.log(items[2]) // month of completion of last read page

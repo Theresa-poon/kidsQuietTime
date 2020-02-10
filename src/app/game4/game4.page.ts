@@ -95,6 +95,7 @@ ngOnInit() {
   //this.canvasElement.width = this.plt.width() + '';
     //this.canvasElement.width = 250;
   console.log("ngOnInIt")
+  console.log("this.gamesService.ratio: "+this.gamesService.ratio)
   //console.log("platform width is: "+this.plt.width())
     //this.canvasElement.height = 200;
   this.started = 0

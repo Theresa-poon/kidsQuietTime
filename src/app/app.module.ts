@@ -15,6 +15,7 @@ import{ HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
 import { File } from '@ionic-native/file/ngx';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
+import { MobileAccessibility } from '@ionic-native/mobile-accessibility/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,6 +28,7 @@ import { WebView } from '@ionic-native/ionic-webview/ngx';
     SplashScreen,
     WebView,
     ScreenOrientation,
+    MobileAccessibility,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     File
   ],

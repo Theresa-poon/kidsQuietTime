@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ApptextService } from '../apptext.service';
 import { GamesService } from '../games.service';
 import { AlertController } from '@ionic/angular'; 
+import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 @Component({
   selector: 'app-game1',
@@ -22,7 +23,8 @@ export class Game1Page implements OnInit {
   constructor(private router: Router,
     public apptextService: ApptextService,
     public gamesService: GamesService,
-    public alertController: AlertController,) { }
+    public alertController: AlertController,
+    private statusBar: StatusBar) { }
 
   ngOnInit() {
     
@@ -67,10 +69,10 @@ export class Game1Page implements OnInit {
     this.keyboardHeight = e.keyboardHeight
     console.log("height: "+parseInt(this.keyboardHeight))
     console.log("is > 200? :"+(parseInt(this.keyboardHeight) > 200))
-    if (parseInt(this.keyboardHeight) > 200) { // move text area above keyboard
+    if (parseInt(this.keyboardHeight) > 199) { // move text area above keyboard
       document.getElementById("textArea").style.top="16%"
     } else {
-      document.getElementById("textArea").style.top="32%"
+      document.getElementById("textArea").style.top="30%"
     }
   }
 

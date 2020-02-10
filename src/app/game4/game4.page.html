@@ -52,20 +52,24 @@
   </div>
 
   <div *ngIf="this.gamesService.ratio >= 2" class="buttonS">
-    <ion-button *ngIf="this.gamesService.correctDraw == 0 && this.gamesService.reviewMode == 0" color="success" shape="round" (click)="saveCanvasImage()">儲存</ion-button>
-    <ion-button *ngIf="this.gamesService.correctDraw == 0 && this.gamesService.reviewMode != 0 && storedImages.length > 0" color=light shape="round" (click)="loadPastImage()">重溫</ion-button>
-    &nbsp;
-    <ion-button *ngIf="this.gamesService.correctDraw == 0" color="warning" shape="round" (click)="clearCanvas()">清空</ion-button>
+    <div *ngIf="this.gamesService.correctDraw == 0">
+      <ion-button *ngIf="this.gamesService.reviewMode == 0" color="success" shape="round" (click)="saveCanvasImage()">儲存</ion-button>
+      <ion-button *ngIf="this.gamesService.reviewMode != 0 && storedImages.length > 0" color=light shape="round" (click)="loadPastImage()">重溫</ion-button>
+      &nbsp;
+      <ion-button color="warning" shape="round" (click)="clearCanvas()">清空</ion-button>
+    </div>
     <div *ngIf="this.gamesService.correctDraw == 1 && storedImages.length > 1" style="color:chocolate; letter-spacing: 0.5em;">
       <<左右撥動查看所有圖畫
     </div>
   </div>
 
   <div *ngIf="this.gamesService.ratio < 2" class="buttonS">
-    <ion-button *ngIf="this.gamesService.correctDraw == 0 && this.gamesService.reviewMode == 0" color="success" shape="round" size=small (click)="saveCanvasImage()">儲存</ion-button>
-    <ion-button *ngIf="this.gamesService.correctDraw == 0 && this.gamesService.reviewMode != 0 && storedImages.length > 0" color=light shape="round" size=small (click)="loadPastImage()">重溫</ion-button>
-    &nbsp;
-    <ion-button *ngIf="this.gamesService.correctDraw == 0" color="warning" shape="round" size=small (click)="clearCanvas()">清空</ion-button>
+    <div *ngIf="this.gamesService.correctDraw == 0">
+      <ion-button *ngIf="this.gamesService.reviewMode == 0" color="success" shape="round" size=small (click)="saveCanvasImage()">儲存</ion-button>
+      <ion-button *ngIf="this.gamesService.reviewMode != 0 && storedImages.length > 0" color=light shape="round" size=small (click)="loadPastImage()">重溫</ion-button>
+      &nbsp;
+      <ion-button color="warning" shape="round" size=small (click)="clearCanvas()">清空</ion-button>
+    </div>
     <div *ngIf="this.gamesService.correctDraw == 1 && storedImages.length > 1" style="color:chocolate; letter-spacing: 0.2em;">
       <<左右撥動查看所有圖畫
     </div>

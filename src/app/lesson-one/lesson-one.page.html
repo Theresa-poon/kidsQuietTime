@@ -28,8 +28,8 @@
   </div>
 
   <div class="verse">
-    <div style="font-size: 17px; letter-spacing: 0.05em; line-height: 120%; margin-top: 0px; margin-bottom: 0px;" [innerHTML]="this.apptextService.currentText?.intro"></div>
-    <h4 style="color:blue;font-weight:650; margin-top: 8px; margin-bottom: 5px">閱讀: {{this.apptextService.currentText?.chapter}}</h4>
+    <div style="font-size: 17pt; letter-spacing: 0.05em; line-height: 120%; margin-top: 0px; margin-bottom: 0px;" [innerHTML]="this.apptextService.currentText?.intro"></div>
+    <div style="font-size: 19pt; color:blue; font-weight:650; margin-top: 8px; margin-bottom: 5px">閱讀: {{this.apptextService.currentText?.chapter}}</div>
     <div style="white-space: pre-line;" *ngIf="this.apptextService.currentText?.verseFour != null">
       <div style="display: inline;" [innerHTML]="this.apptextService.currentText?.verseOne"></div>
       <div style="display: inline;" [innerHTML]="this.apptextService.currentText?.verseTwo"></div>

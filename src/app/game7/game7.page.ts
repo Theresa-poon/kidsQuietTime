@@ -54,7 +54,7 @@ export class Game7Page implements OnInit {
     this.keyboardHeight = e.keyboardHeight
     console.log("height: "+parseInt(this.keyboardHeight))
     console.log("is > 200? :"+(parseInt(this.keyboardHeight) > 200))
-    if (parseInt(this.keyboardHeight) > 200) { // move text area above keyboard
+    if (parseInt(this.keyboardHeight) > 199) { // move text area above keyboard
       document.getElementById("text").style.top="16%"
       //document.getElementById("shape").style.display="show"
     } else {
