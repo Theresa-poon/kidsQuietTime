@@ -45,7 +45,7 @@ export class LessonOnePage implements OnInit {
       var elmnt = document.getElementById("verse");
       console.log(elmnt.scrollHeight);
       console.log(elmnt.clientHeight);
-      if (elmnt.scrollHeight > elmnt.clientHeight) {
+      if (elmnt.scrollHeight > elmnt.clientHeight + 3) {
         document.getElementById("verse").style.justifyContent="start"   //justify-content: center;
         console.log("justify content: start")
         this.scroll = 1

@@ -24,18 +24,18 @@
   </div>
 
   <div class="gameText">
-    <div *ngIf="this.apptextService.currentText.games.substring(0,1) == '3'" [innerHTML]="this.apptextService.currentText.gamesIntro" style="font-size: 17px; line-height: 130%; letter-spacing: 0.05em; margin-top: 0px; margin-bottom: 0px; white-space: pre-line;"></div>
-    <h4 *ngIf="this.apptextService.currentText.games.substring(0,1) == '3'" [innerHTML]="this.apptextService.currentText.gamesTitle" style="color:blue;font-weight:620; letter-spacing: 0.1em; margin-top: 8px; margin-bottom: 2px;"></h4>
-    <div *ngIf="this.apptextService.currentText.games.substring(0,1) != '3'" [innerHTML]="this.apptextService.currentText.gamesTitle2" style="color:black;font-weight:620; letter-spacing: 0.1em; margin-top: 8px; margin-bottom: 2px; white-space: pre-line;"></div>
+    <div *ngIf="this.apptextService.currentText.games.substring(0,1) == '3'" [innerHTML]="this.apptextService.currentText.gamesIntro" style="font-size: 18px; line-height: 130%; letter-spacing: 0.05em; margin-top: 0px; margin-bottom: 0px; white-space: pre-line;"></div>
+    <div *ngIf="this.apptextService.currentText.games.substring(0,1) == '3'" [innerHTML]="this.apptextService.currentText.gamesTitle" style="color:blue;font-weight:400; font-size: 19px; letter-spacing: 0.1em; margin-top: 8px; margin-bottom: 2px;"></div>
+    <div *ngIf="this.apptextService.currentText.games.substring(0,1) != '3'" [innerHTML]="this.apptextService.currentText.gamesTitle2" style="color:black;font-weight:400; font-size: 19px; letter-spacing: 0.1em; margin-top: 8px; margin-bottom: 2px; white-space: pre-line;"></div>
     
     <div class=question>
 
       <div *ngIf="this.gameQ != ''" class=container>
         <div *ngFor="let item of gameQ, let i=index">
-          <ion-button *ngIf="this.choice[i] == 0 && this.gamesService.ratio >= 2" size=large fill=outline style="--background: white; margin-right: 50px;" (click)="check(i)">{{item}}</ion-button>
-          <ion-button *ngIf="this.choice[i] == 1 && this.gamesService.ratio >= 2" size=large color=secondary style="margin-right: 50px;">{{item}}</ion-button>
-          <ion-button *ngIf="this.choice[i] == 0 && this.gamesService.ratio < 2" fill=outline style="--background: white; margin-right: 50px;" (click)="check(i)">{{item}}</ion-button>
-          <ion-button *ngIf="this.choice[i] == 1 && this.gamesService.ratio < 2" color=secondary style="margin-right: 50px;">{{item}}</ion-button>
+          <ion-button *ngIf="this.choice[i] == 0 && this.gamesService.ratio >= 2" fill=outline style="--background: white; font-size: 19px; margin-right: 50px;" (click)="check(i)">{{item}}</ion-button>
+          <ion-button *ngIf="this.choice[i] == 1 && this.gamesService.ratio >= 2" color=secondary style="font-size: 19px; margin-right: 50px;">{{item}}</ion-button>
+          <ion-button *ngIf="this.choice[i] == 0 && this.gamesService.ratio < 2" fill=outline style="--background: white; font-size: 17px; margin-right: 50px;" (click)="check(i)">{{item}}</ion-button>
+          <ion-button *ngIf="this.choice[i] == 1 && this.gamesService.ratio < 2" color=secondary style="font-size: 17px; margin-right: 50px;">{{item}}</ion-button>
         </div>
       </div>
 
@@ -48,7 +48,7 @@
 
     </div>
 
-    <div [innerHTML]="this.apptextService.currentText.gamesFootnote" style="font-size: 17px; line-height: 130%; letter-spacing: 0.05em; margin-top: 5px; margin-bottom: 0px; white-space: pre-line;"></div>
+    <div [innerHTML]="this.apptextService.currentText.gamesFootnote" style="font-size: 18px; line-height: 130%; letter-spacing: 0.05em; margin-top: 5px; margin-bottom: 0px; white-space: pre-line;"></div>
 
   </div>
 

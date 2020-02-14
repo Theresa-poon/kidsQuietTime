@@ -32,7 +32,7 @@ export class Game1Page implements OnInit {
     
     window.addEventListener('keyboardDidHide', () => {
       console.log("keyboard gone")
-      document.getElementById("textArea").style.top="50%" //move text area back
+      document.getElementById("textArea").style.top="55%" //move text area back
     });
 
     this.gameQ = this.apptextService.currentText.game1Q.split(",")
@@ -70,9 +70,13 @@ export class Game1Page implements OnInit {
     console.log("height: "+parseInt(this.keyboardHeight))
     console.log("is > 200? :"+(parseInt(this.keyboardHeight) > 200))
     if (parseInt(this.keyboardHeight) > 199) { // move text area above keyboard
-      document.getElementById("textArea").style.top="16%"
+      document.getElementById("textArea").style.top="10%"
     } else {
+      if (parseInt(this.keyboardHeight) > 149) {
+        document.getElementById("textArea").style.top="16%"
+      } else {
       document.getElementById("textArea").style.top="30%"
+      }
     }
   }
 

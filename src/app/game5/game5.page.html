@@ -24,8 +24,8 @@
     </div>
   
     <div class="gameText">
-      <div [innerHTML]="this.apptextService.currentText.gamesIntro" style="font-size: 17px; line-height: 130%; letter-spacing: 0.05em; margin-top: 0px; margin-bottom: 0px; white-space: pre-line;"></div>
-      <h4 style="color:blue;font-weight:620; letter-spacing: 0.1em; margin-top: 8px; margin-bottom: 0px;">{{this.apptextService.currentText.gamesTitle}}</h4>
+      <div [innerHTML]="this.apptextService.currentText.gamesIntro" style="font-size: 18px; line-height: 130%; letter-spacing: 0.05em; margin-top: 0px; margin-bottom: 0px; white-space: pre-line;"></div>
+      <div style="color:blue;font-weight:400; letter-spacing: 0.1em; margin-top: 8px; margin-bottom: 0px; font-size: 19px;">{{this.apptextService.currentText.gamesTitle}}</div>
       
       <div class=question>
         
@@ -34,12 +34,12 @@
         <div [innerHTML]="this.apptextService.currentText.game5Q1" style="display: inline"></div>
         <div class=container>  
           <div *ngFor="let item of gameA1, let i=index">
-            <ion-button *ngIf="this.gamesService.correctMCQ[0] == 0 && this.gamesService.ratio >= 2" fill=outline style="--background: white; font-size: 20px; margin-right: 50px;" (click)="check1(i)">{{item}}</ion-button>
-            <ion-button *ngIf="this.gamesService.correctMCQ[0] == 1 && this.gamesService.ratio >= 2 && i != this.apptextService.currentText.game5A1.substring(0,1)" fill=outline disabled=true style="--background: white; font-size: 20px; margin-right: 50px;">{{item}}</ion-button>
-            <ion-button *ngIf="this.gamesService.correctMCQ[0] == 1 && this.gamesService.ratio >= 2 && i == this.apptextService.currentText.game5A1.substring(0,1)" color=secondary style="font-size: 20px; margin-right: 50px;">{{item}}</ion-button>
-            <ion-button *ngIf="this.gamesService.correctMCQ[0] == 0 && this.gamesService.ratio < 2" fill=outline style="--background: white; margin-right: 50px;" (click)="check1(i)">{{item}}</ion-button>
-            <ion-button *ngIf="this.gamesService.correctMCQ[0] == 1 && this.gamesService.ratio < 2 && i != this.apptextService.currentText.game5A1.substring(0,1)" fill=outline disabled=true style="--background: white; margin-right: 50px;">{{item}}</ion-button>
-            <ion-button *ngIf="this.gamesService.correctMCQ[0] == 1 && this.gamesService.ratio < 2 && i == this.apptextService.currentText.game5A1.substring(0,1)" color=secondary style="margin-right: 50px;">{{item}}</ion-button>
+            <ion-button *ngIf="this.gamesService.correctMCQ[0] == 0 && this.gamesService.ratio >= 2" fill=outline style="--background: white; font-size: 19px; margin-right: 50px;" (click)="check1(i)">{{item}}</ion-button>
+            <ion-button *ngIf="this.gamesService.correctMCQ[0] == 1 && this.gamesService.ratio >= 2 && i != this.apptextService.currentText.game5A1.substring(0,1)" fill=outline disabled=true style="--background: white; font-size: 19px; margin-right: 50px;">{{item}}</ion-button>
+            <ion-button *ngIf="this.gamesService.correctMCQ[0] == 1 && this.gamesService.ratio >= 2 && i == this.apptextService.currentText.game5A1.substring(0,1)" color=secondary style="font-size: 19px; margin-right: 50px;">{{item}}</ion-button>
+            <ion-button *ngIf="this.gamesService.correctMCQ[0] == 0 && this.gamesService.ratio < 2" fill=outline style="--background: white; font-size: 17px; margin-right: 50px;" (click)="check1(i)">{{item}}</ion-button>
+            <ion-button *ngIf="this.gamesService.correctMCQ[0] == 1 && this.gamesService.ratio < 2 && i != this.apptextService.currentText.game5A1.substring(0,1)" fill=outline disabled=true style="--background: white; font-size: 17px; margin-right: 50px;">{{item}}</ion-button>
+            <ion-button *ngIf="this.gamesService.correctMCQ[0] == 1 && this.gamesService.ratio < 2 && i == this.apptextService.currentText.game5A1.substring(0,1)" color=secondary style="font-size: 17px; margin-right: 50px;">{{item}}</ion-button>
           </div>
           <div style="color: red;" *ngIf="this.gamesService.correctMCQ[0] == 1">&nbsp;&#10004;</div>
         </div>
@@ -48,9 +48,9 @@
         <div *ngIf="this.apptextService.currentText.game5A1.substring(0,1) == 'a'">
           <div style="left: 40px;">  
             <div *ngFor="let item of gameA1, let i=index">
-              <ion-button *ngIf="this.gamesService.correctMCQ[0] == 0" fill=outline style="--background: white; font-size: 20px; margin-right: 50px;" (click)="check1A(i)">{{item}}</ion-button>
-              <ion-button *ngIf="this.gamesService.correctMCQ[0] != 0 && this.gamesService.correctMCQ[0] != i+1" fill=outline style="--background: white; font-size: 20px; margin-right: 50px;" (click)="check1A(i)">{{item}}</ion-button>
-              <ion-button *ngIf="this.gamesService.correctMCQ[0] == i+1" color=success style="font-size: 20px; margin-right: 50px;">
+              <ion-button *ngIf="this.gamesService.correctMCQ[0] == 0" fill=outline style="--background: white; font-size: 19px; margin-right: 50px;" (click)="check1A(i)">{{item}}</ion-button>
+              <ion-button *ngIf="this.gamesService.correctMCQ[0] != 0 && this.gamesService.correctMCQ[0] != i+1" fill=outline style="--background: white; font-size: 19px; margin-right: 50px;" (click)="check1A(i)">{{item}}</ion-button>
+              <ion-button *ngIf="this.gamesService.correctMCQ[0] == i+1" color=success style="font-size: 19px; margin-right: 50px;">
                 {{item}}
                 <ion-icon name="heart" style="color: rgb(247, 90, 90);"></ion-icon>
               </ion-button>
@@ -63,12 +63,12 @@
         <div [innerHTML]="this.apptextService.currentText.game5Q2" style="display: inline;"></div>
         <div class=container>  
           <div *ngFor="let item of gameA2, let i=index">
-            <ion-button *ngIf="this.gamesService.correctMCQ[1] == 0 && this.gamesService.ratio >= 2" fill=outline style="--background: white; font-size: 20px; margin-right: 50px;" (click)="check2(i)">{{item}}</ion-button>
-            <ion-button *ngIf="this.gamesService.correctMCQ[1] == 1 && this.gamesService.ratio >= 2 && i != this.apptextService.currentText.game5A2.substring(0,1)" fill=outline disabled=true style="--background: white; font-size: 20px; margin-right: 50px;">{{item}}</ion-button>
-            <ion-button *ngIf="this.gamesService.correctMCQ[1] == 1 && this.gamesService.ratio >= 2 && i == this.apptextService.currentText.game5A2.substring(0,1)" color=secondary style="font-size: 20px; margin-right: 50px;">{{item}}</ion-button>
-            <ion-button *ngIf="this.gamesService.correctMCQ[1] == 0 && this.gamesService.ratio < 2" fill=outline style="--background: white; margin-right: 50px;" (click)="check2(i)">{{item}}</ion-button>
-            <ion-button *ngIf="this.gamesService.correctMCQ[1] == 1 && this.gamesService.ratio < 2 && i != this.apptextService.currentText.game5A2.substring(0,1)" fill=outline disabled=true style="--background: white; margin-right: 50px;">{{item}}</ion-button>
-            <ion-button *ngIf="this.gamesService.correctMCQ[1] == 1 && this.gamesService.ratio < 2 && i == this.apptextService.currentText.game5A2.substring(0,1)" color=secondary style="margin-right: 50px;">{{item}}</ion-button>            
+            <ion-button *ngIf="this.gamesService.correctMCQ[1] == 0 && this.gamesService.ratio >= 2" fill=outline style="--background: white; font-size: 19px; margin-right: 50px;" (click)="check2(i)">{{item}}</ion-button>
+            <ion-button *ngIf="this.gamesService.correctMCQ[1] == 1 && this.gamesService.ratio >= 2 && i != this.apptextService.currentText.game5A2.substring(0,1)" fill=outline disabled=true style="--background: white; font-size: 19px; margin-right: 50px;">{{item}}</ion-button>
+            <ion-button *ngIf="this.gamesService.correctMCQ[1] == 1 && this.gamesService.ratio >= 2 && i == this.apptextService.currentText.game5A2.substring(0,1)" color=secondary style="font-size: 19px; margin-right: 50px;">{{item}}</ion-button>
+            <ion-button *ngIf="this.gamesService.correctMCQ[1] == 0 && this.gamesService.ratio < 2" fill=outline style="--background: white; font-size: 17px; margin-right: 50px;" (click)="check2(i)">{{item}}</ion-button>
+            <ion-button *ngIf="this.gamesService.correctMCQ[1] == 1 && this.gamesService.ratio < 2 && i != this.apptextService.currentText.game5A2.substring(0,1)" fill=outline disabled=true style="--background: white; font-size: 17px; margin-right: 50px;">{{item}}</ion-button>
+            <ion-button *ngIf="this.gamesService.correctMCQ[1] == 1 && this.gamesService.ratio < 2 && i == this.apptextService.currentText.game5A2.substring(0,1)" color=secondary style="font-size: 17px; margin-right: 50px;">{{item}}</ion-button>            
           </div>
           <div style="color: red;" *ngIf="this.gamesService.correctMCQ[1] == 1">&nbsp;&#10004;</div>
         </div>
@@ -79,12 +79,12 @@
         <div [innerHTML]="this.apptextService.currentText.game5Q3" style="display: inline;"></div>
         <div class=container>  
           <div *ngFor="let item of gameA3, let i=index">
-            <ion-button *ngIf="this.gamesService.correctMCQ[2] == 0 && this.gamesService.ratio >= 2" fill=outline style="--background: white; font-size: 20px; margin-right: 50px;" (click)="check3(i)">{{item}}</ion-button>
-            <ion-button *ngIf="this.gamesService.correctMCQ[2] == 1 && this.gamesService.ratio >= 2 && i != this.apptextService.currentText.game5A3.substring(0,1)" fill=outline disabled=true style="--background: white; font-size: 20px; margin-right: 50px;">{{item}}</ion-button>
-            <ion-button *ngIf="this.gamesService.correctMCQ[2] == 1 && this.gamesService.ratio >= 2 && i == this.apptextService.currentText.game5A3.substring(0,1)" color=secondary style="font-size: 20px; margin-right: 50px;">{{item}}</ion-button>
-            <ion-button *ngIf="this.gamesService.correctMCQ[2] == 0 && this.gamesService.ratio < 2" fill=outline style="--background: white; margin-right: 50px;" (click)="check3(i)">{{item}}</ion-button>
-            <ion-button *ngIf="this.gamesService.correctMCQ[2] == 1 && this.gamesService.ratio < 2 && i != this.apptextService.currentText.game5A3.substring(0,1)" fill=outline disabled=true style="--background: white; margin-right: 50px;">{{item}}</ion-button>
-            <ion-button *ngIf="this.gamesService.correctMCQ[2] == 1 && this.gamesService.ratio < 2 && i == this.apptextService.currentText.game5A3.substring(0,1)" color=secondary style="margin-right: 50px;">{{item}}</ion-button>
+            <ion-button *ngIf="this.gamesService.correctMCQ[2] == 0 && this.gamesService.ratio >= 2" fill=outline style="--background: white; font-size: 19px; margin-right: 50px;" (click)="check3(i)">{{item}}</ion-button>
+            <ion-button *ngIf="this.gamesService.correctMCQ[2] == 1 && this.gamesService.ratio >= 2 && i != this.apptextService.currentText.game5A3.substring(0,1)" fill=outline disabled=true style="--background: white; font-size: 19px; margin-right: 50px;">{{item}}</ion-button>
+            <ion-button *ngIf="this.gamesService.correctMCQ[2] == 1 && this.gamesService.ratio >= 2 && i == this.apptextService.currentText.game5A3.substring(0,1)" color=secondary style="font-size: 19px; margin-right: 50px;">{{item}}</ion-button>
+            <ion-button *ngIf="this.gamesService.correctMCQ[2] == 0 && this.gamesService.ratio < 2" fill=outline style="--background: white; font-size: 17px; margin-right: 50px;" (click)="check3(i)">{{item}}</ion-button>
+            <ion-button *ngIf="this.gamesService.correctMCQ[2] == 1 && this.gamesService.ratio < 2 && i != this.apptextService.currentText.game5A3.substring(0,1)" fill=outline disabled=true style="--background: white; font-size: 17px; margin-right: 50px;">{{item}}</ion-button>
+            <ion-button *ngIf="this.gamesService.correctMCQ[2] == 1 && this.gamesService.ratio < 2 && i == this.apptextService.currentText.game5A3.substring(0,1)" color=secondary style="font-size: 17px; margin-right: 50px;">{{item}}</ion-button>
           </div>
           <div style="color: red;" *ngIf="this.gamesService.correctMCQ[2] == 1">&nbsp;&#10004;</div>
         </div>
