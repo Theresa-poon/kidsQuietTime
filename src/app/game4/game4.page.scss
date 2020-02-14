@@ -76,29 +76,20 @@ ion-content{
   height: 45px;
 }
 
-//.titleRow {
-//  position: absolute;
-//  top: 76%; //original = 75
-//  left: 10%;
-//  width: 55%;
-//  color: seagreen;
-//  text-shadow: 1px 1px lawngreen;
-//  font-family: Microsoft JhengHei;
-//  letter-spacing: 0.1em;
-//  text-align: center;
-//}
-
 .colorRow {
   position: absolute;
-  top: 33%; 
+  //top: 33%; //original
+  top: 51%;
   left: 70%;
   width: 25%;
   text-align: center;
+  -ms-transform: translateY(-50%); //new
+  transform: translateY(-50%); //new
 }
 
 .buttonS {
   position: absolute;
-  top: 71%; //original = 76
+  top: 73%; //original = 71
   //left: 12%;
   left: 70%;
   width: 25%;

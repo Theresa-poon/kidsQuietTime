@@ -25,8 +25,10 @@ export class AppComponent {
       this.statusBar.hide() //to ensure full screen effect
       this.statusBar.overlaysWebView(true); //to ensure full screen effect
       this.splashScreen.hide();
+      console.log("next line is getTextZoom")
       this.mobileAccessibility.usePreferredTextZoom(false);
       //console.log(this.platform.width())
     });
   }
+
 }

@@ -1,23 +1,8 @@
-//ion-content {
-//    --background: none;
-    //background-image: linear-gradient(#C0C0C0, #F0F8FF, #C0C0C0);
-    //  <ion-img src="../assets/images/purpleDots.png"></ion-img>
-//    background-image: linear-gradient(rgb(213, 231, 243), #F0F8FF, rgb(211, 232, 238));
-//    --overflow: hidden;
-//  }
-
 ion-content{
     //--background: url(../../assets/images/purpleDots.png) 0 0/100% 100% no-repeat;
     --background: url(../../assets/images/backgrounds/blueSwirl2.png) 0 0/100% 200% no-repeat;
     --overflow: hidden;
 }
-
-//.item, .list, .item-content, .item-complex {
-  //--ion-background-color: transparent !important;
-  //--margin: 20px 0px 0px 5px !important;
-  //--padding-end: 0px;
-  //--padding-inner-end: 0px;
-//}  
 
 .container1 {
     display: flex;
@@ -51,6 +36,7 @@ ion-content{
 .input {
     max-width: 15% !important;
     height: 35px;
+    font-size: 18px; 
     text-align: center; 
     background-color: white;
 }
@@ -60,8 +46,8 @@ ion-content{
     --border-radius: 1px;
     --padding-start: 3px;
     --padding-end: 3px;
-    font-size: 16px; 
-    //font-size: 16dp;
+    font-size: 18px; 
+    //font-size: 16px;
     font-weight: 200;
     text-align: center;
     color: white;
@@ -72,8 +58,8 @@ ion-content{
     --border-radius: 3px;
     --padding-start: 8px;
     --padding-end: 8px;
-    font-size: 16px; 
-    //font-size: 16dp;
+    font-size: 18px; 
+    //font-size: 16px;
     font-weight: 200;
     text-align: center;
     color: white;
@@ -92,23 +78,19 @@ ion-content{
 .cardright {
     display: flex;
     flex-direction: column;
-    //background-color:rgb(49, 240, 106);
-    //background-color:rgb(135, 37, 247);   //purple
     background-image: url("../../assets/images/backgrounds/purpleDots2.png");
     background-size: 250px 250px;
     border: 5px solid azure;
     border-radius: 5px;
-    //background-color:azure; 
     justify-content: space-evenly;
     align-items: center;
     width: 40%;
-    //margin: 5px;
 }
 
-.buttonMenu {
-    font-family: Microsoft JhengHei;
-    letter-spacing: 1px;
-}
+//.buttonMenu {
+//    font-family: Microsoft JhengHei;
+//    letter-spacing: 1px;
+//}
 
 .cardleft {
     background-color:azure; 

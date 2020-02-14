@@ -27,9 +27,9 @@
     (重溫) 第{{this.apptextService.currentText?.id}}天: {{this.apptextService.currentText?.title}}
   </div>
 
-  <div class="verse">
-    <div style="font-size: 17pt; letter-spacing: 0.05em; line-height: 120%; margin-top: 0px; margin-bottom: 0px;" [innerHTML]="this.apptextService.currentText?.intro"></div>
-    <div style="font-size: 19pt; color:blue; font-weight:650; margin-top: 8px; margin-bottom: 5px">閱讀: {{this.apptextService.currentText?.chapter}}</div>
+  <div id=verse class="verse">
+    <div style="font-size: 17px; letter-spacing: 0.05em; line-height: 120%; margin-top: 3px; margin-bottom: 0px;" [innerHTML]="this.apptextService.currentText?.intro"></div>
+    <div style="font-size: 18px; color:blue; font-weight:400; margin-top: 7px; margin-bottom: 5px">閱讀: {{this.apptextService.currentText?.chapter}}</div>
     <div style="white-space: pre-line;" *ngIf="this.apptextService.currentText?.verseFour != null">
       <div style="display: inline;" [innerHTML]="this.apptextService.currentText?.verseOne"></div>
       <div style="display: inline;" [innerHTML]="this.apptextService.currentText?.verseTwo"></div>
@@ -41,6 +41,10 @@
       <div style="display: inline;" [innerHTML]="this.apptextService.currentText?.verseTwo"></div>
       <div style="display: inline;" [innerHTML]="this.apptextService.currentText?.verseThree"></div>
     </div>
+  </div>
+
+  <div *ngIf="this.scroll == 1" class="arrow">
+    [上下撥動顯示更多內容]
   </div>
 
   <div *ngIf="this.gamesService.ratio >= 2" class="expln1">

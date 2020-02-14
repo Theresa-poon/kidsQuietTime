@@ -44,27 +44,31 @@ ion-content{
     font-weight:500;
     font-family: Microsoft JhengHei;
     //letter-spacing: 0.1em;
-    font-size: 19pt;
+    font-size: 19px;
     animation-duration: 2s;
     animation-name: bounceIn;
   }
 
  .verse {
+    display: flex;
+    flex-direction: column;
     position: absolute;
     left: 8%;
-    top: 50%;
-    //height: 90%;
+    //top: 50%;
+    top: 20%;
+    height: 52%;
+    overflow-y: scroll; 
     width: 82%;
     //margin: auto;
     //display: block;
     text-align: left;
+    justify-content: center;
     line-height: 140%;
     font-family: Microsoft JhengHei;
     letter-spacing: 0.1em;
-    //font-size: 18px;
-    font-size: 18pt;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+    font-size: 18px;
+    //-ms-transform: translateY(-50%);
+    //transform: translateY(-50%);
   }
 
   .expln1 {
@@ -72,8 +76,8 @@ ion-content{
     right: 24%; 
     bottom: 19%;
     width: 60%;
-    //font-size: 15px;
-    font-size: 15pt;
+    font-size: 15px;
+    //font-size: 15pt;
     text-align: right;
   }
 
@@ -82,15 +86,25 @@ ion-content{
     right: 24%; 
     bottom: 17%; //for shorter screens
     width: 60%;
-    //font-size: 15px;
-    font-size: 15pt;
+    font-size: 15px;
+    //font-size: 15pt;
     text-align: right;
+  }
+
+  .arrow {
+    position: absolute;
+    left: 8%; 
+    bottom: 21%;
+    font-size: 13px;
+    color: grey;
   }
 
   .bible {
     position: absolute;
-    right: 0%;
-    bottom: 3%;
+    //right: 0%;
+    //bottom: 3%;
+    right: 1%;
+    bottom: 0%;
     width: 25%;
     transform: rotate(-8deg);
     -webkit-filter: drop-shadow(3px 3px 3px rgb(97, 96, 96));
@@ -100,14 +114,14 @@ ion-content{
   .buttonL {
     position: absolute;
     left: 2%;
-    bottom: 3.5%;
-    //width: 40%;
+    //bottom: 3.5%;
+    bottom: 2.5%;
   }
 
   .buttonR {
     position: absolute;
     right: 2%;
-    bottom: 3.5%;
-    //width: 40%;
+    //bottom: 3.5%;
+    bottom: 2.5%;
   }
 

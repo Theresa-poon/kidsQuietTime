@@ -28,18 +28,18 @@
   </div>
 
   <div class="colorRow">
-    <ion-row >
-      <ion-col size=3 *ngFor="let color of colors1" [style.background]="color" class="color-block" tappable (click)="selectColor(color)">
+    <ion-row>
+      <ion-col size=3 *ngFor="let color of colors1" [style.background]="color" class= "color-block" tappable (click)="selectColor(color)">
         <div *ngIf="this.selectedColor == color" style="color:white; position: relative; top: 50%; -ms-transform: translateY(-50%) ;transform: translateY(-50%); text-align: center;"><ion-icon name=checkmark></ion-icon></div>
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col size=3 *ngFor="let color of colors2" [style.background]="color" class="color-block" tappable (click)="selectColor(color)">
+      <ion-col size=3 *ngFor="let color of colors2" [style.background]="color" class= "color-block" tappable (click)="selectColor(color)">
         <div *ngIf="this.selectedColor == color" style="color:white; position: relative; top: 50%; -ms-transform: translateY(-50%) ;transform: translateY(-50%); text-align: center;"><ion-icon name=checkmark></ion-icon></div>
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col size=3 *ngFor="let color of colors3" [style.background]="color" class="color-block" tappable (click)="selectColor(color)">
+      <ion-col size=3 *ngFor="let color of colors3" [style.background]="color" class= "color-block" tappable (click)="selectColor(color)">
         <div *ngIf="this.selectedColor == color" style="color:black; position: relative; top: 50%; -ms-transform: translateY(-50%) ;transform: translateY(-50%); text-align: center;"><ion-icon name=checkmark></ion-icon></div>
       </ion-col>
     </ion-row>
