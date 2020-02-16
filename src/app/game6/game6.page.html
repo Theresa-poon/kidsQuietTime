@@ -25,26 +25,21 @@
 
   <div class="gameText">
     <div [innerHTML]="this.apptextService.currentText.gamesIntro" style="font-size: 18px; line-height: 130%; letter-spacing: 0.05em; margin-top: 0px; margin-bottom: 5px; white-space: pre-line;"></div>
-    <div style="color:blue; font-size: 20px; font-weight:400; letter-spacing: 0.1em; margin-top: 10px; margin-bottom: 0px;">{{this.apptextService.currentText.gamesTitle}}</div>    
+    <div style="color:blue; font-size: 20px; font-weight:400; letter-spacing: 0.1em; margin-top: 8px; margin-bottom: 0px;">{{this.apptextService.currentText.gamesTitle}}</div>    
       
-        <div style="display: flex; margin-top: 6px;">
+        <div style="display: flex; margin-top: 5px;">
           <div>
-            <ion-reorder-group (ionItemReorder)="reorderItems($event)">
-              <ion-item lines=none *ngFor="let item of gameQ1, let i=index" style="--min-height: 50px;">
-                <ion-label style="font-size: 20px; letter-spacing: 0.1em;">
-                  <div style="display: inline;">•&nbsp;</div>
-                  <div [innerHTML]="this.gameQ1[i]" style="display: inline;"></div>
-                </ion-label>
-                <ion-reorder slot="end"></ion-reorder>
-              </ion-item>            
-            </ion-reorder-group>
+              <ion-item lines=none *ngFor="let item of gameQ1, let i=index" style="--min-height: 45px;">
+                  <div style="display: inline; font-size: 20px; letter-spacing: 0.1em;">•&nbsp;</div>
+                  <div [innerHTML]="this.gameQ1[i]" style="display: inline; font-size: 20px; letter-spacing: 0.1em;"></div>
+              </ion-item>             
           </div>
 
           <div>&nbsp;&nbsp;&nbsp;</div>
           
           <div>
             <ion-reorder-group *ngIf="this.gamesService.correctMatch == 0" (ionItemReorder)="reorderItems($event)" disabled="false">
-              <ion-item lines=none *ngFor="let item of gameQ2current, let i=index" style="--min-height: 50px;">
+              <ion-item lines=none *ngFor="let item of gameQ2current, let i=index" style="--min-height: 45px;">
                 <ion-button>
                   <ion-reorder slot="end">
                     <div style="font-size: 20px; letter-spacing: 0.1em; vertical-align: middle; display: inline-block;">
@@ -54,16 +49,15 @@
                 </ion-button>
               </ion-item>            
             </ion-reorder-group>
-            <ion-reorder-group *ngIf="this.gamesService.correctMatch == 1" (ionItemReorder)="reorderItems($event)">
-              <ion-item lines=none *ngFor="let item of gameQ2current, let i=index" style="--min-height: 50px;">
-                <ion-label style="font-size: 20px; letter-spacing: 0.1em;">
+            <div *ngIf="this.gamesService.correctMatch == 1">
+              <ion-item lines=none *ngFor="let item of gameQ2current, let i=index" style="--min-height: 45px;">
+                <div style="font-size: 20px; letter-spacing: 0.1em;">
                   <ion-icon name="arrow-dropright"></ion-icon>
                   <div style="display: inline;">{{this.gameQ2current[i]}}</div>
                   <div style="color: red; display: inline;">&nbsp;&#10004;</div>
-                </ion-label>
-                <ion-reorder slot="end"></ion-reorder>
+                </div>
               </ion-item>            
-            </ion-reorder-group>
+            </div>
           </div>
         </div>
 

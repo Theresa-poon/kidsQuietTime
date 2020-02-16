@@ -33,8 +33,8 @@ ion-content{
   .chest {
     position: absolute;
     right: 3%;
-    bottom: 2%;
-    width: 18%;
+    bottom: 1%;
+    width: 16%;
     //transform: rotate(-8deg);
     -webkit-filter: drop-shadow(3px 3px 3px rgb(97, 96, 96));
     filter: drop-shadow(3px 3px 3px rgb(99, 99, 99));
@@ -42,7 +42,7 @@ ion-content{
 
   .question {
     position: absolute;
-    top: 45%;
+    top: 43%;
     left: 8%;
     width: 80%;
     //background-color: rgb(252, 240, 174);
