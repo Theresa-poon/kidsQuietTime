@@ -19,7 +19,7 @@ export class LessonThreePage implements OnInit {
 
   constructor(private router: Router,
     public apptextService: ApptextService,
-    private storageService: StorageService,
+    public storageService: StorageService,
     public gamesService: GamesService,
     public alertController: AlertController,) { }
 

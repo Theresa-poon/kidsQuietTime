@@ -30,7 +30,7 @@
     
     <div class=question>
 
-      <div *ngIf="this.gameQ != ''" class=container>
+      <div *ngIf="this.gameQ != null" class=container>
         <div *ngFor="let item of gameQ, let i=index">
           <ion-button *ngIf="this.choice[i] == 0 && this.gamesService.ratio >= 2" fill=outline style="--background: white; font-size: 19px; margin-right: 50px;" (click)="check(i)">{{item}}</ion-button>
           <ion-button *ngIf="this.choice[i] == 1 && this.gamesService.ratio >= 2" color=secondary style="font-size: 19px; margin-right: 50px;">{{item}}</ion-button>
