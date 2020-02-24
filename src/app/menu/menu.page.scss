@@ -1,6 +1,6 @@
 ion-content{
-    //--background: url(../../assets/images/purpleDots.png) 0 0/100% 100% no-repeat;
-    --background: url(../../assets/images/backgrounds/blueSwirl2.png) 0 0/100% 200% no-repeat;
+    --background: url(../../assets/images/backgrounds/blueSwirl2_s.png) 0 0/100% 200% no-repeat;
+    //--background: rgb(91, 148, 235);
     --overflow: hidden;
 }
 
@@ -78,7 +78,8 @@ ion-content{
 .cardright {
     display: flex;
     flex-direction: column;
-    background-image: url("../../assets/images/backgrounds/purpleDots2.png");
+    //background-image: url("../../assets/images/backgrounds/purpleDots2_s.png");
+    background-color: rgb(116, 47, 116);
     background-size: 250px 250px;
     border: 5px solid azure;
     border-radius: 5px;
