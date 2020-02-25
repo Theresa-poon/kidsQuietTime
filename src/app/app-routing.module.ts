@@ -3,10 +3,10 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: '', redirectTo: 'menu', pathMatch: 'full' },
-  { path: 'home', loadChildren: './home/home.module#HomePageModule' },
+  //{ path: 'home', loadChildren: './home/home.module#HomePageModule' },
   { path: 'lesson-one', loadChildren: './lesson-one/lesson-one.module#LessonOnePageModule' },
   { path: 'lesson-two', loadChildren: './lesson-two/lesson-two.module#LessonTwoPageModule' },
-  { path: 'lesson-last', loadChildren: './lesson-last/lesson-last.module#LessonLastPageModule' },
+  //{ path: 'lesson-last', loadChildren: './lesson-last/lesson-last.module#LessonLastPageModule' },
   { path: 'progress', loadChildren: './progress/progress.module#ProgressPageModule' },
   { path: 'tips', loadChildren: './tips/tips.module#TipsPageModule' },
   { path: 'game1', loadChildren: './game1/game1.module#Game1PageModule' },
