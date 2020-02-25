@@ -24,7 +24,9 @@ export class Game3Page implements OnInit {
     public alertController: AlertController,) { }
 
   ngOnInit() {
-    this.gameQ = this.apptextService.currentText.game3Q.split(",")
+    if(this.apptextService.currentText.game3Q != null) {
+      this.gameQ = this.apptextService.currentText.game3Q.split(",")
+    }
     if(this.apptextService.currentText.game3P != null) {
       this.gameP = this.apptextService.currentText.game3P.split(",")
     }
