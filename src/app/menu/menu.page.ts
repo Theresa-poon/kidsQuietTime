@@ -20,7 +20,8 @@ export class MenuPage implements OnInit {
   UserName: string; //user name input
   v: any; //current book volume
   newBk: any; // value = 0 or 1 (indicates start new book or not)
-  container: any; // css class of top bar (larger lower margin for small devices)
+  container: any; // css class of top bar (larger lower margin for devices with smaller height to width ratio)
+  bookcover: any; // css class of main content (larger width percentage for devices with smaller height to width ratio)
 
   //@ViewChild('slides', {static: true}) slides: IonSlides;
 
@@ -43,6 +44,7 @@ export class MenuPage implements OnInit {
   ionViewWillEnter() {
     this.newBk = 0
     this.container = 'container1'
+    this.bookcover = 'bookCover1'
     //this.statusBar.hide(); //to enable full screen mode
     //this.statusBar.overlaysWebView(true); //to enable full screen mode
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
@@ -83,9 +85,13 @@ loadItems() {
   console.log("height: "+window.screen.height)
   console.log("screen width/height: "+this.gamesService.ratio)
   if(this.gamesService.ratio > 1.8) {
-    this.container = 'container1'
+    this.container = 'container1'  //devices with height to width ratio > 1.8
+    this.bookcover = 'bookCover1'
+    console.log(this.bookcover)
   } else {
-    this.container = 'container2'
+    this.container = 'container2'  
+    this.bookcover = 'bookCover2'
+    console.log(this.bookcover)
   }
 }
 

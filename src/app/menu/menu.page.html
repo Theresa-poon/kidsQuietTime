@@ -18,12 +18,12 @@
     </ion-button> 
 
     <ion-button class="buttonTop1" fill=clear strong (click)="Information()">
-      <ion-icon name="information-circle"></ion-icon>
+      <ion-icon name="menu"></ion-icon>
     </ion-button> 
 
   </div>
   
-  <div *ngIf="this.storageService.currentName_Date != null" class="bookCover">    
+  <div *ngIf="this.storageService.currentName_Date != null" [ngClass]='bookcover'>    
         
       <div class=cardleft>
         <div style="margin: 10px;">
