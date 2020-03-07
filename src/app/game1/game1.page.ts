@@ -151,11 +151,54 @@ export class Game1Page implements OnInit {
     }
     if (this.gameA[3] == this.Afour) {
       this.gamesService.correctFill[3]  = 1
+      //console.log("this.gameA[3] is: "+this.gameA[3])
+      //console.log("this.Afour is: "+this.Afour)
+      //console.log("this.gameA[3] == this.Afour")
     } else {
       this.gamesService.correctFill[3] = 0
     }
     console.log("correctFill is: "+this.gamesService.correctFill)
-    this.router.navigate(['/lesson-two']);
+
+    //alert user if page not completed; route to next page if completed
+    if (this.gamesService.reviewMode == 0) {
+      // use same criterion as lesson3.ts to determine if page successfully completed
+      if (this.gamesService.correctFill[0] * this.gamesService.correctFill[1] * this.gamesService.correctFill[2] * this.gamesService.correctFill[3] == 1) {
+        console.log("Well done! Game completed!")
+        this.router.navigate(['/lesson-two']);
+      } else {
+        console.log("Oops! Not yet completed ar!")
+        this.presentConfirm('您還沒有完成這頁呢！', '您想完成這頁，令您可以獲得蘋果獎勵嗎？')
+      }
+    } else {
+      this.router.navigate(['/lesson-two']);
+    }
+
+    //this.router.navigate(['/lesson-two']);
+
+  }
+
+  async presentConfirm(title, content) {
+    let alert = await this.alertController.create({
+      header: title,
+      message: content,
+      buttons: [
+        {
+          text: '好的',
+          role: 'cancel',
+          handler: () => {
+            console.log('取消 clicked');
+          }
+        },
+        {
+          text: '我想繼續下一頁',
+          handler: () => {
+            console.log('確定 clicked');
+            this.router.navigate(['/lesson-two']);
+          }
+        }
+      ]
+    });
+    await alert.present();
   }
 
 }

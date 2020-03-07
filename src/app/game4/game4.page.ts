@@ -280,7 +280,46 @@ async presentAlert(title: string, content:string) {
   }
 
   clickR() {
-    this.router.navigate(['/lesson-three']);
+
+    //alert user if page not completed; route to next page if completed
+    if (this.gamesService.reviewMode == 0) {
+      // use same criterion as lesson3.ts to determine if page successfully completed
+      if (this.gamesService.correctDraw == 1) {
+        console.log("Well done! Game completed!")
+        this.router.navigate(['/lesson-three']);
+      } else {
+        console.log("Oops! Not yet completed ar!")
+        this.presentConfirm('您還沒有儲存圖畫呢！', '您要不要儲存圖畫，令您可以獲得蘋果獎勵？')
+      }
+    } else {
+      this.router.navigate(['/lesson-three']);
+    }
+
+    //this.router.navigate(['/lesson-three']);
+  }
+
+  async presentConfirm(title, content) {
+    let alert = await this.alertController.create({
+      header: title,
+      message: content,
+      buttons: [
+        {
+          text: '好的',
+          role: 'cancel',
+          handler: () => {
+            console.log('取消 clicked');
+          }
+        },
+        {
+          text: '我想繼續下一頁',
+          handler: () => {
+            console.log('確定 clicked');
+            this.router.navigate(['/lesson-three']);
+          }
+        }
+      ]
+    });
+    await alert.present();
   }
 
 }

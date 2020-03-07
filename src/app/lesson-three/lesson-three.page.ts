@@ -66,11 +66,11 @@ export class LessonThreePage implements OnInit {
       apple = apple + 1
     }
     if (this.apptextService.currentText.game5Q1 != ""  && this.gamesService.correctMCQ[0] * this.gamesService.correctMCQ[1] * this.gamesService.correctMCQ[2] == 1) {
-      //this.storageService.currentName_Date[5] = this.storageService.currentName_Date[5] + 3
+      //normal MCQ page
       apple = apple + 1
     }
     if (this.apptextService.currentText.game5Q1 == ""  && this.gamesService.correctMCQ[0] > 0) {
-     // this.storageService.currentName_Date[5] = this.storageService.currentName_Date[5] + 3
+     //choose your favorite page, all answers acceptable
      apple = apple + 1
     }
     if (this.gamesService.correctMatch == 1) {
