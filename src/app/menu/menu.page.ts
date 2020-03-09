@@ -22,6 +22,10 @@ export class MenuPage implements OnInit {
   newBk: any; // value = 0 or 1 (indicates start new book or not)
   container: any; // css class of top bar (larger lower margin for devices with smaller height to width ratio)
   bookcover: any; // css class of main content (larger width percentage for devices with smaller height to width ratio)
+  welcome: any; //css class of welcome wording (increase height for tablets)
+  input: any; //css class of input box (increase height for tablets)
+  buttonTop1: any; //css class of top button1 (increase height for tablets)
+  buttonTop2: any; //css class of top button2 (increase height for tablets)
 
   //@ViewChild('slides', {static: true}) slides: IonSlides;
 
@@ -45,9 +49,24 @@ export class MenuPage implements OnInit {
     this.newBk = 0
     this.container = 'container1'
     this.bookcover = 'bookCover1'
+    this.welcome = 'welcome2'
+    this.input = 'input2'
+    this.buttonTop1 = 'buttonTop1b'
+    this.buttonTop2 = 'buttonTop2b'
     //this.statusBar.hide(); //to enable full screen mode
     //this.statusBar.overlaysWebView(true); //to enable full screen mode
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+    if (this.platform.is('tablet')) { //set css class for tablet or phone
+      this.welcome = 'welcome1'
+      this.input = 'input1'
+      this.buttonTop1 = 'buttonTop1a'
+      this.buttonTop2 = 'buttonTop2a'
+    } else {
+      this.welcome = 'welcome2'
+      this.input = 'input2'
+      this.buttonTop1 = 'buttonTop1b'
+      this.buttonTop2 = 'buttonTop2b'
+    }
     this.loadItems()
     this.loadPages()
   }
@@ -84,15 +103,22 @@ loadItems() {
   console.log("width: "+window.screen.width)
   console.log("height: "+window.screen.height)
   console.log("screen width/height: "+this.gamesService.ratio)
-  if(this.gamesService.ratio > 1.8) {
-    this.container = 'container1'  //devices with height to width ratio > 1.8
-    this.bookcover = 'bookCover1'
-    console.log(this.bookcover)
-  } else {
-    this.container = 'container2'  
-    this.bookcover = 'bookCover2'
-    console.log(this.bookcover)
-  }
+
+    if(this.gamesService.ratio > 1.8) {
+      this.container = 'container1'  //devices with height to width ratio > 1.8
+      this.bookcover = 'bookCover1'
+      console.log(this.bookcover)
+    } else {
+      if(this.gamesService.ratio > 1.65) {
+        this.container = 'container2'  
+        this.bookcover = 'bookCover2'
+        console.log(this.bookcover)
+      } else {
+        this.container = 'container3'  
+        this.bookcover = 'bookCover3'
+      }
+    }
+
 }
 
 // READ

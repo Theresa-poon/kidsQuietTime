@@ -10,19 +10,35 @@ ion-content{
     align-items: center;
 }
 
-.container2 {
+.container2 { //larger lower margin for devices with smaller height to width ratio (height/width <1.8)
     display: flex;
     margin: 12px 15px 15px 20px;
     align-items: center;
 }
 
-.welcome {
+.container3 { //for tablets
+    display: flex;
+    margin: 35px 25px 45px 30px;
+    align-items: center;
+}    
+
+.welcome1 { //for tablet
+    flex-grow: 1;
+    position: relative;
+    height: 45px;
+    font-family: Microsoft JhengHei;
+    //font-size: var(--main-font-size); //font-size specified in .theme/variables.scss
+    font-size: 28px;
+    color: white;
+}
+
+.welcome2 { //for mobile phone
     flex-grow: 1;
     position: relative;
     height: 35px;
     font-family: Microsoft JhengHei;
+    //font-size: var(--main-font-size); //font-size specified in .theme/variables.scss
     font-size: 28px;
-    //font-size: 30vh;
     color: white;
 }
 
@@ -33,7 +49,15 @@ ion-content{
    transform: translate(0, -50%); 
 }
 
-.input {
+.input1 { //for tablet
+    max-width: 15% !important;
+    height: 45px;
+    font-size: 18px; 
+    text-align: center; 
+    background-color: white;
+}
+
+.input2 { //for mobile phone
     max-width: 15% !important;
     height: 35px;
     font-size: 18px; 
@@ -41,8 +65,8 @@ ion-content{
     background-color: white;
 }
 
-.buttonTop1 {
-    height: 35px;
+.buttonTop1a { //for tablet
+    height: 45px;
     --border-radius: 1px;
     --padding-start: 3px;
     --padding-end: 3px;
@@ -53,7 +77,31 @@ ion-content{
     color: white;
 }
 
-.buttonTop2 {
+.buttonTop1b { //for mobile phone
+    height: 35px;
+    --border-radius: 1px;
+    --padding-start: 3px;
+    --padding-end: 3px;
+    font-size: 18px; 
+    //font-size: 16px;
+    font-weight: 200;
+    text-align: center;
+    color: white;
+}
+ 
+.buttonTop2a { //for tablet
+    height: 45px;
+    --border-radius: 3px;
+    --padding-start: 8px;
+    --padding-end: 8px;
+    font-size: 18px; 
+    //font-size: 16px;
+    font-weight: 200;
+    text-align: center;
+    color: white;
+}
+
+.buttonTop2b { //for mobile phone
     height: 35px;
     --border-radius: 3px;
     --padding-start: 8px;
@@ -75,11 +123,21 @@ ion-content{
     //height: 50vh;
 }
 
-.bookCover2 {
+.bookCover2 { //larger width percentage for devices with smaller height to width ratio (height/width <1.8 but >1.65)
     display: flex;
     position: absolute;
     left: 10%;
     width: 80%;
+    margin: 5px 5px 5px 5px;
+    justify-content: space-evenly;
+    //height: 50vh;
+}
+
+.bookCover3 { //larger width percentage for devices with smaller height to width ratio (height/width <=1.65)
+    display: flex;
+    position: absolute;
+    left: 7%;
+    width: 86%;
     margin: 5px 5px 5px 5px;
     justify-content: space-evenly;
     //height: 50vh;

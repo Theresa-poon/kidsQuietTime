@@ -2,22 +2,22 @@
 
   <div *ngIf="this.storageService.currentName_Date != null" [ngClass]='container'>
 
-    <div class="welcome" *ngIf="this.storageService.currentName_Date[0] == 0">
+    <div [ngClass]='welcome' *ngIf="this.storageService.currentName_Date[0] == 0">
       <p class="centerp">歡 迎 您, 小朋友 !</p>
     </div>
-    <ion-input *ngIf="this.storageService.currentName_Date[0] == 0" class="input" maxlength=10 placeholder="您的名字" [(ngModel)]="UserName"></ion-input>  
-    <ion-button *ngIf="this.storageService.currentName_Date[0] == 0" class="buttonTop1" color=success strong (click)="InputName()">
+    <ion-input *ngIf="this.storageService.currentName_Date[0] == 0" [ngClass]='input' maxlength=10 placeholder="您的名字" [(ngModel)]="UserName"></ion-input>  
+    <ion-button *ngIf="this.storageService.currentName_Date[0] == 0" [ngClass]='buttonTop1' color=success strong (click)="InputName()">
         <ion-icon name="arrow-round-forward"></ion-icon>
     </ion-button>  
 
-    <div class="welcome" *ngIf="this.storageService.currentName_Date[0] != 0">
+    <div [ngClass]='welcome' *ngIf="this.storageService.currentName_Date[0] != 0">
       <p class="centerp">歡 迎 您, {{this.storageService.currentName_Date[0]}} !</p>
     </div>
-    <ion-button *ngIf="this.storageService.currentName_Date[0] != 0" class="buttonTop2" color=secondary strong (click)="CheckScore()">
+    <ion-button *ngIf="this.storageService.currentName_Date[0] != 0" [ngClass]='buttonTop2' color=secondary strong (click)="CheckScore()">
       查看獎賞
     </ion-button> 
 
-    <ion-button class="buttonTop1" fill=clear strong (click)="Information()">
+    <ion-button [ngClass]='buttonTop1' fill=clear strong (click)="Information()">
       <ion-icon name="menu"></ion-icon>
     </ion-button> 
 
