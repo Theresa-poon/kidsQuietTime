@@ -36,16 +36,16 @@
     <div class="title">
       <h4>找出下列詞語，它們可能是直(豎)的或橫的。</h4>
     </div>
-    <div class="words">
-      <div style="display: flex; height: 40px;">
+    <div>
+      <div [ngClass]='words'>
           <div style="width: 40%">{{this.gameQ[0]}}</div>
           <div style="width: 60%">{{this.gameQ[1]}}</div>
       </div>
-      <div style="display: flex; height: 40px;">
+      <div [ngClass]='words'>
           <div style="width: 40%">{{this.gameQ[2]}}</div>
           <div style="width: 60%">{{this.gameQ[3]}}</div>
       </div>
-      <div style="display: flex; height: 40px;">
+      <div [ngClass]='words'>
           <div style="width: 40%">{{this.gameQ[4]}}</div>
           <div style="width: 60%">{{this.gameQ[5]}}</div>
       </div>
@@ -106,8 +106,12 @@
     </ion-grid>
   </div>
 
-  <div class="stamp" *ngIf="this.gamesService.correctGrid == 1">
+  <div class="stamp1" *ngIf="this.gamesService.correctGrid == 1 && this.words =='words1'">
       <svg class="svgStamp"><text x="8px" y="75%">做得好!</text></svg>
+  </div>
+
+  <div class="stamp2" *ngIf="this.gamesService.correctGrid == 1 && this.words =='words2'">
+    <svg class="svgStamp"><text x="8px" y="75%">做得好!</text></svg>
   </div>
 
   <ion-fab-button  (click)="clickL()" class="buttonL" size=small>

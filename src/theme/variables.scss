@@ -5,6 +5,10 @@
 :root {
 
   //--main-font-size: 10px;
+  ion-alert {
+    //--background: rgb(219, 217, 164) !important;
+    --min-width: 400px !important;
+  }
 
   /** primary **/
   --ion-color-primary: #3880ff;

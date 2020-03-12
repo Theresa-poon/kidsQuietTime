@@ -5,8 +5,13 @@
       preserveAspectRatio="xMidYMid meet" />
   </svg>
 
-  <svg *ngIf="this.gamesService.ratio < 2" class="polygon" style="stroke:rgb(250, 151, 4);stroke-width:1;" viewBox="0 0 128 80">
+  <svg *ngIf="this.gamesService.ratio > 1.65 && this.gamesService.ratio < 2" class="polygon" style="stroke:rgb(250, 151, 4);stroke-width:1;" viewBox="0 0 128 80">
     <polygon points="6,0 122,0 122,80 6,80" style="fill: rgb(220, 235, 248)" 
+      preserveAspectRatio="xMidYMid meet" />
+  </svg>
+
+  <svg *ngIf="this.gamesService.ratio <= 1.65" class="polygon" style="stroke:rgb(250, 151, 4);stroke-width:1;" viewBox="0 0 128 90">
+    <polygon points="6,0 122,0 122,90 6,90" style="fill: rgb(220, 235, 248)" 
       preserveAspectRatio="xMidYMid meet" />
   </svg>
 
@@ -33,7 +38,7 @@
       <div class=container>
         1.&nbsp;
         <div [innerHTML]="this.gameQ[0]"></div>
-        <ion-input *ngIf="this.gameQ[1] == ' A '" class="inputA" maxlength=3 placeholder="?" [(ngModel)]="Aone"></ion-input> 
+        <ion-input *ngIf="this.gameQ[1] == ' A '" [ngClass]='inputA' maxlength=3 placeholder="?" [(ngModel)]="Aone"></ion-input> 
         <div [innerHTML]="this.gameQ[2]"></div>
         <div style="color: red;" *ngIf="this.gameA[0] == this.Aone">&nbsp;&#10004;</div>
       </div>
@@ -46,7 +51,7 @@
       <div class=container>
         2.&nbsp;
         <div [innerHTML]="this.gameQ[3]"></div>
-        <ion-input *ngIf="this.gameQ[4] == ' B '" class="inputA" maxlength=3 placeholder="?" [(ngModel)]="Atwo"></ion-input>&nbsp; 
+        <ion-input *ngIf="this.gameQ[4] == ' B '" [ngClass]='inputA' maxlength=3 placeholder="?" [(ngModel)]="Atwo"></ion-input>&nbsp; 
         <div [innerHTML]="this.gameQ[5]"></div>
         <div style="color: red;" *ngIf="this.gameA[1] == this.Atwo">&nbsp;&#10004;</div>
       </div>
@@ -54,7 +59,7 @@
       <div *ngIf="this.gameA[2] != null" class=container>
         3.&nbsp;
         <div [innerHTML]="this.gameQ[6]"></div>
-        <ion-input *ngIf="this.gameQ[7] == ' C '" class="inputA" maxlength=3 placeholder="?" [(ngModel)]="Athree"></ion-input>&nbsp; 
+        <ion-input *ngIf="this.gameQ[7] == ' C '" [ngClass]='inputA' maxlength=3 placeholder="?" [(ngModel)]="Athree"></ion-input>&nbsp; 
         <div [innerHTML]="this.gameQ[8]"></div>
         <div style="color: red;" *ngIf="this.gameA[2] == this.Athree">&nbsp;&#10004;</div>
       </div>
@@ -62,7 +67,7 @@
       <div *ngIf="this.gameA[3] != null" class=container>
         4.&nbsp;
         <div [innerHTML]="this.gameQ[9]"></div>
-        <ion-input *ngIf="this.gameQ[10] == ' D '" class="inputA" maxlength=3 placeholder="?" [(ngModel)]="Afour"></ion-input>&nbsp; 
+        <ion-input *ngIf="this.gameQ[10] == ' D '" [ngClass]='inputA' maxlength=3 placeholder="?" [(ngModel)]="Afour"></ion-input>&nbsp; 
         <div [innerHTML]="this.gameQ[11]"></div>
         <div style="color: red;" *ngIf="this.gameA[3] == this.Afour">&nbsp;&#10004;</div>
       </div>

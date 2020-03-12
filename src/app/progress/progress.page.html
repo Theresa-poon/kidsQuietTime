@@ -1,7 +1,11 @@
 <ion-content>
 
-<div style="position: absolute; bottom: 0%;">
+<div *ngIf="this.gamesService.ratio > 1.65" style="position: absolute; bottom: 0%;">
   <ion-img src="../assets/images/version1/grass_s.png"></ion-img>
+</div>
+
+<div *ngIf="this.gamesService.ratio <= 1.65" style="position: absolute; bottom: 0%;">
+  <ion-img src="../assets/images/version1/grass_l.png"></ion-img>
 </div>
 
 <div class="smaller">

@@ -5,8 +5,13 @@
         preserveAspectRatio="xMidYMid meet" />
     </svg>
 
-    <svg *ngIf="this.gamesService.ratio < 2" class="polygon" style="stroke:rgb(250, 151, 4);stroke-width:1;" viewBox="0 0 128 80">
+    <svg *ngIf="this.gamesService.ratio >= 1.65 && this.gamesService.ratio < 2" class="polygon" style="stroke:rgb(250, 151, 4);stroke-width:1;" viewBox="0 0 128 80">
       <polygon points="6,0 122,0 122,80 6,80" style="fill: rgb(220, 235, 248)" 
+        preserveAspectRatio="xMidYMid meet" />
+    </svg>
+
+    <svg *ngIf="this.gamesService.ratio < 1.65" class="polygon" style="stroke:rgb(250, 151, 4);stroke-width:1;" viewBox="0 0 128 90">
+      <polygon points="6,0 122,0 122,90 6,90" style="fill: rgb(220, 235, 248)" 
         preserveAspectRatio="xMidYMid meet" />
     </svg>
   

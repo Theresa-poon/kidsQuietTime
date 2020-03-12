@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ApptextService } from '../apptext.service';
 import { GamesService } from '../games.service';
 import { AlertController } from '@ionic/angular'; 
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-game7',
@@ -17,11 +18,30 @@ export class Game7Page implements OnInit {
   public gameA2 = []; //json data of grid positions with correct answers
   public answer = []; //user input of answer
   keyboardHeight: any; 
+  inputting: any; //css class of input box (increase height for tablets)
+  inputtingL: any; //css class of input box (increase height for tablets)
+  finishing: any; //css class of inputted box (increase height for tablets)
+  finishingL: any; //css class of inputted box (increase height for tablets)
 
   constructor(private router: Router,
     public apptextService: ApptextService,
     public gamesService: GamesService,
-    public alertController: AlertController) { }
+    public alertController: AlertController,
+    private platform: Platform,) { }
+
+  ionViewWillEnter() {
+    if (this.platform.is('tablet')) { //set css class for tablet or phone
+      this.inputting = 'inputting1'
+      this.inputtingL = 'inputtingL1'
+      this.finishing = 'finishing1'
+      this.finishingL = 'finishingL1'
+    } else {
+      this.inputting = 'inputting2'
+      this.inputtingL = 'inputtingL2'
+      this.finishing = 'finishing2'
+      this.finishingL = 'finishingL2'
+    }
+  }
 
   ngOnInit() {
 

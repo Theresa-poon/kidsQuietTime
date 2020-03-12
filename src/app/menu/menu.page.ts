@@ -99,6 +99,7 @@ loadItems() {
   });
   this.gamesService.reviewMode = 0
   // detect device aspect ratio
+  this.gamesService.ratio = 2
   this.gamesService.ratio = window.screen.width/window.screen.height
   console.log("width: "+window.screen.width)
   console.log("height: "+window.screen.height)
@@ -109,13 +110,13 @@ loadItems() {
       this.bookcover = 'bookCover1'
       console.log(this.bookcover)
     } else {
-      if(this.gamesService.ratio > 1.65) {
-        this.container = 'container2'  
-        this.bookcover = 'bookCover2'
-        console.log(this.bookcover)
-      } else {
+      if(this.platform.is('tablet')) {
         this.container = 'container3'  
         this.bookcover = 'bookCover3'
+        console.log(this.bookcover)
+      } else {
+        this.container = 'container2'  
+        this.bookcover = 'bookCover2'
       }
     }
 

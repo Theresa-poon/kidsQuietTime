@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ApptextService } from '../apptext.service';
 import { GamesService } from '../games.service';
 import { AlertController } from '@ionic/angular'; 
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-game2',
@@ -17,11 +18,21 @@ export class Game2Page implements OnInit {
   public gameG = []; //json data of 36 words in grid
   public gameQ = []; //json data of words to be searched
   public gameA = []; //json data of grid positions with correct answers
+  words: any; //css class of words (increase height for tablets)
 
   constructor(private router: Router,
     public apptextService: ApptextService,
     public gamesService: GamesService,
-    public alertController: AlertController) { }
+    public alertController: AlertController,
+    private platform: Platform,) { }
+
+  ionViewWillEnter() {
+    if (this.platform.is('tablet')) { //set css class for tablet or phone
+      this.words = 'words1'
+    } else {
+      this.words = 'words2'
+    }
+  }
 
   ngOnInit() {
     this.gameG = this.apptextService.currentText.game2G.split(",")

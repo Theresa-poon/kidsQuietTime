@@ -55,7 +55,18 @@ ion-content{
     //transform: translateY(-50%);
   }
 
-  .gameText {
+  .gameText1 { //for height/width < 1.65
+    position: absolute;
+    left: 8%;
+    top: 54%;
+    width: 84%;
+    background-color: rgb(220, 235, 248);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    font-family: Microsoft JhengHei;
+  }
+
+  .gameText2 {
     position: absolute;
     left: 13%;
     top: 54%;
@@ -64,6 +75,30 @@ ion-content{
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     font-family: Microsoft JhengHei;
+  }
+
+  .heightControl1 { //for tablet
+    --min-height: 75px;
+  }
+
+  .heightControl2 { //for mobile phone
+    --min-height: 45px;
+  }
+
+  .buttonControl1 { //for tablet
+    background: #3880ff; 
+    //border: solid rgb(31, 230, 5) 1px; 
+    border-radius: 5px; 
+    height: 55px; 
+    color: white; 
+  }
+
+  .buttonControl2 { //for mobile phone
+    background: #3880ff; 
+    //border: solid rgb(31, 230, 5) 1px; 
+    border-radius: 5px; 
+    height: 30px; 
+    color: white; 
   }
 
   .buttonL {

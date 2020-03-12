@@ -1,7 +1,12 @@
 <ion-content>
 
-  <svg class="polygon" style="stroke:white;stroke-width:1;" viewBox="0 0 128 72">
+  <svg *ngIf="this.gamesService.ratio > 1.8" class="polygon" style="stroke:white;stroke-width:1;" viewBox="0 0 128 72">
     <polygon points="6,0 122,0 122,72 6,72" style="fill: rgb(252, 240, 174)" 
+      stroke-linecap="round" stroke-width="0.5" stroke-dasharray="0.2,1" preserveAspectRatio="xMidYMid meet" />
+  </svg>
+
+  <svg *ngIf="this.gamesService.ratio <= 1.8" class="polygon" style="stroke:white;stroke-width:1;" viewBox="0 0 128 90">
+    <polygon points="6,0 122,0 122,90 6,90" style="fill: rgb(252, 240, 174)" 
       stroke-linecap="round" stroke-width="0.5" stroke-dasharray="0.2,1" preserveAspectRatio="xMidYMid meet" />
   </svg>
 
@@ -35,17 +40,17 @@
     <br>
 
     <div *ngIf="this.answer.toString() != this.gameA2.toString() && this.gameA1.length < 10" style="display: flex; margin-bottom: 2px;">
-        <input *ngFor="let item of gameA1, let i=index" class=inputting maxlength=1 size=1 [(ngModel)]='this.answer[i]'>
+        <input *ngFor="let item of gameA1, let i=index" [ngClass]='inputting' maxlength=1 size=1 [(ngModel)]='this.answer[i]'>
     </div>
     <div *ngIf="this.answer.toString() != this.gameA2.toString() && this.gameA1.length > 9" style="display: flex; margin-bottom: 2px;">
-      <input *ngFor="let item of gameA1, let i=index" class=inputtingL maxlength=1 size=1 [(ngModel)]='this.answer[i]'>
+      <input *ngFor="let item of gameA1, let i=index" [ngClass]='inputtingL' maxlength=1 size=1 [(ngModel)]='this.answer[i]'>
     </div>
 
     <div *ngIf="this.answer.toString() == this.gameA2.toString() && this.gameA1.length < 10" style="display: flex; margin-bottom: 2px;">
-      <input *ngFor="let item of gameA1, let i=index" class=finishing maxlength=1 size=1 [(ngModel)]='this.answer[i]'>
+      <input *ngFor="let item of gameA1, let i=index" [ngClass]='finishing' maxlength=1 size=1 [(ngModel)]='this.answer[i]'>
     </div>
     <div *ngIf="this.answer.toString() == this.gameA2.toString() && this.gameA1.length > 9" style="display: flex; margin-bottom: 2px;">
-      <input *ngFor="let item of gameA1, let i=index" class=finishingL maxlength=1 size=1 [(ngModel)]='this.answer[i]'>
+      <input *ngFor="let item of gameA1, let i=index" [ngClass]='finishingL' maxlength=1 size=1 [(ngModel)]='this.answer[i]'>
     </div>
 
     <div style="display: flex;">
@@ -57,7 +62,11 @@
 
   </div>
 
-  <div class="element" *ngIf="this.answer.toString() == this.gameA2.toString()">
+  <div class="element2" *ngIf="this.answer.toString() == this.gameA2.toString() && this.inputting == 'inputting2'">
+    <svg class="svgStamp"><text x="8px" y="75%">成功解碼!</text></svg>
+  </div>
+
+  <div class="element1" *ngIf="this.answer.toString() == this.gameA2.toString() && this.inputting == 'inputting1'">
     <svg class="svgStamp"><text x="8px" y="75%">成功解碼!</text></svg>
   </div>
 

@@ -19,6 +19,7 @@ const STORAGE_KEY = 'IMAGE_LIST';
 export class Game4Page implements OnInit {
 
   public gameQ: any; //json data of drawing theme
+  color_block: any // css class of color blocks (increase height for tablet)
 
   //slide for showing previous drawings
   @ViewChild('slides', {static: true}) slides: IonSlides;
@@ -58,7 +59,8 @@ export class Game4Page implements OnInit {
   constructor(private router: Router, private storage: Storage, 
     private plt: Platform, private file: File, private webview: WebView,
     public alertController: AlertController, public apptextService: ApptextService,
-    public gamesService: GamesService) {
+    public gamesService: GamesService,
+    private platform: Platform,) {
     // Load all stored images when the app is ready
     this.storage.ready().then(() => {
      this.storage.get(STORAGE_KEY).then(data => {
@@ -67,6 +69,14 @@ export class Game4Page implements OnInit {
        }
      });
    });
+ }
+
+ ionViewWillEnter() {
+  if (this.platform.is('tablet')) { //set css class for tablet or phone
+    this.color_block = 'color_block1'
+  } else {
+    this.color_block = 'color_block2'
+  }
  }
 
  ionViewDidEnter() {

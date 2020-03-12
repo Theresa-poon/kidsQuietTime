@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ApptextService } from '../apptext.service';
 import { GamesService } from '../games.service';
 import { AlertController } from '@ionic/angular'; 
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-game6',
@@ -15,15 +16,37 @@ export class Game6Page implements OnInit {
   public gameQ2 = []; //json data of 3 RHS sentences
   public gameQ2current = []; //current order of 3 RHS sentences
   public gameA = []; //json data of order of 3 RHS sentences
+  heightControl: any; //css class of row height (increase height for tablets)
+  buttonControl: any; //css class of button height (increase height for tablets)
+  gameText: any; //css class of text width (increase width for shorter screens)
   //public chosenL = []; //storing user clicked item on the left
   //public chosenR = []; //storing user clicked item on the right
 
   constructor(private router: Router,
     public apptextService: ApptextService,
     public gamesService: GamesService,
-    public alertController: AlertController) { }
+    public alertController: AlertController,
+    private platform: Platform,) { }
+
+  ionViewWillEnter() {
+    this.heightControl = 'heightControl2'
+    if (this.platform.is('tablet')) { //set css class for tablet or phone
+      this.heightControl = 'heightControl1'
+      this.buttonControl = 'buttonControl1'
+      
+    } else {
+      this.heightControl = 'heightControl2'
+      this.buttonControl = 'buttonControl2'
+      
+    }
+  }
 
   ngOnInit() {
+    if (this.gamesService.ratio < 1.8) {
+      this.gameText = 'gameText1'
+    } else {
+      this.gameText = 'gameText2'
+    }
     this.gameQ1 = this.apptextService.currentText.game6Q1.split(",")
     this.gameQ2 = this.apptextService.currentText.game6Q2.split(",")
     this.gameA = this.apptextService.currentText.game6A.split(",")

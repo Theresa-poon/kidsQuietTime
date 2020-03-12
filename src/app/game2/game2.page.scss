@@ -71,10 +71,21 @@
     text-align: left;
   }
 
-  .words {
+  .words1 { //for tablet
+    display: flex; 
+    height: 60px;
     font-size: 24px;
-    //font-weight: 600;
-    //color: blue;
+    color: rgb(21, 121, 214);
+    text-shadow: 1px 1px grey;
+    font-family: Microsoft JhengHei;
+    letter-spacing: 0.1em;
+    text-align: center;
+  }
+
+  .words2 { //for mobile phone
+    display: flex; 
+    height: 40px;
+    font-size: 24px;
     color: rgb(21, 121, 214);
     text-shadow: 1px 1px grey;
     font-family: Microsoft JhengHei;
@@ -128,7 +139,19 @@
     color: red;
   }
 
-  .stamp {
+  .stamp1 { //for tablet
+    position: absolute;
+    left: 33%;
+    top: 62%;
+    font-size: 60px;
+    letter-spacing: 0.1em;
+    font-family: Microsoft JhengHei;
+    //transform: rotate(-10deg);
+    animation-duration: 2s;
+    animation-name: bounceIn;
+  }
+
+  .stamp2 { //for mobile phone
     position: absolute;
     left: 33%;
     top: 74%;

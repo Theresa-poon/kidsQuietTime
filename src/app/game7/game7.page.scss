@@ -45,7 +45,7 @@ ion-content{
     top: 43%;
     left: 8%;
     width: 80%;
-    //background-color: rgb(252, 240, 174);
+    background-color: rgb(252, 240, 174);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
   }
@@ -79,7 +79,18 @@ ion-content{
     font-weight: 600;
   }
 
-  .inputting {
+  .inputting1 { //for tablet
+    flex-grow: 1; 
+    height: 45px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: white; 
+    border: solid 1px black; 
+    text-align: center;
+    //--padding: 0;
+  }
+
+  .inputting2 { //for mobile phone
     flex-grow: 1; 
     height: 35px;
     font-size: 18px;
@@ -90,7 +101,17 @@ ion-content{
     //--padding: 0;
   }
 
-  .inputtingL {
+  .inputtingL1 {
+    flex-grow: 1; 
+    height: 45px;
+    font-size: 15px;
+    font-weight: 600;
+    background-color: white; 
+    border: solid 1px black; 
+    text-align: center;
+  }
+
+  .inputtingL2 {
     flex-grow: 1; 
     height: 35px;
     font-size: 15px;
@@ -98,10 +119,19 @@ ion-content{
     background-color: white; 
     border: solid 1px black; 
     text-align: center;
-    //--padding: 0;
   }
 
-  .finishing {
+  .finishing1 {
+    flex-grow: 1; 
+    height: 45px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: greenyellow; 
+    border: solid 1px black; 
+    text-align: center;
+  }
+
+  .finishing2 {
     flex-grow: 1; 
     height: 35px;
     font-size: 18px;
@@ -111,7 +141,17 @@ ion-content{
     text-align: center;
   }
 
-  .finishingL {
+  .finishingL1 {
+    flex-grow: 1; 
+    height: 45px;
+    font-size: 15px;
+    font-weight: 600;
+    background-color: greenyellow; 
+    border: solid 1px black; 
+    text-align: center;
+  }
+
+  .finishingL2 {
     flex-grow: 1; 
     height: 35px;
     font-size: 15px;
@@ -121,7 +161,19 @@ ion-content{
     text-align: center;
   }
 
-  .element {
+  .element1 { //for tablet
+    position: absolute;
+    left: 40%;
+    top: 68%;
+    font-size: 60px;
+    letter-spacing: 0.1em;
+    font-family: Microsoft JhengHei;
+    //transform: rotate(-10deg);
+    animation-duration: 2s;
+    animation-name: bounceIn;
+  }
+
+  .element2 { //for mobile phone
     position: absolute;
     left: 40%;
     top: 75%;

@@ -4,6 +4,7 @@ import { ApptextService } from '../apptext.service';
 import { GamesService } from '../games.service';
 import { AlertController } from '@ionic/angular'; 
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-game1',
@@ -19,12 +20,22 @@ export class Game1Page implements OnInit {
   Athree: string; //user input of third answer
   Afour: string; //user input of fourth answer
   keyboardHeight: any; 
+  inputA: any; //css class of input box (increase height for tablets)
 
   constructor(private router: Router,
     public apptextService: ApptextService,
     public gamesService: GamesService,
     public alertController: AlertController,
-    private statusBar: StatusBar) { }
+    private statusBar: StatusBar,
+    private platform: Platform,) { }
+
+  ionViewWillEnter() {
+    if (this.platform.is('tablet')) { //set css class for tablet or phone
+      this.inputA = 'inputA1'
+    } else {
+      this.inputA = 'inputA2'
+    }
+  }
 
   ngOnInit() {
     

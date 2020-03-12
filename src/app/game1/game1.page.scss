@@ -90,13 +90,21 @@
       align-items: left;
     }
 
-    .inputA {
+    .inputA1 { //for tablet
+      max-width: 30% !important;
+      height: 40px;
+      align-self: center;
+      text-align: center; 
+      background-color: white;
+    }
+
+    .inputA2 { //for mobile phone
       max-width: 30% !important;
       height: 27px;
       align-self: center;
       text-align: center; 
       background-color: white;
-  }
+    }
   
   .item, .list, .item-content, .item-complex {
     --ion-background-color: transparent !important;
