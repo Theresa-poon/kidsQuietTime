@@ -51,10 +51,13 @@ export class Game4Page implements OnInit {
   //@ViewChild('fixedContainer') fixedContainer: any; // deleted 6 Sep & 1st html <div> deleted #fixedContainer
 
   selectedColor = "#9e2956"
+  //colorS = "c"+this.selectedColor.substring(1,7)
   colors = [ '#9e2956', '#c2281d', '#de722f', '#edbf4c', '#5db37e', '#459cde', '#4250ad', '#802fa3' ];
   colors1 = [ '#9e2956', '#c2281d', '#de722f', '#edbf4c' ];
   colors2 = [ '#5db37e', '#459cde', '#4250ad', '#802fa3' ];
   colors3 = [ '#ffffff', '#c3c3c3', '#ffaec8', '#b97a56' ];
+
+  lineWidth = 5;
 
   constructor(private router: Router, private storage: Storage, 
     private plt: Platform, private file: File, private webview: WebView,
@@ -120,6 +123,8 @@ ngOnInit() {
 
 selectColor(color) {
   this.selectedColor = color;
+  //this.colorS = "c"+this.selectedColor.substring(1,7)
+  //console.log(this.colorS)
 }
 
 setBackground() {
@@ -150,7 +155,8 @@ moved(ev) {
  
   ctx.lineJoin = 'round';
   ctx.strokeStyle = this.selectedColor;
-  ctx.lineWidth = 5;
+  ctx.lineWidth = this.lineWidth;
+  //ctx.lineWidth = 5;
  
   ctx.beginPath();
   ctx.moveTo(this.saveX, this.saveY);

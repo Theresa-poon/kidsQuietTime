@@ -10,6 +10,13 @@
     --min-width: 400px !important;
   }
 
+  ion-range {
+    --bar-background: #e6b3ca;
+    --bar-background-active: #9e2956;
+    //--knob-background: #9e2956;
+    //--pin-background: #9e2956;
+  }
+
   /** primary **/
   --ion-color-primary: #3880ff;
   --ion-color-primary-rgb: 56, 128, 255;
@@ -41,8 +48,6 @@
   --ion-color-success-contrast-rgb: 255, 255, 255;
   --ion-color-success-shade: #0ec254;
   --ion-color-success-tint: #28e070;
-
-  
 
   /** warning **/
   --ion-color-warning: #ffce00;
@@ -85,6 +90,6 @@
   --ion-color-light-tint: #f5f6f9;
 
   /** special **/
-  //--ion-color-special: rgb(74, 191, 226);
+  //--ion-color-slider-bar: #9e2956;
 
 }

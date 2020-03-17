@@ -50,6 +50,11 @@
     </ion-row>
   </div>
 
+  <ion-range min="2" max="20" class="stroke" [(ngModel)]="lineWidth">
+    <ion-icon size="small" slot="start" name="brush" style="color: #9e2956"></ion-icon>
+    <ion-icon size="large" slot="end" name="brush" style="color: #9e2956"></ion-icon>
+  </ion-range>
+
   <div ion-fixed *ngIf="this.gamesService.correctDraw == 0">
     <canvas #imageCanvas *ngIf="this.gamesService.correctDraw == 0" (touchstart)="startDrawing($event)" (touchmove)="moved($event)"></canvas>
     <img class="overlay" *ngIf="this.gamesService.correctDraw == 1" [src]="getImagePath(this.gamesService.picture)">

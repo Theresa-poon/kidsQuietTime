@@ -77,18 +77,78 @@ ion-content{
 }
 
 .color_block2 { //for mobile phone
-  height: 45px;
+  //height: 45px;
+  height: 44px;
 }
 
 .colorRow {
   position: absolute;
-  //top: 33%; //original
-  top: 51%;
+  //top: 51%;
+  top: 48%;
   left: 70%;
   width: 25%;
   text-align: center;
-  -ms-transform: translateY(-50%); //new
-  transform: translateY(-50%); //new
+  -ms-transform: translateY(-50%); 
+  transform: translateY(-50%); 
+}
+
+//below 13 css classes not use
+.stroke {
+  top: 63%;
+  left: 70%;
+  width: 28%;
+  text-align: center;
+  padding-left: 0px;
+  padding-right: 0px;
+  //color: var(--ion-color-slider-bar);
+}
+
+.c9e2956 {
+  color: #9e2956;
+}
+
+.cc2281d {
+  color: #c2281d;
+}
+
+.cde722f {
+  color: #de722f;
+}
+
+.cedbf4c {
+  color: #edbf4c;
+}
+
+.c5db37e {
+  color: #5db37e;
+}
+
+.c459cde {
+  color: #459cde;
+}
+
+.c4250ad {
+  color: #4250ad;
+}
+
+.c802fa3 {
+  color: #802fa3;
+}
+
+.cffffff {
+  color: rgb(73, 71, 71);
+}
+
+.cc3c3c3 {
+  color: #c3c3c3;
+}
+
+.cffaec8 {
+  color: #ffaec8;
+}
+
+.cb97a56 {
+  color: #b97a56;
 }
 
 .buttonS {
