@@ -13,6 +13,11 @@ export class MainPage implements OnInit {
   ngOnInit() {
   }
 
+  Information() {
+    console.log("go to information")
+    //this.router.navigate(['/information']);
+  }
+
   gospel() {
     console.log("go to gospel")
     //this.router.navigate(['/gospel']);
@@ -20,7 +25,7 @@ export class MainPage implements OnInit {
 
   quiettime() {
     console.log("go to menu")
-    //this.router.navigate(['/menu']);
+    this.router.navigate(['/menu']);
   }
 
 }

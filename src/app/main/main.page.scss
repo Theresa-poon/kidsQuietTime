@@ -5,12 +5,45 @@ ion-content{
     //--overflow: hidden;
 }
 
+.container {
+    display: flex;
+    margin: 12px 8px 5px 20px;
+    align-items: center;
+}    
+
+.nameE {
+    flex-grow: 1;
+    height: 25px;
+    font-size: 20px;
+    color: white;
+    //text-shadow: 1px 1px grey;
+}
+
+.nameC {
+    height: 25px;
+    font-size: 22px;
+    font-family: Microsoft JhengHei;
+    color: white;
+    //text-shadow: 1px 1px grey;
+    letter-spacing: 0.1em;
+    text-align: center;
+}
+
+.button {
+    height: 25px;
+    --padding-start: 3px;
+    --padding-end: 3px;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+}
+
 .gospel {
     position: absolute;
-    left: 13%;
-    width: 30%;
+    left: 20%;
+    width: 25%;
     //height: 60%;
-    top: 50%;
+    top: 54%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -18,10 +51,10 @@ ion-content{
 
 .quiettime {
     position: absolute;
-    right: 13%;
-    width: 30%;
+    right: 20%;
+    width: 25%;
     //height: 60%;
-    top: 50%;
+    top: 54%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
