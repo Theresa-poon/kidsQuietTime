@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'menu', pathMatch: 'full' },
+  { path: '', redirectTo: 'main', pathMatch: 'full' },
   //{ path: 'home', loadChildren: './home/home.module#HomePageModule' },
   { path: 'lesson-one', loadChildren: './lesson-one/lesson-one.module#LessonOnePageModule' },
   { path: 'lesson-two', loadChildren: './lesson-two/lesson-two.module#LessonTwoPageModule' },
@@ -23,6 +23,7 @@ const routes: Routes = [
   { path: 'use', loadChildren: './use/use.module#UsePageModule' },
   { path: 'information', loadChildren: './information/information.module#InformationPageModule' },
   { path: 'bookinfo', loadChildren: './bookinfo/bookinfo.module#BookinfoPageModule' },
+  { path: 'main', loadChildren: './main/main.module#MainPageModule' },
 ];
 
 @NgModule({
