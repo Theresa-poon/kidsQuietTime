@@ -2,20 +2,20 @@
 
 <div class="container"> 
 
-  <div class="nameE">Good News Club</div>
+  <ion-img src="../assets/images/GoodNewsClub.png"></ion-img>
 
-  <ion-button class="button" fill=clear strong>
-      兒童靈修樂
-  </ion-button> 
+  <div class="bookRow1" (click)="gospel()">
+      <ion-img style="width: 30%; border: solid 1px white" src="../assets/images/covers/gospel.png"></ion-img>
+      <h3 class="bookTitle">你需要知道的事</h3>
+  </div> 
 
-  <ion-button class="button" fill=clear strong (click)="Information()">
-      <ion-icon name="menu"></ion-icon>
-  </ion-button> 
+  <div class="bookRow2" (click)="quiettime()">
+      <ion-img style="width: 30%; border: solid 1px white" src="../assets/images/covers/cover_main.png"></ion-img>
+      <h3 class="bookTitle">每日與主同行系列</h3>
+  </div> 
+
+ 
 
 </div>
-
-  <ion-img class="gospel" src="../assets/images/covers/gospel.png" (click)="gospel()"></ion-img>
-
-  <ion-img class="quiettime" src="../assets/images/covers/cover_main.png" (click)="quiettime()"></ion-img>
 
 </ion-content>
