@@ -18,14 +18,18 @@ export class MainPage implements OnInit {
 
   ionViewWillEnter() {
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+        //detect device aspect ratio for menu page (landscape mode)
+    this.gamesService.ratio = 2
+    if(window.screen.height > window.screen.width) {
+      this.gamesService.ratio = window.screen.height/window.screen.width // use height/width because portrait mode now
+    } else {
+      this.gamesService.ratio = window.screen.width/window.screen.height // if landscape mode
+    }
+    console.log("width: "+window.screen.width)
+    console.log("height: "+window.screen.height)
   }
 
   ngOnInit() {
-    // detect device aspect ratio for menu page (landscape mode)
-    this.gamesService.ratio = 2
-    this.gamesService.ratio = window.screen.height/window.screen.width // use height/width because portrait mode now
-    console.log("width: "+window.screen.width)
-    console.log("height: "+window.screen.height)
   }
 
   //Information() {

@@ -3,7 +3,7 @@
   <div *ngIf="this.storageService.currentName_Date != null" [ngClass]='container'>
 
     <div [ngClass]='welcome' *ngIf="this.storageService.currentName_Date[0] == 0">
-      <p class="centerp">歡 迎 您, 小朋友 !</p>
+      <p class="centerp">歡 迎 您, 小朋友 ! </p>
     </div>
     <ion-input *ngIf="this.storageService.currentName_Date[0] == 0" [ngClass]='input' maxlength=10 placeholder="您的名字" [(ngModel)]="UserName"></ion-input>  
     <ion-button *ngIf="this.storageService.currentName_Date[0] == 0" [ngClass]='buttonTop1' color=success strong (click)="InputName()">
@@ -11,7 +11,7 @@
     </ion-button>  
 
     <div [ngClass]='welcome' *ngIf="this.storageService.currentName_Date[0] != 0">
-      <p class="centerp">歡 迎 您, {{this.storageService.currentName_Date[0]}} !</p>
+      <p class="centerp">歡 迎 您, {{this.storageService.currentName_Date[0]}} ! </p>
     </div>
     <ion-button *ngIf="this.storageService.currentName_Date[0] != 0" [ngClass]='buttonTop2' color=secondary strong (click)="CheckScore()">
       查看獎賞
@@ -87,5 +87,9 @@
       </div>
 
   </div>
+
+  <ion-fab-button  (click)="clickL()" class="buttonL" size=small>
+      <ion-img src="../assets/images/back.png"></ion-img>
+  </ion-fab-button>
 
 </ion-content>

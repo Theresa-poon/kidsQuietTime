@@ -192,6 +192,10 @@ loadPages() {
     this.router.navigate(['/progress']);
   }
 
+  clickL() {
+    this.router.navigate(['/main']);
+  }
+
   async presentConfirm(title, content) {
     let alert = await this.alertController.create({
       header: title,
