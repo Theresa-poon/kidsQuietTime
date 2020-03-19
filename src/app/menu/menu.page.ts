@@ -98,9 +98,9 @@ loadItems() {
     console.log(this.storageService.currentName_Date[3]);
   });
   this.gamesService.reviewMode = 0
-  // detect device aspect ratio
-  this.gamesService.ratio = 2
-  this.gamesService.ratio = window.screen.width/window.screen.height
+  //detect device aspect ratio // (calculation now in main.page)
+    //this.gamesService.ratio = 2
+    //this.gamesService.ratio = window.screen.width/window.screen.height
   console.log("width: "+window.screen.width)
   console.log("height: "+window.screen.height)
   console.log("screen width/height: "+this.gamesService.ratio)
