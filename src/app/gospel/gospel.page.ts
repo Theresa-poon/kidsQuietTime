@@ -35,4 +35,8 @@ export class GospelPage implements OnInit {
     this.content.scrollToPoint(0, yOffset, 3000)
   }
 
+  exercise() {
+    console.log("show exercise")
+  }
+
 }
