@@ -13,15 +13,17 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [scrollEvents]="true" (ionScroll)="onScroll($event)">
 
-  <div *ngFor="let page of pages, let i=index" >
+  
+  <div *ngFor="let page of pages, let i=index" id="test">
     <div id="{{'Id'+i}}" style="border: solid 5px cornflowerblue">
       <ion-img src="../assets/images/Gospel/gospel{{i+1}}.png"></ion-img>
     </div>
   </div>
+  
 
-  <ion-fab vertical="top" horizontal="end" slot="fixed">
+  <ion-fab vertical="top" horizontal="end" slot="fixed" *ngIf="this.PageCur != 1 && this.PageCur != 2">
     <ion-fab-button class="opaque" (click)="exercise()">
       <ion-icon name="menu"></ion-icon>
     </ion-fab-button>

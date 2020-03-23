@@ -17,6 +17,7 @@ export class GamesService {
   picture: any; //temporary storage for most current picture saved
   reviewMode: any; //whether the user is reviewing the material (instead of doing the quiet time for the first time)
   ratio: any; //screen width divided by height
+  pageHeight: any; //page height of gospel page
 
   constructor(private apptextService: ApptextService,
     private router: Router) { }

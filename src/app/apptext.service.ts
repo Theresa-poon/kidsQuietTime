@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IText } from './text';
+import { IGospel} from './gospel';
 import { StorageService } from './storage.service';
 
 @Injectable({
@@ -36,6 +37,10 @@ export class ApptextService {
     }
     //this._url="/assets/data/text"+this.storageService.v+".json" // no need
     return this.http.get<IText[]>(this._url); // original
+  }
+
+  searchGospel() {
+    return this.http.get<IGospel[]>("/assets/data/gospel.json"); 
   }
 
 }
