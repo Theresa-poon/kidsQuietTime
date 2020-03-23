@@ -39,22 +39,23 @@
   .gospelAlert {
     //--background: url(../assets/images/backgrounds/blueDots1_s.png) !important;
     //--background: #E0FFFF !important;
-    --background: #E0FFFF !important;
+    --background: #f8EBE6 !important;
     --min-width: 300px !important;
     button{
       color: #3385c6;
+      //color: #056B82;
       font-size: 25px;
     }
   }
 
   .gospelAlert .alert-message {
-    color: darkblue;
+    color: dimgrey;
     font-size: 25px;
   }
 
   .gospelAlert .alert-title {
-    color: palevioletred;
-    //color: brown;
+    //color: palevioletred;
+    color: #E3727C;
     font-size: 25px;
   }
 

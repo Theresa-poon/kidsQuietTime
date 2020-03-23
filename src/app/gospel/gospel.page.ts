@@ -72,7 +72,11 @@ export class GospelPage implements OnInit {
   exercise() {
     console.log("show exercise");
     console.log(this.textGospel[this.PageCur-1])
-    this.presentPrompt1();
+    if(this.textGospel[this.PageCur-1].games == "1") {
+      this.presentPrompt1();
+    } else {
+      this.presentPrompt2();
+    }
   }
 
 async presentPrompt1() {
@@ -103,6 +107,72 @@ async presentPrompt1() {
         text: '輸入',
         handler: data => {
           this.answer = data.answer
+          console.log(this.answer)
+          this.presentAlert(this.textGospel[this.PageCur-1].game1A+this.answer,this.textGospel[this.PageCur-1].game1R)
+        }
+      }
+    ]
+  });
+  await alert.present();
+}
+
+async presentPrompt2() {
+  let alert = await this.alertController.create({
+    header: this.textGospel[this.PageCur-1].title,
+    message: this.textGospel[this.PageCur-1].game1Q,
+    cssClass: 'gospelPrompt',
+    inputs: [
+      {
+        name: 'choice1',
+        type: 'radio',
+        label: this.textGospel[this.PageCur-1].game1Q1,
+        value: '1'
+      },
+      {
+        name: 'choice2',
+        type: 'radio',
+        label: this.textGospel[this.PageCur-1].game1Q2,
+        value: '2'
+      },
+      {
+        name: 'choice3',
+        type: 'radio',
+        label: this.textGospel[this.PageCur-1].game1Q3,
+        value: '3'
+      },
+      {
+        name: 'choice4',
+        type: 'radio',
+        label: this.textGospel[this.PageCur-1].game1Q4,
+        value: '4'
+      }
+    ],
+    buttons: [
+      {
+        text: '取消',
+        role: 'cancel',
+        handler: data => {
+          console.log('Cancel clicked');
+        }
+      },
+      {
+        text: '確定',
+        handler: data => {
+          console.log(data)
+          console.log((data == "1"))
+          if(data == "1") {
+            this.answer = this.textGospel[this.PageCur-1].game1Q1
+          } else {
+            if(data == "2") {
+              this.answer = this.textGospel[this.PageCur-1].game1Q2
+            } else {
+              if(data == "3") {
+                this.answer = this.textGospel[this.PageCur-1].game1Q3
+              } else {
+                this.answer = this.textGospel[this.PageCur-1].game1Q4
+              }
+            }
+          }
           console.log(this.answer)
           this.presentAlert(this.textGospel[this.PageCur-1].game1A+this.answer,this.textGospel[this.PageCur-1].game1R)
         }
