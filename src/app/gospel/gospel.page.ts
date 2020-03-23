@@ -79,7 +79,7 @@ async presentPrompt1() {
   let alert = await this.alertController.create({
     header: this.textGospel[this.PageCur-1].title,
     message: this.textGospel[this.PageCur-1].game1Q,
-    cssClass: 'gospelAlert',
+    cssClass: 'gospelPrompt',
     inputs: [
       {
         name: 'answer',
@@ -93,7 +93,7 @@ async presentPrompt1() {
     ],
     buttons: [
       {
-        text: '除消',
+        text: '取消',
         role: 'cancel',
         handler: data => {
           console.log('Cancel clicked');

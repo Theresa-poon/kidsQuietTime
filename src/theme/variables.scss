@@ -10,9 +10,52 @@
     --min-width: 400px !important;
   }
 
-  .gospelAlert {
-    --background: url(../assets/images/backgrounds/blueDots1_s.png) !important;
+  .gospelPrompt {
+    --background: #FFFFE0 !important;
+    //--background: #E0FFFF !important;
+    //--color: red;
     --min-width: 300px !important;
+    button{
+      color: #3385c6;
+      font-size: 25px;
+    }
+    input{
+      color: dimgrey;
+      //color: dodgerblue;
+      font-size: 30px;
+    }
+  }
+
+  .gospelPrompt .alert-message {
+    color: #ff6f69;
+    font-size: 30px;
+  }
+
+   .gospelPrompt .alert-title {
+    color: #851e3e;
+    font-size: 30px;
+  }
+
+  .gospelAlert {
+    //--background: url(../assets/images/backgrounds/blueDots1_s.png) !important;
+    //--background: #E0FFFF !important;
+    --background: #E0FFFF !important;
+    --min-width: 300px !important;
+    button{
+      color: #3385c6;
+      font-size: 25px;
+    }
+  }
+
+  .gospelAlert .alert-message {
+    color: darkblue;
+    font-size: 25px;
+  }
+
+  .gospelAlert .alert-title {
+    color: palevioletred;
+    //color: brown;
+    font-size: 25px;
   }
 
   ion-range {
