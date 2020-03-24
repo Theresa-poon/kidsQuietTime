@@ -16,6 +16,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { File } from '@ionic-native/file/ngx';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { MobileAccessibility } from '@ionic-native/mobile-accessibility/ngx';
+import { NativeAudio } from '@ionic-native/native-audio/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,6 +30,7 @@ import { MobileAccessibility } from '@ionic-native/mobile-accessibility/ngx';
     WebView,
     ScreenOrientation,
     MobileAccessibility,
+    NativeAudio,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     File
   ],

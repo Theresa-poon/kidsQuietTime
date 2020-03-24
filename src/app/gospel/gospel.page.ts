@@ -2,8 +2,9 @@ import { Component, OnInit, ViewChild  } from '@angular/core';
 import { Router } from '@angular/router';
 import {IonContent} from '@ionic/angular';
 import { GamesService } from '../games.service';
-import { AlertController } from '@ionic/angular'; 
+import { Platform, AlertController } from '@ionic/angular'; 
 import { ApptextService } from '../apptext.service';
+import { NativeAudio } from '@ionic-native/native-audio/ngx';
 
 @Component({
   selector: 'app-gospel',
@@ -17,13 +18,22 @@ export class GospelPage implements OnInit {
   PageCur: any; //current page in view
   public textGospel = [];
   answer: any; //user input of answer to alert box
+  audioUrl: any; //audio file to load
 
   @ViewChild(IonContent, { read: IonContent, static: true }) content: IonContent;
 
   constructor(private router: Router,
     public gamesService: GamesService,
     public alertController: AlertController,
-    public apptextService: ApptextService,) { }
+    public apptextService: ApptextService,
+    private nativeAudio: NativeAudio,
+    private platform: Platform,) {
+        //console.log("before preload audio...")
+        //this.nativeAudio.preloadSimple('uniqueId1', 'assets/images/Gospel/page3.mp3').then(
+        //  ()=>{console.log("Playing...")},
+        //  ()=>{console.log("Fail to load...")}
+        //  );
+    }
 
   ngOnInit() {
     this.pages = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32] 
@@ -31,6 +41,7 @@ export class GospelPage implements OnInit {
     this.PageCur = 1
     console.log(this.PageCur != 1)
     this.answer = ""
+    this.audioUrl = ""
     //document.getElementById("test").onscroll = function() {
     //  var scroll = this.scrollTop;
     //  console.log("scrollY is="+scroll)
@@ -41,9 +52,15 @@ export class GospelPage implements OnInit {
       console.log(this.textGospel);
       console.log(this.textGospel[1])
       });
-  }
+
+}
   
   onScroll(event) {
+    if(this.audioUrl != "") {
+      console.log("stopping audio...")
+      this.nativeAudio.stop('uniqueId1');
+      this.nativeAudio.unload('uniqueId1');
+    }
     //var scroll = document.getElementById("test").scrollTop;
     var scroll = event.detail.scrollTop
     console.log("scrollY is="+scroll)
@@ -69,7 +86,20 @@ export class GospelPage implements OnInit {
     this.content.scrollToPoint(0, yOffset, 3000)
   }
 
+  audioPlay() {
+    this.audioUrl = "assets/images/Gospel/page"+this.PageCur+".mp3"
+    console.log("audio url: "+this.audioUrl)
+    //this.nativeAudio.preloadSimple('uniqueId1', 'assets/images/Gospel/page3.mp3')
+    this.nativeAudio.preloadSimple('uniqueId1', this.audioUrl)
+    console.log("before play audio")
+    this.nativeAudio.play('uniqueId1');
+  }
+
   exercise() {
+  //this.platform.ready().then(() => {
+    //console.log("before play audio")
+    //this.nativeAudio.play('uniqueId1');
+  //}) 
     console.log("show exercise");
     console.log(this.textGospel[this.PageCur-1])
     if(this.textGospel[this.PageCur-1].games == "1") {

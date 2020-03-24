@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="tp.bibletheresa.kidsquiettime" version="1.0.4" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>兒離靈修樂</name>
+    <name>兒童靈修樂</name>
     <description>兒離靈修軟體(中華基督教台灣萬國兒童佈道團)</description>
     <author email="hi@ionicframework.com" href="http://ionicframework.com/">Ionic Framework Team</author>
     <content src="index.html" />
@@ -105,5 +105,4 @@
     <plugin name="cordova-sqlite-storage" spec="3.2.1" />
     <plugin name="cordova-plugin-file" spec="6.0.2" />
     <plugin name="cordova-plugin-ionic-webview" spec="^4.1.1" />
-    <engine name="android" spec="7.1.4" />
 </widget>
