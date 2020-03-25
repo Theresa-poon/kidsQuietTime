@@ -73,6 +73,11 @@ export class GospelPage implements OnInit {
   }
 
   clickL() {
+    if(this.audioUrl != "") {
+      console.log("stopping audio...")
+      this.nativeAudio.stop('uniqueId1');
+      this.nativeAudio.unload('uniqueId1');
+    }
     this.router.navigate(['/main']);
   }
 
@@ -90,9 +95,14 @@ export class GospelPage implements OnInit {
     this.audioUrl = "assets/images/Gospel/page"+this.PageCur+".mp3"
     console.log("audio url: "+this.audioUrl)
     //this.nativeAudio.preloadSimple('uniqueId1', 'assets/images/Gospel/page3.mp3')
-    this.nativeAudio.preloadSimple('uniqueId1', this.audioUrl)
-    console.log("before play audio")
-    this.nativeAudio.play('uniqueId1');
+      //this.nativeAudio.preloadSimple('uniqueId1', this.audioUrl)
+      //console.log("before play audio")
+      //this.nativeAudio.play('uniqueId1');
+      this.nativeAudio.preloadSimple('uniqueId1', this.audioUrl).then(
+        ()=>{console.log("load audio successful: "+this.audioUrl);
+            this.nativeAudio.play('uniqueId1')},
+        ()=>{console.log("Fail to load..."+this.audioUrl)}
+        );
   }
 
   exercise() {
@@ -136,9 +146,12 @@ async presentPrompt1() {
       {
         text: '輸入',
         handler: data => {
-          this.answer = data.answer
-          console.log(this.answer)
-          this.presentAlert(this.textGospel[this.PageCur-1].game1A+this.answer,this.textGospel[this.PageCur-1].game1R)
+          console.log("user input is: "+data.answer)
+          if(data.answer != "") {
+            this.answer = data.answer
+            console.log("non-zero input is: "+this.answer)
+            this.presentAlert(this.textGospel[this.PageCur-1].game1A+this.answer,this.textGospel[this.PageCur-1].game1R)
+          }
         }
       }
     ]
@@ -188,23 +201,27 @@ async presentPrompt2() {
       {
         text: '確定',
         handler: data => {
-          console.log(data)
-          console.log((data == "1"))
-          if(data == "1") {
-            this.answer = this.textGospel[this.PageCur-1].game1Q1
-          } else {
-            if(data == "2") {
-              this.answer = this.textGospel[this.PageCur-1].game1Q2
+          console.log("user input = "+data)
+
+          if(data != null) {
+            console.log((data == "1"))
+            if(data == "1") {
+              this.answer = this.textGospel[this.PageCur-1].game1Q1
             } else {
-              if(data == "3") {
-                this.answer = this.textGospel[this.PageCur-1].game1Q3
+              if(data == "2") {
+                this.answer = this.textGospel[this.PageCur-1].game1Q2
               } else {
-                this.answer = this.textGospel[this.PageCur-1].game1Q4
+                if(data == "3") {
+                  this.answer = this.textGospel[this.PageCur-1].game1Q3
+                } else {
+                  this.answer = this.textGospel[this.PageCur-1].game1Q4
+                }
               }
             }
+            console.log(this.answer)
+            this.presentAlert(this.textGospel[this.PageCur-1].game1A+this.answer,this.textGospel[this.PageCur-1].game1R)
           }
-          console.log(this.answer)
-          this.presentAlert(this.textGospel[this.PageCur-1].game1A+this.answer,this.textGospel[this.PageCur-1].game1R)
+
         }
       }
     ]
@@ -217,7 +234,16 @@ async presentAlert(title,content) {
     header: title,
     message: content,
     cssClass: 'gospelAlert',
-    buttons: ['OK']
+    //buttons: ['OK'],
+    buttons: [
+      {
+        text: 'OK',
+        handler: data => {
+          console.log('Cancel clicked');
+          this.answer = ""
+        }
+      }
+    ],
   });
   await alert.present();
 }

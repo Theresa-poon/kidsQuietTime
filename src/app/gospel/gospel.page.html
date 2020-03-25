@@ -23,9 +23,9 @@
   </div>
   
 
-  <ion-fab vertical="top" horizontal="end" slot="fixed" *ngIf="this.PageCur != 1 && this.PageCur != 2">
+  <ion-fab vertical="top" horizontal="end" slot="fixed" *ngIf="this.PageCur != 1 && this.PageCur != 2 && this.PageCur < 5">
     <ion-fab-button class="opaque" (click)="exercise()">
-      <ion-icon name="menu"></ion-icon>
+      {{this.textGospel[this.PageCur-1].title}}
     </ion-fab-button>
     <ion-fab-button class="opaque" (click)="audioPlay()">
       <ion-icon name="play"></ion-icon>
