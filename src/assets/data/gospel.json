@@ -112,6 +112,47 @@
         "games": "",
         "game1Q": "",
         "game1A": "",
-        "game1R": ""}
+        "game1R": ""},
+
+    {"id": 16, "title": "想一想",
+        "games": "2",
+        "game1Q": "你在圖畫中找到蛇嗎？牠是什麼顏色的？",
+        "game1Q1": "紅色",
+        "game1Q2": "綠色",
+        "game1Q3": "紫色",
+        "game1Q4": "啡色",
+        "game1A_show": "0",
+        "game1A": "紫色的是蛇，撒旦用牠來引誘夏娃。",
+        "game1R": "<img src='../assets/images/Gospel/snake.png'>"},
+
+    {"id": 17, "title": "想一想",
+        "games": "4",
+        "game1Q": "你經常守的誡命有幾條呢？",
+        "game1Q1": "0 - 2",
+        "game1Q2": "3 - 5",
+        "game1Q3": "6 - 8",
+        "game1Q4": "9 - 10",
+        "game1A1": "人都有偏行己路的傾向，加油吧！",
+        "game1A2": "你滿意自己的表現嗎？加油啊！",
+        "game1A3": "繼續努力啊！",
+        "game1A4": "真好！你很努力守神的誡命。",
+        "game1R": "其實，在思想上不順從神，也是罪。"},
+
+    {"id": 18, "title": "想一想",
+        "games": "1",
+        "game1Q": "你曾經怎樣不順從神呢？",
+        "game1A": "你希望神原諒你這次過錯嗎：",
+        "game1R": "罪使我們與神隔絕，誰能帶領我們回到神面前呢？"},
+
+    {"id": 19, "title": "想一想",
+        "games": "2",
+        "game1Q": "這迷宮有幾條通道？",
+        "game1Q1": "1",
+        "game1Q2": "2",
+        "game1Q3": "3",
+        "game1Q4": "4",
+        "game1A_show": "0",
+        "game1A": "這迷宮只有一條通道；也只有一個人可以帶我們回到神面前。",
+        "game1R": "<img src='../assets/images/Gospel/maze_save.png'>"}
 
 ]

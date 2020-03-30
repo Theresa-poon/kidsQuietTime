@@ -240,7 +240,11 @@ async presentPrompt2() {
               }
             }
             console.log(this.answer)
-            this.presentAlert(this.textGospel[this.PageCur-1].game1A+this.answer,this.textGospel[this.PageCur-1].game1R)
+            if(this.textGospel[this.PageCur-1].game1A_show == "0") {
+              this.presentAlert(this.textGospel[this.PageCur-1].game1A,this.textGospel[this.PageCur-1].game1R)
+            } else {
+              this.presentAlert(this.textGospel[this.PageCur-1].game1A+this.answer,this.textGospel[this.PageCur-1].game1R)
+            }
           }
 
         }
@@ -406,7 +410,7 @@ async presentAlert(title,content) {
     //buttons: ['OK'],
     buttons: [
       {
-        text: '好的',
+        text: 'OK',
         handler: data => {
           console.log('Cancel clicked');
           this.answer = ""
