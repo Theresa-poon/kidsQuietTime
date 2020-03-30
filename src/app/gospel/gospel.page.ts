@@ -16,7 +16,7 @@ export class GospelPage implements OnInit {
   public pages: any; //array of available pages (e.g. 1,2,3,4,5,6,...)
   PageNum: any; //user input of page number to go to
   PageCur: any; //current page in view
-  public textGospel = [];
+  public textGospel = []; //text of interative quizzes on all pages (gospel.json)
   answer: any; //user input of answer to alert box
   audioUrl: any; //audio file to load
 
@@ -47,7 +47,7 @@ export class GospelPage implements OnInit {
     //  console.log("scrollY is="+scroll)
     //}
     this.apptextService.searchGospel()
-    .subscribe(data => {
+    .subscribe(data => { //get data for all quizzes from gospel.json
       this.textGospel = data;
       console.log(this.textGospel);
       console.log(this.textGospel[1])
@@ -55,32 +55,24 @@ export class GospelPage implements OnInit {
 
 }
   
+  //keeps track of current page number (this.PageCur) while user is scrolling
   onScroll(event) {
-    if(this.audioUrl != "") {
-      console.log("stopping audio...")
-      this.nativeAudio.stop('uniqueId1');
-      this.nativeAudio.unload('uniqueId1');
-    }
+    this.audioStop()
     //var scroll = document.getElementById("test").scrollTop;
     var scroll = event.detail.scrollTop
     console.log("scrollY is="+scroll)
     var page = scroll / this.gamesService.pageHeight
-    //var page1 = Math.round(page)+1
     this.PageCur = Math.round(page)+1
     console.log("current page = "+page)
-    //console.log(page1)
     console.log("this.pageCur = "+this.PageCur)
   }
 
   clickL() {
-    if(this.audioUrl != "") {
-      console.log("stopping audio...")
-      this.nativeAudio.stop('uniqueId1');
-      this.nativeAudio.unload('uniqueId1');
-    }
+    this.audioStop()
     this.router.navigate(['/main']);
   }
 
+  //scrolls to page according to user input (this.PageNum)
   ScrollTo() {
     let x = this.PageNum - 1
     let y = "Id"+x
@@ -105,6 +97,19 @@ export class GospelPage implements OnInit {
         );
   }
 
+  audioStop() {
+    if(this.audioUrl != "") {
+      console.log("stopping audio...")
+      this.nativeAudio.stop('uniqueId1');
+      this.nativeAudio.unload('uniqueId1').then(
+        ()=>{console.log("unloaded audio : "+this.audioUrl);
+            this.audioUrl = ""},
+        ()=>{console.log("Fail to unload..."+this.audioUrl);
+            this.audioUrl = ""}
+        );
+    }
+  }
+
   exercise() {
   //this.platform.ready().then(() => {
     //console.log("before play audio")
@@ -113,12 +118,21 @@ export class GospelPage implements OnInit {
     console.log("show exercise");
     console.log(this.textGospel[this.PageCur-1])
     if(this.textGospel[this.PageCur-1].games == "1") {
-      this.presentPrompt1();
+      this.presentPrompt1(); //type 1 exercise: user input
     } else {
-      this.presentPrompt2();
+        if(this.textGospel[this.PageCur-1].games == "2") {
+          this.presentPrompt2(); //type 2 exercise: MCQ (unique choice)
+        } else {
+          if(this.textGospel[this.PageCur-1].games == "3") {
+            this.presentPrompt3(); //type 3 exercise: MCQ (multiple choices allowed, all same response)
+          } else {
+            this.presentPrompt4(); //type 4 exercise: MCQ (multiple choices allowed, each different response)
+          }
+        }
     }
   }
 
+//type 1 exercise: accept user input and show response in presentAlert()
 async presentPrompt1() {
   let alert = await this.alertController.create({
     header: this.textGospel[this.PageCur-1].title,
@@ -148,7 +162,11 @@ async presentPrompt1() {
         handler: data => {
           console.log("user input is: "+data.answer)
           if(data.answer != "") {
-            this.answer = data.answer
+            if(this.textGospel[this.PageCur-1].game1A_show == "0") {
+              this.answer = ""  // not to show user input as part of response
+            } else {
+              this.answer = data.answer // to show user input as part of response
+            }
             console.log("non-zero input is: "+this.answer)
             this.presentAlert(this.textGospel[this.PageCur-1].game1A+this.answer,this.textGospel[this.PageCur-1].game1R)
           }
@@ -159,10 +177,12 @@ async presentPrompt1() {
   await alert.present();
 }
 
+//type 2 exercise: MCQ for opinion and show response in presentAlert()
 async presentPrompt2() {
   let alert = await this.alertController.create({
     header: this.textGospel[this.PageCur-1].title,
     message: this.textGospel[this.PageCur-1].game1Q,
+    //message: '<img src="../assets/images/Gospel/gospel1.png">',
     cssClass: 'gospelPrompt',
     inputs: [
       {
@@ -187,6 +207,7 @@ async presentPrompt2() {
         name: 'choice4',
         type: 'radio',
         label: this.textGospel[this.PageCur-1].game1Q4,
+        //label: '<img src="../assets/images/Gospel/gospel1.png">',
         value: '4'
       }
     ],
@@ -229,6 +250,154 @@ async presentPrompt2() {
   await alert.present();
 }
 
+//type 3 exercise: MCQ for opinion and show response in presentAlert()
+async presentPrompt3() {
+  let alert = await this.alertController.create({
+    header: this.textGospel[this.PageCur-1].title,
+    message: this.textGospel[this.PageCur-1].game1Q,
+    cssClass: 'gospelPrompt',
+    inputs: [
+      {
+        name: 'choice1',
+        type: 'checkbox',
+        label: this.textGospel[this.PageCur-1].game1Q1,
+        value: '1'
+      },
+      {
+        name: 'choice2',
+        type: 'checkbox',
+        label: this.textGospel[this.PageCur-1].game1Q2,
+        value: '2'
+      },
+      {
+        name: 'choice3',
+        type: 'checkbox',
+        label: this.textGospel[this.PageCur-1].game1Q3,
+        value: '3'
+      },
+      {
+        name: 'choice4',
+        type: 'checkbox',
+        label: this.textGospel[this.PageCur-1].game1Q4,
+        value: '4'
+      }
+    ],
+    buttons: [
+      {
+        text: '取消',
+        role: 'cancel',
+        handler: data => {
+          console.log('Cancel clicked');
+        }
+      },
+      {
+        text: '確定',
+        handler: data => {
+          console.log("user input = "+data)
+
+          if(data != "") {
+            console.log((data == ""))
+            //if(data == "1") {
+            //  this.answer = this.textGospel[this.PageCur-1].game1Q1
+            //} else {
+            //  if(data == "2") {
+            //    this.answer = this.textGospel[this.PageCur-1].game1Q2
+            //  } else {
+            //    if(data == "3") {
+            //      this.answer = this.textGospel[this.PageCur-1].game1Q3
+            //    } else {
+            //      this.answer = this.textGospel[this.PageCur-1].game1Q4
+            //    }
+            //  }
+            //}
+            this.answer = ""
+            console.log(this.answer)
+            console.log(data[0])
+            console.log(data[1])
+            this.presentAlert(this.textGospel[this.PageCur-1].game1A+this.answer,this.textGospel[this.PageCur-1].game1R)
+          }
+
+        }
+      }
+    ]
+  });
+  await alert.present();
+}
+
+//type 4 exercise: MCQ for opinion and show different response for each answer in presentAlert()
+async presentPrompt4() {
+  let alert = await this.alertController.create({
+    header: this.textGospel[this.PageCur-1].title,
+    message: this.textGospel[this.PageCur-1].game1Q,
+    cssClass: 'gospelPrompt',
+    inputs: [
+      {
+        name: 'choice1',
+        type: 'radio',
+        label: this.textGospel[this.PageCur-1].game1Q1,
+        value: '1'
+      },
+      {
+        name: 'choice2',
+        type: 'radio',
+        label: this.textGospel[this.PageCur-1].game1Q2,
+        value: '2'
+      },
+      {
+        name: 'choice3',
+        type: 'radio',
+        label: this.textGospel[this.PageCur-1].game1Q3,
+        value: '3' 
+      },
+      {
+        name: 'choice4',
+        type: 'radio',
+        label: this.textGospel[this.PageCur-1].game1Q4,
+        value: '4'
+      }
+    ],
+    buttons: [
+      {
+        text: '取消',
+        role: 'cancel',
+        handler: data => {
+          console.log('Cancel clicked');
+        }
+      },
+      {
+        text: '確定',
+        handler: data => {
+          console.log("user input = "+data)
+
+          if(data != "") {
+            console.log((data == ""))
+            if(data == "1") {
+              this.answer = this.textGospel[this.PageCur-1].game1A1
+            } else {
+              if(data == "2") {
+                this.answer = this.textGospel[this.PageCur-1].game1A2
+              } else {
+                if(data == "3") {
+                  this.answer = this.textGospel[this.PageCur-1].game1A3
+                } else {
+                  this.answer = this.textGospel[this.PageCur-1].game1A4
+                }
+              }
+            }
+            //this.answer = ""
+            console.log(this.answer)
+            console.log(data[0])
+            console.log(data[1])
+            this.presentAlert(this.answer,this.textGospel[this.PageCur-1].game1R)
+          }
+
+        }
+      }
+    ]
+  });
+  await alert.present();
+}
+
 async presentAlert(title,content) {
   let alert = await this.alertController.create({
     header: title,
@@ -237,7 +406,7 @@ async presentAlert(title,content) {
     //buttons: ['OK'],
     buttons: [
       {
-        text: 'OK',
+        text: '好的',
         handler: data => {
           console.log('Cancel clicked');
           this.answer = ""
