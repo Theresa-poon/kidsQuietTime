@@ -10,6 +10,21 @@
     --min-width: 400px !important;
   }
 
+  .applePrompt {
+    --background: url(../assets/images/version1/apple_background.png) !important;
+    button{
+      //color: #3385c6;
+      color: #056B82;
+      font-size: 20px;
+    }
+  }
+
+  .applePrompt .alert-title {
+    color: #ff6f69;
+    //color: #851e3e;
+    font-size: 22px;
+  }
+
   .gospelPrompt {
     --background: #FFFFE0 !important;
     //--background: #E0FFFF !important;

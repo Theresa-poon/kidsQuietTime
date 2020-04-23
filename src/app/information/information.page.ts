@@ -28,6 +28,11 @@ export class InformationPage implements OnInit {
     this.router.navigate(['/use']);
   }
 
+  verse() {
+    console.log("going to verse-bank page...")
+    this.router.navigate(['/verse']);
+  }
+
   clickL() {
     this.router.navigate(['/menu']);
   }

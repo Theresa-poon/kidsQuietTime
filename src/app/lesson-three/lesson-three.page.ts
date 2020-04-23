@@ -83,7 +83,8 @@ export class LessonThreePage implements OnInit {
     }
     if (apple == 2) {
       this.storageService.currentName_Date[5] = this.storageService.currentName_Date[5] + 1
-      this.presentAlert("用心完成靈修!", "獎勵: 蘋果 1 個")
+      //this.presentAlert("用心完成靈修!", "獎勵: 蘋果 1 個")
+      this.presentAlert("用心完成靈修！ 獎勵蘋果1個！","<img src='../assets/images/version1/apple5.png'>")
     }
     console.log("storageService.currentName_Data: "+this.storageService.currentName_Date)
 
@@ -109,6 +110,7 @@ export class LessonThreePage implements OnInit {
     const alert = await this.alertController.create({
       header: title,
       message: content,
+      cssClass: 'applePrompt',
       buttons: ["謝謝"]
     })
     await alert.present()

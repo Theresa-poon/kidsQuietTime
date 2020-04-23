@@ -61,7 +61,7 @@
     <h3 class="titleRow" *ngIf="this.gamesService.correctDraw == 1">{{ this.gameQ }}</h3>
   </div>
 
-  <div *ngIf="this.gamesService.ratio >= 2" class="buttonS">
+  <div *ngIf="this.color_block == 'color_block1'" class="buttonS">
     <div *ngIf="this.gamesService.correctDraw == 0">
       <ion-button *ngIf="this.gamesService.reviewMode == 0" color="success" shape="round" (click)="saveCanvasImage()">儲存</ion-button>
       <ion-button *ngIf="this.gamesService.reviewMode != 0 && storedImages.length > 0" color=light shape="round" (click)="loadPastImage()">重溫</ion-button>
@@ -73,7 +73,7 @@
     </div>
   </div>
 
-  <div *ngIf="this.gamesService.ratio < 2" class="buttonS">
+  <div *ngIf="this.color_block == 'color_block2'" class="buttonS">
     <div *ngIf="this.gamesService.correctDraw == 0">
       <ion-button *ngIf="this.gamesService.reviewMode == 0" color="success" shape="round" size=small (click)="saveCanvasImage()">儲存</ion-button>
       <ion-button *ngIf="this.gamesService.reviewMode != 0 && storedImages.length > 0" color=light shape="round" size=small (click)="loadPastImage()">重溫</ion-button>
