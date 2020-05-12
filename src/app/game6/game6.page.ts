@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApptextService } from '../apptext.service';
 import { GamesService } from '../games.service';
 import { AlertController } from '@ionic/angular'; 
 import { Platform } from '@ionic/angular';
+import {IonContent} from '@ionic/angular';
 
 @Component({
   selector: 'app-game6',
@@ -21,6 +22,8 @@ export class Game6Page implements OnInit {
   gameText: any; //css class of text width (increase width for shorter screens)
   //public chosenL = []; //storing user clicked item on the left
   //public chosenR = []; //storing user clicked item on the right
+
+  @ViewChild(IonContent, { read: IonContent, static: true }) content: IonContent;
 
   constructor(private router: Router,
     public apptextService: ApptextService,
@@ -124,6 +127,8 @@ export class Game6Page implements OnInit {
     console.log(event);
     console.log(`Moving item from ${event.detail.from} to ${event.detail.to}`);
     const itemMove = this.gameQ2current.splice(event.detail.from, 1)[0];
+    console.log("itemMove: "+itemMove)
+    console.log("this.gameQ2current: "+this.gameQ2current)
     this.gameQ2current.splice(event.detail.to, 0, itemMove);
     event.detail.complete();
     console.log("after: "+this.gameQ2current)
@@ -132,6 +137,7 @@ export class Game6Page implements OnInit {
     if (this.gameQ2.toString() == this.gameQ2current.toString()) {
       this.gamesService.correctMatch = 1
     }
+    this.content.scrollToPoint(0, 0, 300)
   }
 
 

@@ -84,7 +84,8 @@ export class GospelPage implements OnInit {
   }
 
   audioPlay() {
-    this.audioUrl = "assets/images/Gospel/page"+this.PageCur+".mp3"
+    //this.audioUrl = "assets/images/Gospel/page"+this.PageCur+".mp3"
+    this.audioUrl = "assets/audios/P"+this.PageCur+".mp3"
     console.log("audio url: "+this.audioUrl)
     //this.nativeAudio.preloadSimple('uniqueId1', 'assets/images/Gospel/page3.mp3')
       //this.nativeAudio.preloadSimple('uniqueId1', this.audioUrl)

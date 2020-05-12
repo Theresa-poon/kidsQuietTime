@@ -35,6 +35,12 @@ export class MainPage implements OnInit {
   ngOnInit() {
   }
 
+  ionViewDidEnter(){
+      this.platform.backButton.subscribe(()=>{
+          navigator['app'].exitApp();
+  });
+}
+
   //Information() {
     //console.log("go to information")
     //this.router.navigate(['/information']);

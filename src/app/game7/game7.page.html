@@ -10,11 +10,11 @@
       stroke-linecap="round" stroke-width="0.5" stroke-dasharray="0.2,1" preserveAspectRatio="xMidYMid meet" />
   </svg>
 
-  <div *ngIf="this.gamesService.reviewMode == 0" class=bounce>
+  <div id="corner1" *ngIf="this.gamesService.reviewMode == 0" class=bounce>
     第{{this.apptextService.currentText?.id}}天: {{this.apptextService.currentText?.title}}
   </div>
 
-  <div *ngIf="this.gamesService.reviewMode != 0" class=bounce>
+  <div id="corner2" *ngIf="this.gamesService.reviewMode != 0" class=bounce>
     (重溫) 第{{this.apptextService.currentText?.id}}天: {{this.apptextService.currentText?.title}}
   </div>
 

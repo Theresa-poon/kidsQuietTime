@@ -51,6 +51,8 @@ export class Game7Page implements OnInit {
       console.log("keyboard gone")
       document.getElementById("text").style.top="46%" //move text area back
       //document.getElementById("shape").style.display="hide" //move shape back
+      document.getElementById("corner1").style.display="block" //show corner title again
+      document.getElementById("corner2").style.display="block" //show corner title again
     });
 
     this.gameQ1 = this.apptextService.currentText.game7Q1.split(",")
@@ -83,6 +85,8 @@ export class Game7Page implements OnInit {
       document.getElementById("text").style.top="34%"
       //document.getElementById("shape").style.display="show"
     }
+    document.getElementById("corner1").style.display="none" //hide corner title 
+    document.getElementById("corner2").style.display="none" //hide corner title 
   }
 
   clickL() {
