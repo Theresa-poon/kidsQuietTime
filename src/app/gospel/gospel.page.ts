@@ -19,6 +19,7 @@ export class GospelPage implements OnInit {
   public textGospel = []; //text of interative quizzes on all pages (gospel.json)
   answer: any; //user input of answer to alert box
   audioUrl: any; //audio file to load
+  myInputs: any; //game 5 inputs array
 
   @ViewChild(IonContent, { read: IonContent, static: true }) content: IonContent;
 
@@ -127,10 +128,31 @@ export class GospelPage implements OnInit {
           if(this.textGospel[this.PageCur-1].games == "3") {
             this.presentPrompt3(); //type 3 exercise: MCQ (multiple choices allowed, all same response)
           } else {
-            this.presentPrompt4(); //type 4 exercise: MCQ (multiple choices allowed, each different response)
-          }
+            if(this.textGospel[this.PageCur-1].games == "4") {
+              this.presentPrompt4(); //type 4 exercise: MCQ (multiple choices allowed, each different response)
+            } else {
+              this.myInputs = this.createInputs();
+              this.presentPrompt5(); //type 5 exercise: MCQ
+            }  
+        }
         }
     }
+  }
+
+  createInputs() {
+    const theNewInputs = [];
+    for (let i = 0; i < this.textGospel[this.PageCur-1].game1C.length; i++) {
+      theNewInputs.push(
+        {
+          type: 'checkbox',
+          label: this.textGospel[this.PageCur-1].game1C[i].label,
+          value: this.textGospel[this.PageCur-1].game1C[i].value,
+          name: 'choice'
+        }
+      );
+    }
+    console.log("theNewInputs: "+theNewInputs)
+    return theNewInputs;
   }
 
 //type 1 exercise: accept user input and show response in presentAlert()
@@ -178,7 +200,7 @@ async presentPrompt1() {
   await alert.present();
 }
 
-//type 2 exercise: MCQ for opinion and show response in presentAlert()
+//type 2 exercise: MCQ for single choices and show response in presentAlert()
 async presentPrompt2() {
   let alert = await this.alertController.create({
     header: this.textGospel[this.PageCur-1].title,
@@ -255,7 +277,7 @@ async presentPrompt2() {
   await alert.present();
 }
 
-//type 3 exercise: MCQ for opinion and show response in presentAlert()
+//type 3 exercise: MCQ for  4 multiple choices and show response in presentAlert()
 async presentPrompt3() {
   let alert = await this.alertController.create({
     header: this.textGospel[this.PageCur-1].title,
@@ -302,19 +324,6 @@ async presentPrompt3() {
 
           if(data != "") {
             console.log((data == ""))
-            //if(data == "1") {
-            //  this.answer = this.textGospel[this.PageCur-1].game1Q1
-            //} else {
-            //  if(data == "2") {
-            //    this.answer = this.textGospel[this.PageCur-1].game1Q2
-            //  } else {
-            //    if(data == "3") {
-            //      this.answer = this.textGospel[this.PageCur-1].game1Q3
-            //    } else {
-            //      this.answer = this.textGospel[this.PageCur-1].game1Q4
-            //    }
-            //  }
-            //}
             this.answer = ""
             console.log(this.answer)
             console.log(data[0])
@@ -329,7 +338,45 @@ async presentPrompt3() {
   await alert.present();
 }
 
-//type 4 exercise: MCQ for opinion and show different response for each answer in presentAlert()
+//type 5 exercise: MCQ for > 4 multiple choices and show response in presentAlert()
+async presentPrompt5() {
+  //testV1:any = [{label:'test', value:0, name:'test'},{label:'test1', value:1, name:'test1'},{label:'test2', value:2, name:'test2'}]
+  let alert = await this.alertController.create({
+    header: this.textGospel[this.PageCur-1].title,
+    message: this.textGospel[this.PageCur-1].game1Q,
+    cssClass: 'gospelPrompt',
+    inputs: this.myInputs,
+    buttons: [
+      {
+        text: '取消',
+        role: 'cancel',
+        handler: data => {
+          console.log('Cancel clicked');
+        }
+      },
+      {
+        text: '確定',
+        handler: data => {
+          console.log("user input = "+data)
+
+          if(data != "") {
+            console.log((data == ""))
+            this.answer = ""
+            console.log(this.answer)
+            console.log(data[0])
+            console.log(data[1])
+            this.presentAlert(this.textGospel[this.PageCur-1].game1A+this.answer,this.textGospel[this.PageCur-1].game1R)
+          }
+
+        }
+      }
+    ]
+  });
+  await alert.present();
+}
+
+
+//type 4 exercise: MCQ for single choice and show different response for each answer in presentAlert()
 async presentPrompt4() {
   let alert = await this.alertController.create({
     header: this.textGospel[this.PageCur-1].title,
