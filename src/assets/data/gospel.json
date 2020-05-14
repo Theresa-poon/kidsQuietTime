@@ -82,7 +82,7 @@
 
     {"id": 13, "title": "想一想",
         "games": "4",
-        "game1Q": "這些動物從左到右排列是：",
+        "game1Q": "這些動物(從左到右排列)是：",
         "game1Q1": "小狗,兔子,魚,班馬,企鵝",
         "game1Q2": "班馬,企鵝,魚,小狗,兔子",
         "game1Q3": "企鵝,小狗,魚,兔子,班馬",
@@ -91,7 +91,7 @@
         "game1A2": "你要再試試嗎？",
         "game1A3": "你要再試試嗎？",
         "game1A4": "答對了！你真棒！",
-        "game1R": "<img src='../assets/images/Gospel/snake.png'>"},
+        "game1R": "<img src='../assets/images/Gospel/animals.png'>"},
 
     {"id": 14, "title": "想一想",
         "games": "1",
@@ -127,6 +127,7 @@
         "games": "1",
         "game1Q": "你曾經怎樣不順從和犯罪神呢？",
         "game1A": "罪是一個嚴重的問題。",
+        "game1A_show": "0",
         "game1R": "這問題是我們不能夠解決的。"},
 
     {"id": 19, "title": "想一想",
@@ -134,6 +135,98 @@
         "game1Q": "這迷宮只有一條通道，你找得到嗎？",
         "game1C": [{"label":"找到了！", "value":1, "name":"yes"},{"label":"還沒找到啊。", "value":2, "name":"no"}],
         "game1A": "這迷宮只有以下一條通道。",
-        "game1R": "<img src='../assets/images/Gospel/maze_save.png'>"}
+        "game1R": "<img src='../assets/images/Gospel/maze_save.png'>"},
+
+    {"id": 20, "title": "想一想",
+        "games": "5",
+        "game1Q": "你知道嬰孩耶穌睡在哪裏嗎？",
+        "game1C": [{"label":"知道呀！", "value":1, "name":"yes"},{"label":"不知道呢。", "value":2, "name":"no"}],
+        "game1A": "嬰孩耶穌睡在馬槽裏。",
+        "game1R": "<img src='../assets/images/Gospel/manger_dot.png'>"},
+
+    {"id": 21, "title": "",
+        "games": "",
+        "game1Q": "",
+        "game1A": "",
+        "game1R": ""},
+
+    {"id": 22, "title": "想一想",
+        "games": "5",
+        "game1Q": "兵丁用來加冕耶穌的是：",
+        "game1C": [{"label":"華麗的皇冠", "value":1, "name":"crown"},{"label":"荊棘冠冕", "value":2, "name":"thorn"}],
+        "game1A": "兵丁用來加冕耶穌的是荊棘冠冕。",
+        "game1R": "<img src='../assets/images/Gospel/crownpng.png'>"},
+
+    {"id": 23, "title": "想一想",
+        "games": "1",
+        "game1Q": "當耶穌被掛在十字架上的時候，天空是怎樣的？",
+        "game1A": "當耶穌被掛在十字架上的時候，天空變得黑暗。",
+        "game1A_show": "0",
+        "game1R": "<img src='../assets/images/Gospel/sky.png'>"},
+
+    {"id": 24, "title": "",
+        "games": "",
+        "game1Q": "",
+        "game1A": "",
+        "game1R": ""},
+
+    {"id": 25, "title": "想一想",
+        "games": "5",
+        "game1Q": "你找到正確的途徑嗎？",
+        "game1C": [{"label":"找到了！", "value":1, "name":"yes"},{"label":"還沒找到啊。", "value":2, "name":"no"}],
+        "game1A": "左面的是正確的途徑。",
+        "game1R": "<img src='../assets/images/Gospel/gate.png'>"},
+
+    {"id": 26, "title": "想一想",
+        "games": "1",
+        "game1Q": "你在什麼方面曾經犯過罪？",
+        "game1A": "所有信祂的，都必藉著祂的名，罪得赦免。\n這也包括你所犯的：",
+        "game1R": "<img src='../assets/images/Gospel/blank.png'>"},
+
+    {"id": 27, "title": "想一想",
+        "games": "4",
+        "game1Q": "你要做什麼才可以從罪中得拯救和被赦免？",
+        "game1Q1": "REMORSE",
+        "game1Q2": "RELIVES",
+        "game1Q3": "BELIEVE",
+        "game1Q4": "RELIEVE",
+        "game1A1": "你要再試試嗎？",
+        "game1A2": "你要再試試嗎？",
+        "game1A3": "答對了！你真棒！",
+        "game1A4": "你要再試試嗎？",
+        "game1R": "<img src='../assets/images/Gospel/believe.png'>"},
+
+    {"id": 28, "title": "想一想",
+        "games": "1",
+        "game1Q": "填上在應許裏面的字:『當信主耶穌，你...得救。』",
+        "game1A": "使徒行傳 16:31 說: ",
+        "game1A_show": "0",
+        "game1R": "『當信主耶穌，你和你一家都必得救。』"},
+
+    {"id": 29, "title": "想一想",
+        "games": "1",
+        "game1Q": "填上你的名字：",
+        "game1A": "神愛你：",
+        "game1R": "甚至把祂的獨生子賜給你，叫你不至滅亡，反得永生 。"},
+
+    {"id": 30, "title": "想一想",
+        "games": "1",
+        "game1Q": "向神說話叫做：",
+        "game1A": "禱告的英文是：",
+        "game1A_show": "0",
+        "game1R": "<img src='../assets/images/Gospel/prayer.png'>"},
+
+    {"id": 31, "title": "",
+        "games": "",
+        "game1Q": "",
+        "game1A": "",
+        "game1R": ""},
+
+    {"id": 32, "title": "",
+        "games": "",
+        "game1Q": "",
+        "game1A": "",
+        "game1R": ""}
+
 
 ]
