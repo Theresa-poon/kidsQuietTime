@@ -364,8 +364,14 @@ async presentPrompt5() {
             this.answer = ""
             console.log(this.answer)
             console.log(data[0])
-            console.log(data[1])
-            this.presentAlert(this.textGospel[this.PageCur-1].game1A+this.answer,this.textGospel[this.PageCur-1].game1R)
+            //console.log(data[1])
+            console.log("selected answer position: "+data[0])
+            console.log("correct answer position: "+this.textGospel[this.PageCur-1].game1M)
+            if(data[0] == this.textGospel[this.PageCur-1].game1M) {
+              this.presentAlert(this.textGospel[this.PageCur-1].game1A+this.answer,this.textGospel[this.PageCur-1].game1R)
+            } else {
+               this.presentAlert(this.textGospel[this.PageCur-1].game1W+this.answer,this.textGospel[this.PageCur-1].game1R)
+            }
           }
 
         }
