@@ -19,6 +19,7 @@ export class StorageService {
   currentName_Date: any; //app storage of 'my-items' array
   currentPages: any; //app storage of 'my-pages' array
   v: any; //current book volume
+  vReview: any //current review volume selected by user
 
   constructor(private storage: Storage) { }
 

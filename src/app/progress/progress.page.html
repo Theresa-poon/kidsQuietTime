@@ -18,8 +18,8 @@
 
 <ion-item class=menu *ngIf="this.storageService.currentPages[this.storageService.v-1] != 0 || this.storageService.v != 1">
   <ion-label class=menuT>重 溫:</ion-label>
-  <ion-select class=menuO [(ngModel)]="mmData" placeholder="選 項" cancelText="取消" okText="確定" (ionChange)="review()">
-    <ion-select-option *ngFor="let itemM of jsonAll; index as i" value="{{ i+1 }}">第{{ i+1 }}課: {{ itemM.title }}</ion-select-option>
+  <ion-select class=menuO [(ngModel)]="mmData1" placeholder="選 項" cancelText="取消" okText="確定" (ionChange)="review1()">
+    <ion-select-option *ngFor="let itemM of volumeAll; index as i" value="{{ i+1 }}">第{{ i+1 }}冊</ion-select-option>
   </ion-select>
 </ion-item>
 

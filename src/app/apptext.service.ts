@@ -23,14 +23,15 @@ export class ApptextService {
     console.log(this.storageService.v-1)
     console.log(this.storageService.currentPages[this.storageService.v-1])
     if (review != 0) {
-      if (this.storageService.currentPages[this.storageService.v-1] != 0 || this.storageService.v == 1) {
-        this._url="/assets/data/text"+this.storageService.v+".json"  //not the start of a new volume (review current volume)
-        console.log("review mode and not zero")
-      } else {
-        let volume = this.storageService.v - 1
-        this._url="/assets/data/text"+volume+".json" //start of a new volume (review previous volume)
-        console.log("review mode and zero")
-      }
+      this._url="/assets/data/text"+this.storageService.vReview+".json" 
+      //if (this.storageService.currentPages[this.storageService.v-1] != 0 || this.storageService.v == 1) {
+      //  this._url="/assets/data/text"+this.storageService.v+".json"  //not the start of a new volume (review current volume)
+      //  console.log("review mode and not zero")
+      //} else {
+      //  let volume = this.storageService.v - 1
+      //  this._url="/assets/data/text"+volume+".json" //start of a new volume (review previous volume)
+      //  console.log("review mode and zero")
+      //}
     } else {
       this._url="/assets/data/text"+this.storageService.v+".json" //not review mode (start current volume lesson)
       console.log("not review mode")

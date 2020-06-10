@@ -14,9 +14,13 @@ export class ProgressPage implements OnInit {
 
   //index: number = 0; //array index of current day eg. day 1, index=0
   public jsonAll = [];
-  public mmData : any; 
+  public lessonAll = []; // array containing lessons of user selected volume for review
+  public volumeAll : any; //array containing previous and current volumes
+  public mmData : any;
+  public mmData1 : any; // user selection of lesson to review
   public level : any; //5 levels according to number of fruits bought
   public days : any; //total number of quiet time days
+  public z : any;
 
   constructor(public apptextService: ApptextService,
     public storageService: StorageService,
@@ -34,21 +38,19 @@ export class ProgressPage implements OnInit {
     
     console.log("level: "+this.level)
 
-    this.apptextService.searchData(1)
-    .subscribe(data => {
-      this.jsonAll = data;
-        if (this.storageService.currentPages[this.storageService.v-1] != 0 || this.storageService.v == 1) {
-          this.jsonAll = this.jsonAll.slice(0, this.storageService.currentPages[this.storageService.v-1]); //not the start of a new volume (review current volume)
-          console.log("review mode and not zero")
-        } else {
-          this.jsonAll = this.jsonAll.slice(0, this.storageService.currentPages[this.storageService.v-2]);//start of a new volume (review previous volume)
-          console.log("review mode and zero")
-        }
+      this.volumeAll = []
+      console.log("this.storageService.v: "+this.storageService.v)
+      if(this.storageService.currentPages[this.storageService.v-1] != 0) {
+        this.z = this.storageService.v + 1
+      } else {
+        this.z = this.storageService.v
+      }
+      console.log("length: "+this.z)
+      for (let i = 1; i < this.z; i++) {
+        this.volumeAll.push(i)
+        console.log("this.volumeAll: "+this.volumeAll)
+      }
 
-        //this.jsonAll = this.jsonAll.slice(0, this.storageService.currentPages[this.storageService.v-1]);
-        console.log(this.jsonAll);
-      //console.log(this.jsonAll[0].title);
-      });
   }
 
   //calculate level based on number of fruits
@@ -137,6 +139,51 @@ export class ProgressPage implements OnInit {
     await alert.present()
   }
 
+async showRadio() {
+  let radio_options = [];
+  console.log("how many lessons to show: "+this.storageService.currentPages[this.storageService.vReview-1])
+  for(let i=0;i<this.storageService.currentPages[this.storageService.vReview-1];++i){
+     let j = i+1
+     radio_options.push({
+      type: 'radio',
+      label : '第'+j+'課： '+this.lessonAll[i].title,
+      value : j,
+      //checked : i === 0
+    });
+  }
+
+  const alert = await this.alertController.create({
+      header : '選擇課堂',
+      inputs : radio_options ,
+      buttons: [
+        {
+          text: '取消',
+          role: 'cancel',
+          handler: () => {
+            console.log('取消 clicked');
+            this.mmData1 = 99
+            console.log("mmData1: "+this.mmData)
+          }
+        },
+        {
+          text: '確定',
+          handler: data => {
+            console.log('確定 clicked');
+            console.log("user selected book:"+this.storageService.currentPages[this.storageService.vReview-1])
+            console.log("user selected lesson: "+data)
+            this.gamesService.reviewMode = data
+            this.mmData1 = 99
+            if(data != null) {
+              this.router.navigate(['/title']);
+            }
+          }
+        },
+      ]
+  });
+  
+  await alert.present();
+}
+
   review() {
       console.log("current volume"+this.storageService.v)
       console.log("current page: "+this.storageService.currentPages)
@@ -151,6 +198,18 @@ export class ProgressPage implements OnInit {
       console.log("do nothing")
       console.log("mmData: "+this.mmData)
     
+  }
+
+  review1() {
+    console.log("in review 1 ...")
+    console.log("mmData1:"+this.mmData1)
+    this.storageService.vReview = this.mmData1
+    this.apptextService.searchData(1)
+      .subscribe(data => {
+      this.lessonAll = data;
+      console.log("first data: "+this.lessonAll[0].title)
+      this.showRadio()
+    })
   }
 
   clickL() {
