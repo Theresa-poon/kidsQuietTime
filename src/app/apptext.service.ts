@@ -44,4 +44,9 @@ export class ApptextService {
     return this.http.get<IGospel[]>("/assets/data/gospel.json"); 
   }
 
+  searchYoutube() {
+    let youtube_url = "https://www.googleapis.com/youtube/v3/search?channelId=UCnQM2z0xgU4zeQIXxFoXE8Q&key=AIzaSyAJIo82cNJzN286AgQRbUL897NUOUou2GM&maxResults=100&order=date&part=id,snippet&q=&type=video"
+    return this.http.get(youtube_url); 
+  }
+
 }

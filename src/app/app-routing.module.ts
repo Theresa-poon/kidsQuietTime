@@ -25,7 +25,8 @@ const routes: Routes = [
   { path: 'bookinfo', loadChildren: './bookinfo/bookinfo.module#BookinfoPageModule' },
   { path: 'main', loadChildren: './main/main.module#MainPageModule' },
   { path: 'gospel', loadChildren: './gospel/gospel.module#GospelPageModule' },
-  { path: 'verse', loadChildren: './verse/verse.module#VersePageModule' },
+  { path: 'verse', loadChildren: './verse/verse.module#VersePageModule' },  { path: 'youtube', loadChildren: './youtube/youtube.module#YoutubePageModule' },
+
 ];
 
 @NgModule({

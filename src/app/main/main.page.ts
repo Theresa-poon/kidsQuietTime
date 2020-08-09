@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 import { Platform } from '@ionic/angular';
 import { GamesService } from '../games.service';
+import { NetworkService } from '../network.service';
+import { AlertController } from '@ionic/angular'; 
 
 @Component({
   selector: 'app-main',
@@ -14,7 +16,9 @@ export class MainPage implements OnInit {
   constructor(private router: Router,
     private screenOrientation: ScreenOrientation,
     private platform: Platform,
-    public gamesService: GamesService,) { }
+    public gamesService: GamesService,
+    public networkService: NetworkService,
+    public alertController: AlertController,) { }
 
   ionViewWillEnter() {
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
@@ -54,6 +58,25 @@ export class MainPage implements OnInit {
   quiettime() {
     console.log("go to menu")
     this.router.navigate(['/menu']);
+  }
+
+  youtube() {
+    console.log("go to youtube")
+    if(this.networkService.previousStatus == 1) {
+      this.presentAlert("你沒有連接網絡啊!","請檢查網絡狀況...")
+      //this.router.navigate(['/main']);
+    } else {
+      this.router.navigate(['/youtube']);
+    }
+  }
+
+  async presentAlert(title: string, content:string) {
+    const alert = await this.alertController.create({
+      header: title,
+      message: content,
+      buttons: ["OK"]
+    })
+    await alert.present()
   }
 
 }

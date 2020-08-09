@@ -26,8 +26,13 @@ ion-content{
 }
 
 .bookRow3 {
-    flex-grow: 1;
-    background-color: #48D1CC;
+    //flex-grow: 1;
+    display: flex;
+    align-items: center;
+    //border: solid 10px #fcaa9e; //pink
+    //background-color: #fcaa9e;
+    border: solid 10px #ffb347;
+    background-color: #ffb347;
 }
 
 .bookTitle {

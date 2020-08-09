@@ -8,6 +8,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { Network } from '@ionic-native/network/ngx';
 
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
@@ -17,6 +18,7 @@ import { File } from '@ionic-native/file/ngx';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { MobileAccessibility } from '@ionic-native/mobile-accessibility/ngx';
 import { NativeAudio } from '@ionic-native/native-audio/ngx';
+//import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,10 +29,12 @@ import { NativeAudio } from '@ionic-native/native-audio/ngx';
   providers: [
     StatusBar,
     SplashScreen,
+    Network,
     WebView,
     ScreenOrientation,
     MobileAccessibility,
     NativeAudio,
+    //YoutubeVideoPlayer,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     File
   ],
