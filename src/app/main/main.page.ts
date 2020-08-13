@@ -64,9 +64,9 @@ export class MainPage implements OnInit {
     console.log("go to youtube")
     if(this.networkService.previousStatus == 1) {
       this.presentAlert("你沒有連接網絡啊!","請檢查網絡狀況...")
-      //this.router.navigate(['/main']);
     } else {
-      this.router.navigate(['/youtube']);
+      //this.router.navigate(['/youtube']);
+      window.open('https://www.youtube.com/channel/UCnQM2z0xgU4zeQIXxFoXE8Q', '_blank');
     }
   }
 

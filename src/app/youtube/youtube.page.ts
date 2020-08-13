@@ -40,7 +40,9 @@ export class YoutubePage implements OnInit {
     //this.youtube.openVideo('5iMjWVy3d_Q');
     //this.test = ["//www.youtube.com/embed/gYXB3FCcckw", "//www.youtube.com/embed/5iMjWVy3d_Q"]
     this.apptextService.searchYoutube()
-    .subscribe(data => {
+    .subscribe(
+      
+      (data) => {
       this.videoAll = data
       this.video = this.videoAll.items
       console.log(this.video);
@@ -48,16 +50,19 @@ export class YoutubePage implements OnInit {
       console.log(this.video[0].id.videoId);
       console.log(this.video[0].snippet.title);
       this.videoID = [];
-      for (let i = 0; i < this.video.length; i++) {
-        let temp = "//www.youtube.com/embed/"+this.video[i].id.videoId+"?controls=0"
-        console.log(temp)
-        //let cleanTemp = this.sanitizer.bypassSecurityTrustResourceUrl(temp);
-        //console.log(cleanTemp)
-        this.videoID.push(temp)
-        console.log("this.videoID: "+this.videoID)
-      }
+        for (let i = 0; i < this.video.length; i++) {
+          let temp = "//www.youtube.com/embed/"+this.video[i].id.videoId+"?controls=0"
+          console.log(temp)
+          //let cleanTemp = this.sanitizer.bypassSecurityTrustResourceUrl(temp);
+          //console.log(cleanTemp)
+          this.videoID.push(temp)
+          console.log("this.videoID: "+this.videoID)
+        }
+      },
 
-      });
+      (err) => {console.log("error in getting Youtube channel")}
+      
+      );
   }
 
   getSafeUrl(i) {
