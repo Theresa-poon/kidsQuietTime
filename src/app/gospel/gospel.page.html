@@ -25,7 +25,8 @@
 
  <ion-fab vertical="top" horizontal="end" slot="fixed" *ngIf="this.PageCur != 1 && this.PageCur != 2">
     <ion-fab-button class="opaque" *ngIf="this.textGospel[this.PageCur-1] != null && this.textGospel[this.PageCur-1].title != ''" (click)="exercise()">
-      {{this.textGospel[this.PageCur-1].title}}
+      <div *ngIf="this.alertCSS == 'gospelPrompt'">{{this.textGospel[this.PageCur-1].title}}</div>
+      <div *ngIf="this.alertCSS == 'gospelPrompt1'"><ion-icon name="create"></ion-icon></div>
     </ion-fab-button>
     <ion-fab-button class="opaque" *ngIf="this.audioUrl == ''" (click)="audioPlay()">
       <ion-icon name="play"></ion-icon>

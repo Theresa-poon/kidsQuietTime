@@ -51,6 +51,54 @@
     font-size: 30px;
   }
 
+  .gospelPrompt1 {
+    --background: #FFFFE0 !important;
+    --min-width: 300px !important;
+    button{
+      color: #3385c6;
+      font-size: 15px;
+    }
+    input{
+      color: dimgrey;
+      //color: dodgerblue;
+      font-size: 20px;
+    }
+  }
+
+  .gospelPrompt1 .alert-message {
+    color: #ff6f69;
+    font-size: 20px;
+  }
+
+   .gospelPrompt1 .alert-title {
+    color: #851e3e;
+    font-size: 20px;
+  }
+
+  .gospelPrompt2 {
+    --background: #FFFFE0 !important;
+    --min-width: 500px !important;
+    button{
+      color: #3385c6;
+      font-size: 15px;
+    }
+    input{
+      color: dimgrey;
+      //color: dodgerblue;
+      font-size: 20px;
+    }
+  }
+
+  .gospelPrompt2 .alert-message {
+    color: #ff6f69;
+    font-size: 20px;
+  }
+
+   .gospelPrompt2 .alert-title {
+    color: #851e3e;
+    font-size: 20px;
+  }
+
   .gospelAlert {
     //--background: url(../assets/images/backgrounds/blueDots1_s.png) !important;
     //--background: #E0FFFF !important;
@@ -73,6 +121,30 @@
     color: #E3727C;
     font-size: 25px;
   }
+
+  .gospelAlert1 {
+    //--background: url(../assets/images/backgrounds/blueDots1_s.png) !important;
+    //--background: #E0FFFF !important;
+    --background: #f8EBE6 !important;
+    --min-width: 300px !important;
+    button{
+      color: #3385c6;
+      //color: #056B82;
+      font-size: 15px;
+    }
+  }
+
+  .gospelAlert1 .alert-message {
+    color: dimgrey;
+    font-size: 15px;
+  }
+
+  .gospelAlert1 .alert-title {
+    //color: palevioletred;
+    color: #E3727C;
+    font-size: 15px;
+  }
+
 
   ion-range {
     --bar-background: #e6b3ca;

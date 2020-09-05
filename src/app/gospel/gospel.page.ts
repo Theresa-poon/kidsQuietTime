@@ -20,6 +20,8 @@ export class GospelPage implements OnInit {
   answer: any; //user input of answer to alert box
   audioUrl: any; //audio file to load
   myInputs: any; //game 5 inputs array
+  alertCSS: any; //CSS prompt name for phone = p, tablet = t
+  alertCSS1: any; //CSS alert name for phone = p, tablet = t
 
   @ViewChild(IonContent, { read: IonContent, static: true }) content: IonContent;
 
@@ -47,6 +49,13 @@ export class GospelPage implements OnInit {
     //  var scroll = this.scrollTop;
     //  console.log("scrollY is="+scroll)
     //}
+    if (this.platform.is('tablet')) {
+      this.alertCSS = "gospelPrompt1";
+      this.alertCSS1 = "gospelAlert1";
+    } else {
+      this.alertCSS = "gospelPrompt"; 
+      this.alertCSS1 = "gospelAlert";
+    }
     this.apptextService.searchGospel()
     .subscribe(data => { //get data for all quizzes from gospel.json
       this.textGospel = data;
@@ -120,19 +129,29 @@ export class GospelPage implements OnInit {
     console.log("show exercise");
     console.log(this.textGospel[this.PageCur-1])
     if(this.textGospel[this.PageCur-1].games == "1") {
-      this.presentPrompt1(); //type 1 exercise: user input
+      //this.presentPrompt1(); //type 1 exercise: user input
+      this.presentPrompt1(this.alertCSS); //type 1 exercise: user input
     } else {
         if(this.textGospel[this.PageCur-1].games == "2") {
-          this.presentPrompt2(); //type 2 exercise: MCQ (unique choice)
+          this.presentPrompt2(this.alertCSS); //type 2 exercise: MCQ (unique choice)
         } else {
           if(this.textGospel[this.PageCur-1].games == "3") {
-            this.presentPrompt3(); //type 3 exercise: MCQ (multiple choices allowed, all same response)
+            this.presentPrompt3(this.alertCSS); //type 3 exercise: MCQ (multiple choices allowed, all same response)
           } else {
             if(this.textGospel[this.PageCur-1].games == "4") {
-              this.presentPrompt4(); //type 4 exercise: MCQ (multiple choices allowed, each different response)
+              if(this.textGospel[this.PageCur-1].id == 13 && this.alertCSS == 'gospelPrompt1') {
+                this.presentPrompt4("gospelPrompt2"); //type 4 exercise: MCQ (multiple choices allowed, each different response)
+              } else {
+                this.presentPrompt4(this.alertCSS); //type 4 exercise: MCQ (multiple choices allowed, each different response)
+              }
             } else {
               this.myInputs = this.createInputs();
-              this.presentPrompt5(); //type 5 exercise: MCQ
+              //this.presentPrompt5(this.alertCSS); //type 5 exercise: MCQ
+              if(this.textGospel[this.PageCur-1].id == 17 && this.alertCSS == 'gospelPrompt1') {
+                this.presentPrompt5("gospelPrompt2"); //type 5 exercise: MCQ 
+              } else {
+                this.presentPrompt5(this.alertCSS); //type 5 exercise: MCQ 
+              }
             }  
         }
         }
@@ -156,11 +175,11 @@ export class GospelPage implements OnInit {
   }
 
 //type 1 exercise: accept user input and show response in presentAlert()
-async presentPrompt1() {
+async presentPrompt1(cssprompt) {
   let alert = await this.alertController.create({
     header: this.textGospel[this.PageCur-1].title,
     message: this.textGospel[this.PageCur-1].game1Q,
-    cssClass: 'gospelPrompt',
+    cssClass: cssprompt,
     inputs: [
       {
         name: 'answer',
@@ -191,7 +210,7 @@ async presentPrompt1() {
               this.answer = data.answer // to show user input as part of response
             }
             console.log("non-zero input is: "+this.answer)
-            this.presentAlert(this.textGospel[this.PageCur-1].game1A+this.answer,this.textGospel[this.PageCur-1].game1R)
+            this.presentAlert(this.textGospel[this.PageCur-1].game1A+this.answer,this.textGospel[this.PageCur-1].game1R, this.alertCSS1)
           }
         }
       }
@@ -201,12 +220,12 @@ async presentPrompt1() {
 }
 
 //type 2 exercise: MCQ for single choices and show response in presentAlert()
-async presentPrompt2() {
+async presentPrompt2(cssprompt) {
   let alert = await this.alertController.create({
     header: this.textGospel[this.PageCur-1].title,
     message: this.textGospel[this.PageCur-1].game1Q,
     //message: '<img src="../assets/images/Gospel/gospel1.png">',
-    cssClass: 'gospelPrompt',
+    cssClass: cssprompt,
     inputs: [
       {
         name: 'choice1',
@@ -264,9 +283,9 @@ async presentPrompt2() {
             }
             console.log(this.answer)
             if(this.textGospel[this.PageCur-1].game1A_show == "0") {
-              this.presentAlert(this.textGospel[this.PageCur-1].game1A,this.textGospel[this.PageCur-1].game1R)
+              this.presentAlert(this.textGospel[this.PageCur-1].game1A,this.textGospel[this.PageCur-1].game1R, this.alertCSS1)
             } else {
-              this.presentAlert(this.textGospel[this.PageCur-1].game1A+this.answer,this.textGospel[this.PageCur-1].game1R)
+              this.presentAlert(this.textGospel[this.PageCur-1].game1A+this.answer,this.textGospel[this.PageCur-1].game1R, this.alertCSS1)
             }
           }
 
@@ -278,11 +297,11 @@ async presentPrompt2() {
 }
 
 //type 3 exercise: MCQ for  4 multiple choices and show response in presentAlert()
-async presentPrompt3() {
+async presentPrompt3(cssprompt) {
   let alert = await this.alertController.create({
     header: this.textGospel[this.PageCur-1].title,
     message: this.textGospel[this.PageCur-1].game1Q,
-    cssClass: 'gospelPrompt',
+    cssClass: cssprompt,
     inputs: [
       {
         name: 'choice1',
@@ -328,7 +347,7 @@ async presentPrompt3() {
             console.log(this.answer)
             console.log(data[0])
             console.log(data[1])
-            this.presentAlert(this.textGospel[this.PageCur-1].game1A+this.answer,this.textGospel[this.PageCur-1].game1R)
+            this.presentAlert(this.textGospel[this.PageCur-1].game1A+this.answer,this.textGospel[this.PageCur-1].game1R, this.alertCSS1)
           }
 
         }
@@ -339,12 +358,12 @@ async presentPrompt3() {
 }
 
 //type 5 exercise: MCQ for > 4 multiple choices and show response in presentAlert()
-async presentPrompt5() {
+async presentPrompt5(cssprompt) {
   //testV1:any = [{label:'test', value:0, name:'test'},{label:'test1', value:1, name:'test1'},{label:'test2', value:2, name:'test2'}]
   let alert = await this.alertController.create({
     header: this.textGospel[this.PageCur-1].title,
     message: this.textGospel[this.PageCur-1].game1Q,
-    cssClass: 'gospelPrompt',
+    cssClass: cssprompt,
     inputs: this.myInputs,
     buttons: [
       {
@@ -368,9 +387,9 @@ async presentPrompt5() {
             console.log("selected answer position: "+data[0])
             console.log("correct answer position: "+this.textGospel[this.PageCur-1].game1M)
             if(data[0] == this.textGospel[this.PageCur-1].game1M) {
-              this.presentAlert(this.textGospel[this.PageCur-1].game1A+this.answer,this.textGospel[this.PageCur-1].game1R)
+              this.presentAlert(this.textGospel[this.PageCur-1].game1A+this.answer,this.textGospel[this.PageCur-1].game1R, this.alertCSS1)
             } else {
-               this.presentAlert(this.textGospel[this.PageCur-1].game1W+this.answer,this.textGospel[this.PageCur-1].game1R)
+               this.presentAlert(this.textGospel[this.PageCur-1].game1W+this.answer,this.textGospel[this.PageCur-1].game1R, this.alertCSS1)
             }
           }
 
@@ -383,11 +402,11 @@ async presentPrompt5() {
 
 
 //type 4 exercise: MCQ for single choice and show different response for each answer in presentAlert()
-async presentPrompt4() {
+async presentPrompt4(cssprompt) {
   let alert = await this.alertController.create({
     header: this.textGospel[this.PageCur-1].title,
     message: this.textGospel[this.PageCur-1].game1Q,
-    cssClass: 'gospelPrompt',
+    cssClass: cssprompt,
     inputs: [
       {
         name: 'choice1',
@@ -446,7 +465,14 @@ async presentPrompt4() {
             console.log(this.answer)
             console.log(data[0])
             console.log(data[1])
-            this.presentAlert(this.answer,this.textGospel[this.PageCur-1].game1R)
+            console.log("id: "+this.textGospel[this.PageCur-1].id)
+            console.log("alertCSS1: "+this.alertCSS1)
+            //console.log(this.textGospel[this.PageCur-1].id == 13)
+            //if(this.textGospel[this.PageCur-1].id == 13 && this.alertCSS1 == 'gospelAlert1') {
+            //  this.presentAlert(this.answer,this.textGospel[this.PageCur-1].game1R, "gospelAlert2")
+            //} else {
+              this.presentAlert(this.answer,this.textGospel[this.PageCur-1].game1R, this.alertCSS1)
+            //}
           }
 
         }
@@ -456,11 +482,11 @@ async presentPrompt4() {
   await alert.present();
 }
 
-async presentAlert(title,content) {
+async presentAlert(title,content, cssprompt) {
   let alert = await this.alertController.create({
     header: title,
     message: content,
-    cssClass: 'gospelAlert',
+    cssClass: cssprompt,
     //buttons: ['OK'],
     buttons: [
       {

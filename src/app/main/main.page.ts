@@ -70,6 +70,15 @@ export class MainPage implements OnInit {
     }
   }
 
+  contact() {
+    console.log("go to cef contact")
+    if(this.networkService.previousStatus == 1) {
+      this.presentAlert("你沒有連接網絡啊!","請檢查網絡狀況...")
+    } else {
+      window.open('https://line.me/R/ti/p/@nqh9537q', '_blank');
+    }
+  }
+
   async presentAlert(title: string, content:string) {
     const alert = await this.alertController.create({
       header: title,
