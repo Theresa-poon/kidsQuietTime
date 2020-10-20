@@ -70,6 +70,11 @@ export class MainPage implements OnInit {
     }
   }
 
+  corona() {
+    console.log("go to corona")
+    this.router.navigate(['/corona']);
+  }
+
   contact() {
     console.log("go to cef contact")
     if(this.networkService.previousStatus == 1) {

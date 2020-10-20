@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar class="verse-background-color">
+    <ion-buttons slot="start">
+      <ion-back-button text="" class="back"></ion-back-button>
+    </ion-buttons>    
+    抗疫專區
+    <ion-button disabled=true fill=clear size=small slot="end">
+      <ion-icon name="play" style="color: #ff5747"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="container"> 
+  
+    <div class="bookRow1" (click)="doctor()">
+        <ion-img style="width: 30%; border: solid 1px white" src="../assets/images/Corona/Doctor1.jpg"></ion-img>
+        <h3 class="bookTitle">最偉大的醫生</h3>
+    </div> 
+  
+    <div class="bookRow2" (click)="why()">
+        <ion-img style="width: 30%; border: solid 1px white" src="../assets/images/Corona/Why1.jpg"></ion-img>
+        <h3 class="bookTitle">你有想過為什麼嗎</h3>
+    </div> 
+  
+  </div>
+  
+  </ion-content>

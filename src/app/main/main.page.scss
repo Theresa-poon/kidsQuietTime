@@ -35,6 +35,14 @@ ion-content{
     background-color: #ffb347;
 }
 
+.bookRow4 {
+    //flex-grow: 1;
+    display: flex;
+    align-items: center;
+    border: solid 10px #ff5747;
+    background-color: #ff5747;
+}
+
 .bookTitle {
     flex-grow: 1;
     color: white;

@@ -1,0 +1,57 @@
+ion-content{
+    //@debug: url(../../assets/images/backgrounds/blueSwirl2_s.png) 0 0/100% 200% no-repeat;
+    --background: #94f6ff;
+    //--background: rgb(4, 51, 121);
+    //--overflow: hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+} 
+
+.verse-background-color{
+    //--background: #48D1CC;
+    --background: #ff5747;
+    --color: white;
+    //font-family: DFKai-sb;
+    font-size: 25px;
+    padding: 10px 0px;
+    //padding-bottom: 5px;
+    text-align: center;
+    //text-shadow: 1px 1px 3px grey;
+    letter-spacing: 0.1em;
+  }
+
+  .bigtitle {
+    //font-family: ".PingFang-SC";
+    letter-spacing: 1px;
+    //font-weight: 300;
+    //font-size: 25px;
+  }
+
+.bookRow1 {
+    //flex-grow: 1;
+    display: flex;
+    align-items: center;
+    border: solid 10px #ffe3e1;
+    background-color: #ffe3e1;
+}
+
+.bookRow2 {
+    //flex-grow: 1;
+    display: flex;
+    align-items: center;
+    border: solid 10px #ffccc7;
+    background-color: #ffccc7;
+}
+
+.bookTitle {
+    flex-grow: 1;
+    color: #2f527b;
+    //font-size: 20px;
+    //font-family: Microsoft JhengHei;
+    text-align: center;
+    letter-spacing: 0.1em;
+}
