@@ -18,6 +18,7 @@ export class GamesService {
   reviewMode: any; //whether the user is reviewing the material (instead of doing the quiet time for the first time)
   ratio: any; //screen width divided by height
   pageHeight: any; //page height of gospel page
+  currentCorona: any; //current selected item on corona page
 
   constructor(private apptextService: ApptextService,
     private router: Router) { }

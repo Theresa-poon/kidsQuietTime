@@ -27,6 +27,7 @@ const routes: Routes = [
   { path: 'gospel', loadChildren: './gospel/gospel.module#GospelPageModule' },
   { path: 'verse', loadChildren: './verse/verse.module#VersePageModule' },  { path: 'youtube', loadChildren: './youtube/youtube.module#YoutubePageModule' },
   { path: 'corona', loadChildren: './corona/corona.module#CoronaPageModule' },
+  { path: 'brochure', loadChildren: './brochure/brochure.module#BrochurePageModule' },
 
 ];
 

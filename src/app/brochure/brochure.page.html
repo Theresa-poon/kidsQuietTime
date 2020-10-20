@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar class="verse-background-color">
+    <ion-buttons slot="start">
+      <ion-back-button text="" class="back"></ion-back-button>
+    </ion-buttons>    
+    抗疫專區
+    <ion-button disabled=true fill=clear size=small slot="end">
+      <ion-icon name="play" style="color: #ff5747"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div *ngFor="let page of pages, let i=index">
+    <div style="border: solid 5px cornflowerblue">
+      <ion-img src="../assets/images/Corona/{{pages[i]}}.jpg"></ion-img>
+    </div>
+  </div>
+
+</ion-content>
