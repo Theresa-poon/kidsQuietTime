@@ -9,10 +9,35 @@ import { GamesService } from '../games.service';
 })
 export class CoronaPage implements OnInit {
 
+  public togglev: any; // "0" if gospel brochures details not shown, otherwise "1"
+  public toggleq: any;
+
   constructor(private router: Router,
     public gamesService: GamesService,) { }
 
   ngOnInit() {
+    this.togglev = 0
+    this.toggleq = 0
+  }
+
+  togglev1() {
+    //"0" if gospel brochure details not shown, otherwise "1"
+    this.togglev = 1
+  }
+
+  togglev0() {
+    //"0" if gospel brochure details not shown, otherwise "1"
+    this.togglev = 0
+  }
+
+  toggleq1() {
+    //"0" if quiet time book details not shown, otherwise "1"
+    this.toggleq = 1
+  }
+
+  toggleq0() {
+    //"0" if quiet time details not shown, otherwise "1"
+    this.toggleq = 0
   }
 
   doctor() {
