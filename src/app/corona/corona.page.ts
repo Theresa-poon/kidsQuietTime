@@ -54,4 +54,18 @@ export class CoronaPage implements OnInit {
     this.router.navigate(['/brochure']);
   }
 
+  one() {
+    console.log("go to One")
+    this.gamesService.currentCorona = "One"
+    console.log("page is = "+this.gamesService.currentCorona)
+    this.router.navigate(['/brochure']);
+  }
+
+  two() {
+    console.log("go to Two")
+    this.gamesService.currentCorona = "Two"
+    console.log("page is = "+this.gamesService.currentCorona)
+    this.router.navigate(['/brochure']);
+  }
+
 }

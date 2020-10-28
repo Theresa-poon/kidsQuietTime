@@ -12,7 +12,7 @@
 
 <ion-content>
 
-  <div class="container"> 
+  <div> 
 
     <ion-item style="background-color: #779ecb; color: white; font-size: 22px; letter-spacing: 2px;">
       &nbsp;福音單張
@@ -39,6 +39,20 @@
       <ion-button *ngIf="this.toggleq == '0'" style="--padding-start: 0px;" slot="end" fill=clear (click)="toggleq1()"><ion-icon name="arrow-down" style="color: #191970; font-size: 22px;"></ion-icon></ion-button>
       <ion-button *ngIf="this.toggleq == '1'" style="--padding-start: 0px;" slot="end" fill=clear (click)="toggleq0()"><ion-icon name="arrow-up" style="color: #191970; font-size: 22px;"></ion-icon></ion-button>
     </ion-item>
+
+    <div *ngIf="this.toggleq == '1'">
+
+      <div class="bookRow1" (click)="one()">
+          <ion-img style="width: 30%; border: solid 1px white" src="../assets/images/Corona/One1.jpg"></ion-img>
+          <h3 class="bookTitle">居家童心靈修 1</h3>
+      </div> 
+    
+      <div class="bookRow2" (click)="two()">
+          <ion-img style="width: 30%; border: solid 1px white" src="../assets/images/Corona/Two1.jpg"></ion-img>
+          <h3 class="bookTitle">居家童心靈修 2</h3>
+      </div> 
+  
+    </div>
   
   </div>
   
