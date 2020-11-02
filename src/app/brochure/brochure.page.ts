@@ -13,8 +13,14 @@ export class BrochurePage implements OnInit {
   public whyP: any; //array of available pages for why brochure (e.g. 1,2,3,4,5,6,...)
   public oneP: any; //array of available pages for QT1 (e.g. 1,2,3,4,5,6,...)
   public twoP: any; //array of available pages for QT1 (e.g. 1,2,3,4,5,6,...)
+  PageNum: any; //user input of page number to go to
 
   constructor(public gamesService: GamesService,) { }
+
+  ionViewWillEnter() {
+    this.PageNum = 0
+    console.log(this.PageNum == 0)
+  }
 
   ngOnInit() {
 
