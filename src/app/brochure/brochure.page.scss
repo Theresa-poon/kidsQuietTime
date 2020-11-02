@@ -10,3 +10,10 @@
     //text-shadow: 1px 1px 3px grey;
     letter-spacing: 0.1em;
   }
+
+  ion-content{
+    //@debug: url(../../assets/images/backgrounds/blueSwirl2_s.png) 0 0/100% 200% no-repeat;
+    --background: #ffe3e1;
+    //--background: rgb(4, 51, 121);
+    //--overflow: hidden;
+}
