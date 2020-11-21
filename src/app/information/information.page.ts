@@ -33,6 +33,11 @@ export class InformationPage implements OnInit {
     this.router.navigate(['/verse']);
   }
 
+  knowgod() {
+    console.log("going to knowing god brochure page...")
+    this.router.navigate(['/knowgod']);
+  }
+
   clickL() {
     this.router.navigate(['/menu']);
   }

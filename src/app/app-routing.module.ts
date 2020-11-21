@@ -28,6 +28,7 @@ const routes: Routes = [
   { path: 'verse', loadChildren: './verse/verse.module#VersePageModule' },  { path: 'youtube', loadChildren: './youtube/youtube.module#YoutubePageModule' },
   { path: 'corona', loadChildren: './corona/corona.module#CoronaPageModule' },
   { path: 'brochure', loadChildren: './brochure/brochure.module#BrochurePageModule' },
+  { path: 'knowgod', loadChildren: './knowgod/knowgod.module#KnowgodPageModule' },
 
 ];
 
