@@ -162,6 +162,8 @@ ion-content{
 //}
 
 .cardleft {
+    //display: flex;
+    //flex-direction: column;
     background-color:azure; 
     width: 40%;
     border-radius: 5px;
@@ -183,4 +185,10 @@ ion-content{
     left: 2%;
     bottom: 3.5%;
     //width: 40%;
+  }
+
+  .chgPage {
+    opacity: 0.6;
+    margin-right: 6vw;
+    font-size: 10px;
   }

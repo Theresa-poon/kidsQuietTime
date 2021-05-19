@@ -10,6 +10,14 @@
           preserveAspectRatio="xMidYMid meet" />
   </svg>
 
+  <div *ngIf="this.gamesService.reviewMode == 0" class=volume>
+    第{{this.storageService?.v}}册
+  </div>
+
+  <div *ngIf="this.gamesService.reviewMode != 0" class=volume>
+    (重溫) 第{{this.storageService?.v}}册
+  </div>
+
   <div class="sun">
     <ion-img src="../assets/images/version1/summer_sun_s.png"></ion-img>
   </div>

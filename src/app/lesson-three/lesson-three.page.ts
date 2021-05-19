@@ -122,8 +122,6 @@ export class LessonThreePage implements OnInit {
     this.router.navigate(['/game'+this.fmgameNumber]);
   }
 
-  //clickR() {
-    //this.router.navigate(['/menu']);
-  //}
+
 
 }

@@ -27,9 +27,7 @@
         
       <div class=cardleft>
         <div style="margin: 10px;">
-          <ion-img class="slide" *ngIf="this.storageService.currentPages[this.v-1] != 0 || this.v == 1" src="../assets/images/covers/cover{{this.v}}.jpeg"></ion-img>
-          <ion-img class="slide" *ngIf="this.storageService.currentPages[this.v-1] == 0 && this.v != 1 && this.newBk == 0" src="../assets/images/covers/cover{{this.v-1}}.jpeg"></ion-img>
-          <ion-img class="slide" *ngIf="this.storageService.currentPages[this.v-1] == 0 && this.v != 1 && this.newBk == 1" src="../assets/images/covers/cover{{this.v}}.jpeg"></ion-img>
+          <ion-img class="slide" src="../assets/images/covers/cover{{this.v}}.jpeg"></ion-img>
         </div>
       </div>
 
@@ -47,7 +45,7 @@
 
       <div class=cardright *ngIf="this.storageService.currentName_Date[0] != 0 && this.storageService.currentPages != null">
 
-        <div *ngIf="this.storageService.currentPages[this.v-1] != 0 || this.v == 1 || this.newBk == 1" style="text-align: center;">
+        <div style="text-align: center;">
           <ion-icon name="star-outline" *ngIf="this.storageService.currentPages[this.v-1] < 6" style="color: rgb(76, 215, 250); font-size:22px;"></ion-icon>
           <ion-icon name="star" *ngIf="this.storageService.currentPages[this.v-1] >= 6" style="color: rgb(76, 215, 250); font-size:22px;"></ion-icon>
           <ion-icon name="star-outline" *ngIf="this.storageService.currentPages[this.v-1] < 12" style="color: rgb(31, 230, 5); font-size:22px;"></ion-icon>
@@ -58,31 +56,21 @@
           <ion-icon name="star" *ngIf="this.storageService.currentPages[this.v-1] >=24" style="color: rgb(250, 163, 2); font-size:22px;"></ion-icon>
           <ion-icon name="star-outline" *ngIf="this.storageService.currentPages[this.v-1] < 30" style="color: rgb(243, 226, 74); font-size:22px;"></ion-icon>
           <ion-icon name="star" *ngIf="this.storageService.currentPages[this.v-1] == 30" style="color: rgb(243, 226, 74); font-size:22px;"></ion-icon>
-          <div style="color:white; font-size: 18px;" *ngIf="this.storageService.currentPages[this.v-1] != 0 || this.v == 1 || this.newBk == 1">已完成：{{this.storageService.currentPages[this.v-1]}}/30</div>
-        </div>       
-        <ion-button *ngIf="this.storageService.currentPages[this.v-1] != 0 || this.v == 1 || this.newBk == 1" class="animated swing delay-6s" style="font-family: Microsoft JhengHei;letter-spacing: 1px; --padding-start: 18px; --padding-end: 18px; font-size: 18px;" color=primary shape=round (click)="gotoBook(1)">
+          <div style="color:white; font-size: 18px;">已完成：{{this.storageService.currentPages[this.v-1]}}/30</div>
+        </div>     
+
+        <ion-button *ngIf="this.storageService.currentPages[this.v-1] != 30" class="animated swing delay-6s" style="font-family: Microsoft JhengHei;letter-spacing: 1px; --padding-start: 18px; --padding-end: 18px; font-size: 18px;" color=primary shape=round (click)="gotoBook(1)">
           開始第{{this.storageService.currentPages[this.v-1]+1}}天靈修
         </ion-button>
+        <ion-button *ngIf="this.storageService.currentPages[this.v-1] == 30" class="animated swing delay-6s" style="font-family: Microsoft JhengHei;letter-spacing: 1px; --padding-start: 18px; --padding-end: 18px; font-size: 17px;" color=primary shape=round>
+          你已完成這一册
+        </ion-button>
 
-        <div *ngIf="this.storageService.currentPages[this.v-1] == 0 && this.v != 1 && this.newBk == 0" style="text-align: center;">
-          <ion-icon name="star-outline" *ngIf="this.storageService.currentPages[this.v-2] < 6" style="color: rgb(76, 215, 250); font-size:22px;"></ion-icon>
-          <ion-icon name="star" *ngIf="this.storageService.currentPages[this.v-2] >= 6" style="color: rgb(76, 215, 250); font-size:22px;"></ion-icon>
-          <ion-icon name="star-outline" *ngIf="this.storageService.currentPages[this.v-2] < 12" style="color: rgb(31, 230, 5); font-size:22px;"></ion-icon>
-          <ion-icon name="star" *ngIf="this.storageService.currentPages[this.v-2] >= 12" style="color: rgb(31, 230, 5); font-size:22px;"></ion-icon>
-          <ion-icon name="star-outline" *ngIf="this.storageService.currentPages[this.v-2] < 18" style="color: rgb(250, 98, 212); font-size:22px;"></ion-icon>
-          <ion-icon name="star" *ngIf="this.storageService.currentPages[this.v-2] >= 18" style="color: rgb(250, 98, 212); font-size:22px;"></ion-icon>
-          <ion-icon name="star-outline" *ngIf="this.storageService.currentPages[this.v-2] < 24" style="color: rgb(250, 163, 2); font-size:22px;"></ion-icon>
-          <ion-icon name="star" *ngIf="this.storageService.currentPages[this.v-2] >=24" style="color: rgb(250, 163, 2); font-size:22px;"></ion-icon>
-          <ion-icon name="star-outline" *ngIf="this.storageService.currentPages[this.v-2] < 30" style="color: rgb(243, 226, 74); font-size:22px;"></ion-icon>
-          <ion-icon name="star" *ngIf="this.storageService.currentPages[this.v-2] == 30" style="color: rgb(243, 226, 74); font-size:22px;"></ion-icon>
-          <div style="color:white; font-size: 18px;" *ngIf="this.storageService.currentPages[this.v-1] == 0 && this.v != 1 && this.newBk == 0">已完成：{{this.storageService.currentPages[this.v-2]}}/30</div>
-        </div>
-        <ion-button *ngIf="this.storageService.currentPages[this.v-1] == 0 && this.v != 1 && this.v != 4 && this.newBk == 0" class="animated swing delay-6s" style="font-family: Microsoft JhengHei;letter-spacing: 1px; --padding-start: 18px; --padding-end: 18px; font-size: 18px;" color=primary shape=round (click)="changeBk()">
-          開始下一册
-        </ion-button>
-        <ion-button *ngIf="this.storageService.currentPages[this.v-1] == 0 && this.v != 1 && this.v == 4 && this.newBk == 0" class="animated swing delay-6s" style="font-family: Microsoft JhengHei;letter-spacing: 1px; --padding-start: 18px; --padding-end: 18px; font-size: 17px;" color=primary shape=round>
-          你已完成所有課本
-        </ion-button>
+        <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+          <ion-fab-button class="chgPage" color="light" size="small" (click)="next()">
+            下一册
+          </ion-fab-button>
+        </ion-fab>
 
       </div>
 

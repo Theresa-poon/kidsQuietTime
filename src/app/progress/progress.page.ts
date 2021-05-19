@@ -38,27 +38,38 @@ export class ProgressPage implements OnInit {
     
     console.log("level: "+this.level)
 
+    //find all volumes to be displayed in review pull-down menu
       this.volumeAll = []
       console.log("this.storageService.v: "+this.storageService.v)
-      if(this.storageService.currentPages[this.storageService.v-1] != 0) {
-        this.z = this.storageService.v + 1
-      } else {
-        this.z = this.storageService.v
-      }
+      //if(this.storageService.currentPages[this.storageService.v-1] != 0) {
+      //  this.z = this.storageService.v + 1
+      //} else {
+      //  this.z = this.storageService.v
+      //}
       console.log("length: "+this.z)
-      for (let i = 1; i < this.z; i++) {
-        this.volumeAll.push(i)
-        console.log("this.volumeAll: "+this.volumeAll)
+      for (let i = 1; i < 13; i++) {
+        if (this.storageService.currentPages[i-1] != 0 && this.storageService.currentPages[i-1] != 99) {
+          this.volumeAll.push(i)
+          console.log("this.volumeAll: "+this.volumeAll)
+        }
       }
 
   }
 
   //calculate level based on number of fruits
   calcLevel() {
-    this.days = this.storageService.currentPages[0]+this.storageService.currentPages[1]+this.storageService.currentPages[2]
-      +this.storageService.currentPages[3]+this.storageService.currentPages[4]+this.storageService.currentPages[5]
-      +this.storageService.currentPages[6]+this.storageService.currentPages[7]+this.storageService.currentPages[8]
-      +this.storageService.currentPages[9]+this.storageService.currentPages[10]+this.storageService.currentPages[11]
+    this.days = 0
+    //this.days = this.storageService.currentPages[0]+this.storageService.currentPages[1]+this.storageService.currentPages[2]
+    //  +this.storageService.currentPages[3]+this.storageService.currentPages[4]+this.storageService.currentPages[5]
+    //  +this.storageService.currentPages[6]+this.storageService.currentPages[7]+this.storageService.currentPages[8]
+    //  +this.storageService.currentPages[9]+this.storageService.currentPages[10]+this.storageService.currentPages[11]
+    for (let j = 1; j < 13; j++) {
+      if (this.storageService.currentPages[j-1] != 99) {
+        this.days = this.days + this.storageService.currentPages[j-1]
+        console.log("this.days "+this.days)
+      }
+    }
+    
     var n = this.storageService.currentName_Date[6] //number of apple trees
     if (n > 3) {
       this.level = "靈修勇士"
@@ -200,7 +211,7 @@ async showRadio() {
     
   }
 
-  review1() {
+  review1() { // display available lessons after user selection of book volume for review
     console.log("in review 1 ...")
     console.log("mmData1:"+this.mmData1)
     this.storageService.vReview = this.mmData1

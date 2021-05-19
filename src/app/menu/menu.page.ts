@@ -129,21 +129,45 @@ loadPages() {
     console.log(pages == null)
     if (pages == null) {
       //pages = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]; //for production
-      pages = [30, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]; //for testing only
-      console.log(pages[0]) // last read page of book volume 1
-      console.log(pages[1]) // last read page of book volume 2
-      console.log(pages[2]) // last read page of book volume 3
-      console.log(pages[3]) // last read page of book volume 4
-      console.log(pages[4]) // last read page of book volume 5 
-      console.log(pages[5]) // last read page of book volume 6
+      pages = [0, 0, 0, 99, 99, 99, 99, 99, 99, 99, 99, 99]; //for testing only
+      // console.log(pages[0]) // last read page of book volume 1, 99 = volume not available
+      // console.log(pages[1]) // last read page of book volume 2
+    } else {
+      pages[3] = 99
+      pages[4] = 99
+      pages[5] = 99
+      pages[6] = 99
+      pages[7] = 99
+      pages[8] = 99
+      pages[9] = 99
+      pages[10] = 99
+      pages[11] = 99
     }
     this.storageService.currentPages = pages;
     console.log(this.storageService.currentPages);
     console.log(this.storageService.currentPages[1]);
     console.log(this.storageService.currentPages[2]);
     console.log(this.storageService.currentPages[3]);
-    this.v = 1+Math.floor((pages[0]+pages[1]+pages[2]+pages[3]+pages[4]+pages[5]+pages[6]+pages[7]+pages[8]+pages[9]+pages[10]+pages[11])/30)
-    this.storageService.v = this.v
+    console.log("this.storageService.v= "+this.storageService.v)
+    // version 5: this.v = 1+Math.floor((pages[0]+pages[1]+pages[2]+pages[3]+pages[4]+pages[5]+pages[6]+pages[7]+pages[8]+pages[9]+pages[10]+pages[11])/30)
+    
+    if (this.storageService.v == null) { // fresh entry to app
+      var i;
+      for (i = 0; i < pages.length; i++) {
+        this.v = i + 1
+        if (pages[i] < 30) {  // volume not yet completed, show as current volume
+          break;
+        }
+        if (pages[i] == 99) { // volume not yet available, show previous volume
+          this.v = this.v - 1
+          break;
+        }
+      }
+      this.storageService.v = this.v
+    } else {
+      this.v = this.storageService.v
+    }
+    
     console.log("current volume = "+this.storageService.v)
   });
   //this.gamesService.reviewMode = 0
@@ -190,6 +214,16 @@ loadPages() {
 
   CheckScore() {
     this.router.navigate(['/progress']);
+  }
+
+  next() {
+    console.log("going to next page...")
+    if (this.v != 12 && this.storageService.currentPages[this.v] != 99) {
+      this.v = this.v + 1
+    } else {
+      this.v = 1
+    }
+    this.storageService.v = this.v
   }
 
   clickL() {
