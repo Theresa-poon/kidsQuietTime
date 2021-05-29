@@ -249,6 +249,7 @@ loadPages() {
             this.storageService.currentName_Date[0] = this.UserName;
             console.log(this.storageService.currentName_Date)
             this.storageService.updateItem(this.storageService.currentName_Date);
+            this.presentAlert('您好，此靈修系列將使用全屏模式，如出現屏幕右方被導航欄遮擋，可更改手機之隱藏導航欄設定。', '')
           }
         }
       ]
