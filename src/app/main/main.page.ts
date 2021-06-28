@@ -70,9 +70,18 @@ export class MainPage implements OnInit {
     }
   }
 
-  corona() {
-    console.log("go to corona")
-    this.router.navigate(['/corona']);
+  //corona() {
+  //  console.log("go to corona")
+  //  this.router.navigate(['/corona']);
+  //}
+
+  brochure() {
+    console.log("go to brochure")
+    if(this.networkService.previousStatus == 1) {
+      this.presentAlert("你沒有連接網絡啊!","請檢查網絡狀況...")
+    } else {
+      window.open('https://onedrive.live.com/?authkey=%21AAYmu2v%2DlJta%5F44&id=11B376E6F7BFA47C%21124109&cid=11B376E6F7BFA47C', '_blank');
+    }
   }
 
   contact() {

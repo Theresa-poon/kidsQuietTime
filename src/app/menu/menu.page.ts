@@ -129,11 +129,11 @@ loadPages() {
     console.log(pages == null)
     if (pages == null) {
       //pages = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]; //for production
-      pages = [0, 0, 0, 99, 99, 99, 99, 99, 99, 99, 99, 99]; //for testing only
+      pages = [0, 0, 0, 0, 99, 99, 99, 99, 99, 99, 99, 99]; //for testing only
       // console.log(pages[0]) // last read page of book volume 1, 99 = volume not available
       // console.log(pages[1]) // last read page of book volume 2
     } else {
-      pages[3] = 99
+      //pages[3] = 99
       pages[4] = 99
       pages[5] = 99
       pages[6] = 99
